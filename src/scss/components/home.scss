@@ -1,0 +1,64 @@
+.home {
+
+  &__welcome {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 2rem;
+
+    img {
+      width: 33.3%;
+      object-fit: cover;
+      height: 100%;
+      padding: 0.5rem;
+      border: 0.2rem groove;
+    }
+
+    &__header {
+      padding: 0 1rem;
+      width: calc(60% - 1rem);
+
+      &__text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 60%;
+
+        h2 {
+          font-size: 3rem;
+          font-weight: 400;
+          letter-spacing: 0.7rem;
+          margin: 3rem;
+
+          &:first-letter {
+            font-size: 4rem;
+            color: darkcyan;
+          }
+        }
+
+        p {
+          font-size: 1.2rem;
+          line-height: 2rem;
+          margin: 3rem;
+
+        }
+      }
+
+      &__images {
+        height: 40%;
+        border: 0.2rem groove;
+        img {
+          border: none;
+        }
+      }
+    }
+
+    &:last-of-type {
+      h2, p {
+        text-align: right;
+      }
+    }
+
+  }
+
+}

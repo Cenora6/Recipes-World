@@ -1,0 +1,11 @@
+@import "~css-reset-and-normalize-sass";
+
+@import "settings/fonts";
+@import "settings/colors";
+@import "settings/base";
+
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/variables';
+
+@import 'components/home';
