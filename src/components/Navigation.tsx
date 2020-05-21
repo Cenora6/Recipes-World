@@ -1,14 +1,17 @@
 import React from 'react';
-import {
-    Link
-} from 'react-router-dom';
+import { Link } from 'react-scroll'
 
 function Navigation() {
     return (
         <nav className='navigation'>
             <ul>
                 <li>
-                    <Link to='/'>
+                    <Link activeClass="active" to="header_1" spy={true} smooth={true} duration={1000}>
+                        Lorem Ipsum
+                    </Link>
+                </li>
+                <li>
+                    <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000}>
                         Lorem Ipsum
                     </Link>
                 </li>

@@ -1,5 +1,4 @@
 .home {
-
   &__welcome {
     display: flex;
     justify-content: center;
@@ -32,7 +31,7 @@
 
           &:first-letter {
             font-size: 4rem;
-            color: darkcyan;
+            color: $main-color;
           }
         }
 
@@ -58,7 +57,27 @@
         text-align: right;
       }
     }
-
   }
 
+  &__decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 3rem;
+      margin: 2rem;
+      filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow-color);
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      flex: 1 1;
+      height: 1rem;
+      background-image: radial-gradient(circle at 0.625rem 0, $background 0.5625rem, $main-color 0.625rem, $background 0.6875rem);
+      background-repeat: repeat-x;
+      background-size: 1.25rem 0.8rem;
+    }
+  }
 }

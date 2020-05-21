@@ -1,5 +1,5 @@
 export function loop() {
-    const elementsToShow = document.querySelectorAll<HTMLElement>('.show-on-scroll')!;
+    const elementsToShow = document.querySelectorAll<HTMLElement>('.scroll-animation')!;
     elementsToShow.forEach(function (element: HTMLElement) {
         if (isElementInViewport(element)) {
             element.classList.add('is-visible');
