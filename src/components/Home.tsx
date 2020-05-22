@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import welcome1 from './../assets/welcome1.jpg';
 import welcome2 from './../assets/welcome2.jpg';
 import welcomeSquare1 from './../assets/welcome_square1.jpg';
@@ -13,15 +13,10 @@ import orange from './../assets/orange.svg';
 import cherry from './../assets/cherry.svg';
 import watermelon from './../assets/watermelon.svg';
 import grapes from './../assets/grapes.svg';
-import { loop } from '../functions/scroll-animation';
-
-const scroll = window.requestAnimationFrame ||
-    function(callback: any){ window.setTimeout(callback, 1000/60)};
+import { scroll, loop } from '../functions/scroll-animation';
+import Form from "./Form";
 
 function Home() {
-    // const [scroller, setScroller] = useState(0);
-    // const [loaded, setLoaded] = useState(false);
-
 
     window.addEventListener('scroll', function () {
         scroll(loop);
@@ -77,6 +72,7 @@ function Home() {
                 <img src={grapes} alt='pear'/>
                 <img src={cherry} alt='orange'/>
             </div>
+            <Form/>
         </div>
     );
 }
