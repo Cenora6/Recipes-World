@@ -1,20 +1,18 @@
-import React, {useState, useRef} from 'react';
+import React from 'react';
 import { Link } from 'react-scroll';
-import cupcake from './../assets/cup-cake.png';
 
-function Navigation() {
-    const [details, setDetails] = useState<boolean>(false);
-    const navigationRef = useRef<HTMLElement>(null);
-    console.log(navigationRef)
+interface navigationProps {
+    showNavigation: () => void;
+    details: boolean
+}
 
-    function showNavigation() {
-        setDetails(!details);
-    }
+export function Navigation(props: navigationProps) {
 
     return (
-        <nav className={`navigation ${details ? 'show' : 'hide'}`}  onMouseEnter={showNavigation} onMouseLeave={showNavigation}>
+        <nav className={`navigation ${props.details ? 'show' : 'hide'}`}
+             onMouseEnter={props.showNavigation} onMouseLeave={props.showNavigation}>
             <div className='navigation__decorations'>
-                <i className={`fas fa-long-arrow-alt-down ${details && 'rotate'}`}></i>
+                <i className={`fas fa-long-arrow-alt-down ${props.details && 'rotate'}`}></i>
                 <div className="circle"></div>
             </div>
             <ul>
@@ -37,5 +35,3 @@ function Navigation() {
         </nav>
     );
 }
-
-export default Navigation;

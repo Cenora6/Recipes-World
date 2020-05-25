@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import welcome1 from './../assets/welcome1.jpg';
 import welcome2 from './../assets/welcome2.jpg';
 import welcomeSquare1 from './../assets/welcome_square1.jpg';
@@ -17,6 +17,7 @@ import { scroll, loop } from '../functions/scroll-animation';
 import Form from "./Form";
 
 function Home() {
+
 
     window.addEventListener('scroll', function () {
         scroll(loop);

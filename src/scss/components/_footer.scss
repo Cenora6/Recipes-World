@@ -1,0 +1,59 @@
+.footer {
+  width: 100%;
+  background: $main-color;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  transition: 1s;
+
+  &__decorations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    cursor: pointer;
+
+    .fas {
+      position: absolute;
+      color: $main-color;
+      font-size: 1.5rem;
+      text-align: center;
+      transition: 1s;
+
+      &.rotate {
+        transform: rotate(90deg);
+      }
+    }
+
+    .circle {
+      width: 4rem;
+      height: 2rem;
+      border-top-left-radius: 10rem;
+      border-top-right-radius: 10rem;
+      border: 0.3rem solid $main-color;
+      border-bottom-width: 0.5rem;
+      z-index: -1;
+      transition: 1s;
+      background: white;
+    }
+  }
+
+  &.show {
+    height: 3rem;
+
+    .circle {
+      opacity: 0;
+    }
+
+  }
+
+  &.hide {
+    height: 0.5rem;
+
+    .circle {
+      opacity: 1;
+    }
+  }
+}
