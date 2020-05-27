@@ -5,7 +5,7 @@ function Form() {
     return (
         <div className='home__form' id='form'>
             <h2>Are you ready?</h2>
-            <button>START</button>
+            <button className='big-button'>START</button>
 
         </div>
     );

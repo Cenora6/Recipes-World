@@ -14,23 +14,68 @@ export function Footer(props: footerProps) {
                 <i className={`fas fa-long-arrow-alt-up ${props.details && 'rotate'}`}></i>
                 <div className="circle"></div>
             </div>
-            {/*<ul>*/}
-            {/*    <li>*/}
-            {/*        <Link activeClass="active" to="header_1" spy={true} smooth={true} duration={1000}>*/}
-            {/*            Lorem Ipsum*/}
-            {/*        </Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000}>*/}
-            {/*            Lorem Ipsum*/}
-            {/*        </Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link activeClass="active" to="form" spy={true} smooth={true} duration={1000}>*/}
-            {/*            Give it a try!*/}
-            {/*        </Link>*/}
-            {/*    </li>*/}
-            {/*</ul>*/}
+            <div className='footer__links'>
+                <div className='footer__links__list'>
+                    <ul>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className='footer__links__list'>
+                    <ul>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className='footer__links__list'>
+                    <ul>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/'>
+                                Lorem Ipsum
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     );
 }

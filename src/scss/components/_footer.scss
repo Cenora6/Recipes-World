@@ -4,7 +4,53 @@
   position: fixed;
   bottom: 0;
   z-index: 2;
-  transition: 1s;
+  transition: 2s;
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 2s;
+    top: 0;
+    width: 100%;
+    position: absolute;
+
+    &__list {
+      margin: 2rem 5rem;
+        li {
+          padding: 1rem 0;
+          cursor: pointer;
+          z-index: 1;
+
+          a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            padding: 0.3rem 0;
+
+            &:after, &:before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0;
+              height: 0.05rem;
+              transition: all 0.5s ease-in-out;
+              opacity: 0;
+              background-color: $background;
+            }
+
+            &:hover {
+              &:after, &:before {
+                width: 100%;
+                opacity: 1;
+              }
+            }
+          }
+        }
+    }
+  }
 
   &__decorations {
     display: flex;
@@ -39,7 +85,7 @@
   }
 
   &.show {
-    height: 3rem;
+    height: 13rem;
 
     .circle {
       opacity: 0;

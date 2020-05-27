@@ -1,0 +1,75 @@
+.home__carousel {
+  display: flex;
+  justify-content: center;
+
+  &__slide {
+    margin: 1rem 0;
+    height: 40rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      background: $carousel-color;
+
+      h3 {
+        font-size: 3rem;
+        color: $decorative-color;
+        font-family: $decorative-font;
+      }
+
+      img {
+        height: 10rem;
+      }
+
+      p {
+        font-family: $base-font;
+        width: 70%;
+        text-align: center;
+        line-height: 2rem;
+        color: $decorative-color;
+      }
+
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 25px solid transparent;
+        border-left: 50px solid $carousel-color;
+        border-bottom: 25px solid transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0%, -50%);
+      }
+
+      &__button {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    &__image {
+      height: 100%;
+      width: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+
+
+
+    }
+  }
+
+}

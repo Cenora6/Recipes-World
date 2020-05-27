@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import welcome1 from './../assets/welcome1.jpg';
 import welcome2 from './../assets/welcome2.jpg';
 import welcomeSquare1 from './../assets/welcome_square1.jpg';
@@ -7,14 +7,18 @@ import welcomeSquare3 from './../assets/welcome_square3.jpg';
 import welcomeSquare4 from './../assets/welcome_square4.jpg';
 import welcomeSquare5 from './../assets/welcome_square5.jpg';
 import welcomeSquare6 from './../assets/welcome_square6.jpg';
-import apple from './../assets/fruit.svg';
-import pear from './../assets/pear.svg';
-import orange from './../assets/orange.svg';
-import cherry from './../assets/cherry.svg';
-import watermelon from './../assets/watermelon.svg';
-import grapes from './../assets/grapes.svg';
+import apple from './../assets/icons/fruit.svg';
+import pear from './../assets/icons/pear.svg';
+import orange from './../assets/icons/orange.svg';
+import cherry from './../assets/icons/cherry.svg';
+import watermelon from './../assets/icons/watermelon.svg';
+import grapes from './../assets/icons/grapes.svg';
+import banana from './../assets/icons/banana.svg';
+import strawberry from './../assets/icons/strawberry.svg';
+import pineapple from './../assets/icons/pineapple.svg';
 import { scroll, loop } from '../functions/scroll-animation';
 import Form from "./Form";
+import Carousel from "./Carousel";
 
 function Home() {
 
@@ -45,6 +49,15 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <div className='home__decoration'>
+                <img src={banana} alt='banana'/>
+                <img src={strawberry} alt='strawberry'/>
+                <img src={pineapple} alt='pineapple'/>
+            </div>
+
+            <Carousel/>
+
             <div className='home__decoration'>
                     <img src={apple} alt='apple'/>
                     <img src={pear} alt='pear'/>
