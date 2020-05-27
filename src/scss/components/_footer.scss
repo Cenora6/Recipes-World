@@ -11,29 +11,27 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    position: absolute;
-    bottom: 5%;
+    position: relative;
     cursor: pointer;
 
     .fas {
       position: absolute;
       color: $main-color;
-      font-size: 1.5rem;
+      font-size: 2rem;
       text-align: center;
       transition: 1s;
+      bottom: 2rem;
 
       &.rotate {
-        transform: rotate(90deg);
+        bottom: -2rem;
       }
     }
 
     .circle {
-      width: 4rem;
-      height: 2rem;
-      border-top-left-radius: 10rem;
-      border-top-right-radius: 10rem;
-      border: 0.3rem solid $main-color;
-      border-bottom-width: 0.5rem;
+      width: 8rem;
+      height: 3rem;
+      border-bottom-left-radius: 10rem;
+      border-bottom-right-radius: 10rem;
       z-index: -1;
       transition: 1s;
       background: white;
