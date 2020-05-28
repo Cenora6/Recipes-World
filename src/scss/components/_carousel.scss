@@ -1,13 +1,37 @@
-.home__carousel {
+.slick-slider {
+  .fas {
+    position: absolute;
+    color: $main-color;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .fa-long-arrow-alt-left {
+    top: 50%;
+    left: 1rem;
+    transform: translate(0%, -50%);
+  }
+
+  .fa-long-arrow-alt-right {
+    top: 50%;
+    right: 1rem;
+    transform: translate(0%, -50%);
+
+  }
+}
+
+.carousel {
   display: flex;
   justify-content: center;
 
   &__slide {
-    margin: 1rem 0;
-    height: 40rem;
-    width: 90%;
     display: flex;
     justify-content: center;
+    margin: 1rem auto;
+    height: 40rem;
+    width: 90%;
     align-items: center;
     position: relative;
 
@@ -24,6 +48,8 @@
         font-size: 3rem;
         color: $decorative-color;
         font-family: $decorative-font;
+        text-align: center;
+        margin: 0 2rem;
       }
 
       img {
@@ -65,11 +91,18 @@
       img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
       }
-
-
-
     }
   }
+}
 
+.slick-prev {
+  z-index: 10;
+  left: 1rem;
+}
+
+.slick-next {
+  z-index: 10;
+  right: 1rem;
 }
