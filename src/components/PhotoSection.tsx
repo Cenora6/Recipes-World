@@ -20,9 +20,7 @@ function PhotoSection() {
         .get<any>
         (`${url}&client_id=${API_KEY}`)
         .then(response => {
-            response.data.results.map( (item: any) => {
-                recipesPhotos.push(item.urls.regular);
-            })
+            response.data.results.map( (item: any) => {  return recipesPhotos.push(item.urls.regular) })
             setRecipes(recipesPhotos)
         })
         .catch(err => {
@@ -36,7 +34,7 @@ function PhotoSection() {
                 recipes.map( (photo: string, index: number) => {
                     return (
                         <div key={index} className='home__photo__single'>
-                            <img src={photo} alt={`photo${index}`}/>
+                            <img src={photo} alt={`dish${index}`}/>
                             <span>Lorem Ipsum {index + 1}</span>
                         </div>
 

@@ -22,6 +22,11 @@ export function Navigation(props: navigationProps) {
                     </Link>
                 </li>
                 <li>
+                    <Link activeClass="active" to="carousel" spy={true} smooth={true} duration={1000}>
+                        Blog Highlights
+                    </Link>
+                </li>
+                <li>
                     <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000}>
                         Lorem Ipsum
                     </Link>
@@ -29,6 +34,11 @@ export function Navigation(props: navigationProps) {
                 <li>
                     <Link activeClass="active" to="form" spy={true} smooth={true} duration={1000}>
                         Give it a try!
+                    </Link>
+                </li>
+                <li>
+                    <Link activeClass="active" to="photo" spy={true} smooth={true} duration={1000}>
+                        Popular Dishes
                     </Link>
                 </li>
             </ul>

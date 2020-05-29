@@ -49,6 +49,10 @@
             }
           }
         }
+
+      ul {
+        transition: .5s;
+      }
     }
   }
 
@@ -66,7 +70,7 @@
       font-size: 2rem;
       text-align: center;
       transition: 1s;
-      bottom: 2rem;
+      bottom: 3rem;
 
       &.rotate {
         bottom: -2rem;
@@ -75,7 +79,7 @@
 
     .circle {
       width: 8rem;
-      height: 3rem;
+      height: 4rem;
       border-bottom-left-radius: 10rem;
       border-bottom-right-radius: 10rem;
       z-index: -1;
@@ -87,6 +91,10 @@
   &.show {
     height: 13rem;
 
+    ul {
+      opacity: 1;
+    }
+
     .circle {
       opacity: 0;
     }
@@ -96,8 +104,20 @@
   &.hide {
     height: 0.5rem;
 
+    ul {
+      opacity: 0;
+    }
+
     .circle {
       opacity: 1;
     }
+
+  }
+
+  &__copyright {
+    width: 100%;
+    height: 3rem;
+    background: $background;
+    bottom: 0;
   }
 }

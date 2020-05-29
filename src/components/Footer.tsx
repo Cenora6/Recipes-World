@@ -76,6 +76,9 @@ export function Footer(props: footerProps) {
                     </ul>
                 </div>
             </div>
+            {/*<div className='footer__copyright'>*/}
+            {/*    <p>© Aleksandra Gasidło | Cenora06 </p>*/}
+            {/*</div>*/}
         </nav>
     );
 }
