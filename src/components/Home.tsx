@@ -16,9 +16,13 @@ import grapes from './../assets/icons/grapes.svg';
 import banana from './../assets/icons/banana.svg';
 import strawberry from './../assets/icons/strawberry.svg';
 import pineapple from './../assets/icons/pineapple.svg';
+import avocado from './../assets/icons/avocado.svg';
+import raspberry from './../assets/icons/raspberry.svg';
+import mango from './../assets/icons/mango.svg';
 import { scroll, loop } from '../functions/scroll-animation';
 import Form from "./Form";
 import Carousel from "./Carousel";
+import PhotoSection from "./PhotoSection";
 
 function Home() {
 
@@ -32,7 +36,7 @@ function Home() {
     return (
         <div className='home'>
             <div className='home__welcome' id='header_1'>
-                <img src={welcome1} alt='recipe1' className="show-from-left scroll-animation"/>
+                <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>
                 <div className='home__welcome__header'>
                     <div className='home__welcome__header__text'>
                         <h2 className="scroll-animation">Lorem Ipsum</h2>
@@ -42,7 +46,7 @@ function Home() {
                             sit amet condimentum ac, tempus et sem. Morbi pulvinar dui enim, quis molestie nunc pharetra
                             vitae. Praesent a nisl tortor. In sed rhoncus arcu, at ultricies quam.</p>
                     </div>
-                    <div className="home__welcome__header__images show-from-right scroll-animation">
+                    <div className="home__welcome__header__images show-from-left scroll-animation">
                         <img src={welcomeSquare1} alt='welcome_square1'/>
                         <img src={welcomeSquare2} alt='welcome_square2'/>
                         <img src={welcomeSquare3} alt='welcome_square3'/>
@@ -87,6 +91,12 @@ function Home() {
                 <img src={cherry} alt='orange'/>
             </div>
             <Form/>
+            <div className='home__decoration'>
+                <img src={raspberry} alt='raspberry'/>
+                <img src={mango} alt='mango'/>
+                <img src={avocado} alt='avocado'/>
+            </div>
+            <PhotoSection/>
         </div>
     );
 }

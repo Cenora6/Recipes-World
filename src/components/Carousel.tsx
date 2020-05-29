@@ -42,7 +42,7 @@ function Carousel() {
             <div className='carousel'>
                 <div className='carousel__slide'>
                     <div className='carousel__slide__text'>
-                        <h3>Easy recipes</h3>
+                        <h3>Easy recipes for everyone</h3>
                         <img src={line} alt='decoration'/>
                         <p>Keep it easy with these simple but delicious recipes. From make-ahead lunches and midweek
                             meals to fuss-free sides and moreish cakes, we`ve got everything you need.</p>

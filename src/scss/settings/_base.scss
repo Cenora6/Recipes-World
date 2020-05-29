@@ -106,8 +106,8 @@ h2 {
 
 .show-from-right, .show-from-left {
   opacity: 0;
-  transition: transform 4s .25s cubic-bezier(0,1,.3,1),
-  opacity 4s .25s ease-out;
+  transition: transform 3s .25s cubic-bezier(0,1,.3,1),
+  opacity 3s .25s ease-out;
   will-change: transform, opacity;
 
   &.is-visible {
@@ -116,17 +116,17 @@ h2 {
 }
 
 .show-from-left {
-  transform: translateY(1rem) rotateZ(-3deg);
+  transform: translateY(1rem) rotateZ(1deg);
 
   &.is-visible {
-    transform: rotateZ(-1deg);
+    transform: rotateZ(-5deg);
   }
 }
 
 .show-from-right {
-  transform: translateY(1rem) rotateZ(3deg);
+  transform: translateY(1rem) rotateZ(10deg);
 
   &.is-visible {
-    transform: rotateZ(1deg);
+    transform: rotateZ(3deg);
   }
 }
