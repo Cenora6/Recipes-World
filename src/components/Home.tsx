@@ -39,7 +39,7 @@ function Home() {
                 <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>
                 <div className='home__welcome__header'>
                     <div className='home__welcome__header__text'>
-                        <h2 className="scroll-animation">Lorem Ipsum</h2>
+                        <h2 className="scroll-animation">Lorem <span className='title-decorate'>Ipsum</span> </h2>
                         <p>Vivamus eget risus ultrices, vestibulum augue quis, placerat ligula. Proin et nibh ornare,
                             rhoncus enim in, ultrices metus. Sed ligula odio, suscipit vel diam sit amet, placerat
                             congue ex. Proin vel odio cursus, viverra tortor id, mollis est. Cras odio augue, vehicula
@@ -70,7 +70,7 @@ function Home() {
             <div className='home__welcome' id='header_2'>
                 <div className='home__welcome__header'>
                     <div className='home__welcome__header__text'>
-                        <h2 className="scroll-animation">Lorem Ipsum</h2>
+                        <h2 className="scroll-animation">Lorem <span className='title-decorate'>Ipsum</span> </h2>
                         <p>In scelerisque felis ut nisl volutpat dictum. Orci varius natoque penatibus et magnis dis
                             parturient montes, nascetur ridiculus mus. Donec in accumsan lectus. In hac habitasse platea
                             dictumst. Proin congue risus ac porta fringilla. In placerat quis sem a ornare. Nullam sed

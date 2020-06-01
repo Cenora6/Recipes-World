@@ -12,6 +12,7 @@ interface Recipe {
 interface RecipeResponse {
     recipes: Recipe[]
 }
+
 function PhotoSection() {
     const [recipes, setRecipes] = useState<string[]>([]);
 
@@ -29,7 +30,7 @@ function PhotoSection() {
 
     return (
         <div className='home__photo' id='photo'>
-            <h2>Popular Dishes</h2>
+            <h2>Popular <span className='title-decorate'>Dishes</span></h2>
             {
                 recipes.map( (photo: string, index: number) => {
                     return (

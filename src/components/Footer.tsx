@@ -1,18 +1,28 @@
-import React from 'react';
+import React, {useState, MouseEvent} from 'react';
 
-interface footerProps {
-    showFooter: () => void;
-    details: boolean
-}
+export function Footer() {
 
-export function Footer(props: footerProps) {
+    const [contact, setContact] = useState<string>();
+    const [showIcons, setShowIcons] = useState<boolean>(false);
+
+    function handleContactSet(event: MouseEvent) {
+        let target = event.target as Element;
+        setContact(target.id);
+        setShowIcons(true);
+    }
+
+    function cleanContact() {
+        setShowIcons(false);
+    }
 
     return (
-        <nav className={`footer ${props.details ? 'show' : 'hide'}`}
-             onMouseEnter={props.showFooter} onMouseLeave={props.showFooter}>
-            <div className='footer__decorations'>
-                <i className={`fas fa-long-arrow-alt-up ${props.details && 'rotate'}`}></i>
-                <div className="circle"></div>
+        <footer className='footer'>
+            <div className='footer__copyright'>
+                <i className="fas fa-copyright"></i>
+                <div className='footer__copyright__names'>
+                    <span>Aleksandra Gasidło </span>
+                    <p><span>Cenora</span> 06</p>
+                </div>
             </div>
             <div className='footer__links'>
                 <div className='footer__links__list'>
@@ -76,9 +86,24 @@ export function Footer(props: footerProps) {
                     </ul>
                 </div>
             </div>
-            {/*<div className='footer__copyright'>*/}
-            {/*    <p>© Aleksandra Gasidło | Cenora06 </p>*/}
-            {/*</div>*/}
-        </nav>
+            <div className='footer__icons'>
+                <div className='footer__icons__single'>
+                    <span className={`${contact === 'facebook' && showIcons && 'show-contact'}`}>Facebook</span>
+                    <i className="fab fa-facebook" id='facebook' onMouseEnter={handleContactSet} onMouseLeave={cleanContact}></i>
+                </div>
+                <div className='footer__icons__single'>
+                    <span className={`${contact === 'google' && showIcons && 'show-contact'}`}>Google+</span>
+                    <i className="fab fa-google-plus" id='google' onMouseEnter={handleContactSet} onMouseLeave={cleanContact}></i>
+                </div>
+                <div className='footer__icons__single'>
+                    <span className={`${contact === 'twitter' && showIcons && 'show-contact'}`}>Twitter</span>
+                    <i className="fab fa-twitter" id='twitter' onMouseEnter={handleContactSet} onMouseLeave={cleanContact}></i>
+                </div>
+                <div className='footer__icons__single'>
+                    <span className={`${contact === 'instagram' && showIcons && 'show-contact'}`}>Instagram</span>
+                    <i className="fab fa-instagram" id='instagram' onMouseEnter={handleContactSet} onMouseLeave={cleanContact}></i>
+                </div>
+            </div>
+        </footer>
     );
 }
