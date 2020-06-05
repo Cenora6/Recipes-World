@@ -1,0 +1,127 @@
+.single {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0;
+
+  &__details {
+    display: flex;
+    justify-content: center;
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        background: $carousel-color;
+        margin: 3rem;
+
+        h3 {
+          margin: 2rem;
+        }
+
+        p {
+          padding: 5rem;
+          font-size: 1.2rem;
+          height: 50%;
+          font-family: $base-font;
+          text-align: center;
+          line-height: 2.5rem;
+          color: $decorative-color;
+        }
+
+        img {
+          margin: 0 auto;
+          width: 60%;
+        }
+
+        &__tags {
+          display: flex;
+          justify-content: flex-end;
+          margin: 0 5rem;
+          color: $decorative-color;
+          font-weight: 500;
+
+          span {
+            font-size: .8rem;
+            padding: 0.2rem 0.5rem;
+            margin: .5rem;
+            color: $background;
+            letter-spacing: .2rem;
+
+            &.area {
+              background: #443838;
+            }
+
+            &.category {
+              background: #b89c9c;
+            }
+
+            &.tags {
+
+            }
+
+          }
+        }
+
+
+      }
+
+      &__photo {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .photo {
+          vertical-align: top;
+          height: 30rem;
+          object-fit: cover;
+          border: 0.2rem groove;
+          padding: 0.5rem;
+          z-index: 0;
+        }
+
+        .note {
+          transform: rotate(7deg);
+          top: 35%;
+          left: -20%;
+          position: absolute;
+          z-index: 1;
+          height: 50rem;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          transform: rotate(10deg);
+          z-index: 2;
+          width: 80%;
+          position: relative;
+          left: 10%;
+
+          li {
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+            font-weight: 600;
+            color: $main-color;
+            text-transform: uppercase;
+
+            &:first-of-type {
+              font-size: 2rem;
+              font-family: $title-font;
+              margin: 2rem 0;
+              text-decoration: overline;
+              list-style: none;
+            }
+
+            span {
+              margin: 0 2rem;
+              color: black;
+              font-weight: 400;
+            }
+          }
+        }
+    }
+  }
+}

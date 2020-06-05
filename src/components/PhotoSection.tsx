@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 const MEALS_URL = "http://localhost:3001/meals"
 
 function PhotoSection() {
@@ -22,10 +23,12 @@ function PhotoSection() {
             {
                 recipes.map( (meal: any, index: number) => {
                     return (
-                        <div key={index} className='home__photo__single' onClick={() => console.log(meal.idMeal)}>
-                            <img src={meal.strMealThumb} alt={`dish${index}`}/>
-                            <span>{meal.strMeal}</span>
-                        </div>
+                        <Link to={`/recipe/${meal.idMeal}`} className='home__photo__single' key={index}>
+                            <div>
+                                <img src={meal.strMealThumb} alt={`dish${index}`}/>
+                                <span>{meal.strMeal}</span>
+                            </div>
+                        </Link>
                     )
                 })
             }

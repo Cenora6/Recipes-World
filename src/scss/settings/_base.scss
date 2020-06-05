@@ -20,6 +20,17 @@ h2 {
   }
 }
 
+h3 {
+  font-size: 3rem;
+  color: $decorative-color;
+  font-family: $decorative-font;
+  text-align: center;
+  margin: 0 2rem;
+  text-transform: capitalize;
+  word-spacing: 1rem;
+}
+
+
 .title-decorate {
   background: $main-color;
   color: $background;
