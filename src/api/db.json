@@ -65,5 +65,31 @@
       "strMealThumb": "https://www.themealdb.com/images/media/meals/1549542994.jpg",
       "idMeal": "52960"
     }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "Easy recipes for everyone",
+      "image": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      "preview": "Keep it easy with these simple but delicious recipes. From make-ahead lunches and midweek meals to fuss-free sides and moreish cakes, we`ve got everything you need."
+    },
+    {
+      "id": 2,
+      "title": "10 Healthy Recipes For Breakfast, Lunch and Dinner",
+      "image": "https://images.unsplash.com/photo-1521986329282-0436c1f1e212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80",
+      "preview": "From breakfast to dinner and even desserts, we have curated the best of healthy recipes to try at home and relish with family and friends."
+    },
+    {
+      "id": 3,
+      "title": "30 Cake Recipes for every occasion",
+      "image": "https://images.unsplash.com/photo-1551893134-0501d8ad612e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      "preview": "Old favourites and traditional bakes – take your pick from our timeless collection."
+    },
+    {
+      "id": 4,
+      "title": "Recipes for the youngest ones!",
+      "image": "https://images.unsplash.com/photo-1506224988854-3f6992c9334d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      "preview": "The secret to getting a fussy child to eat and recipes they`ll love."
+    }
   ]
 }

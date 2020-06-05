@@ -5,7 +5,6 @@ const MEALS_URL = "http://localhost:3001/meals"
 function PhotoSection() {
     const [recipes, setRecipes] = useState<string[]>([]);
 
-    let recipesData: any[] = [];
     axios
         .get<any>
         (MEALS_URL)
