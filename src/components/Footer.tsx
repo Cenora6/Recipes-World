@@ -45,6 +45,7 @@ export function Footer() {
                         </li>
                     </ul>
                 </div>
+                <span className='line'></span>
                 <div className='footer__links__list'>
                     <ul>
                         <li>
@@ -65,6 +66,7 @@ export function Footer() {
                         </li>
                     </ul>
                 </div>
+                <span className='line'></span>
                 <div className='footer__links__list'>
                     <ul>
                         <li>
@@ -72,7 +74,6 @@ export function Footer() {
                                 Lorem Ipsum
                             </a>
                         </li>
-
                         <li>
                             <a href='/'>
                                 Lorem Ipsum

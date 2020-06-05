@@ -7,6 +7,7 @@ import {
 import Home from "./components/Home";
 import {Navigation} from "./components/Navigation";
 import {Footer} from "./components/Footer";
+import {getRecipes} from "./api/getRecipes";
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
     function showNavigation() {
         setNavDetails(!navDetails);
     }
+
+    getRecipes();
 
 
     return (

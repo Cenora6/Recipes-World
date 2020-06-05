@@ -1,44 +1,32 @@
 import axios from 'axios';
 import React, {useState} from 'react';
-
-const API_KEY = '1FavNGGDNEiol0lspKANnpqyyBWdzLYvV5rVAlGw-Zg';
-const url = 'https://api.unsplash.com/search/photos?page=3&query=dish&order_by=relevant&per_page=13';
-
-interface Recipe {
-    title: string
-    image: string
-}
-
-interface RecipeResponse {
-    recipes: Recipe[]
-}
+const MEALS_URL = "http://localhost:3001/meals"
 
 function PhotoSection() {
     const [recipes, setRecipes] = useState<string[]>([]);
 
-    let recipesPhotos: any[] = [];
+    let recipesData: any[] = [];
     axios
         .get<any>
-        (`${url}&client_id=${API_KEY}`)
+        (MEALS_URL)
         .then(response => {
-            response.data.results.map( (item: any) => {  return recipesPhotos.push(item.urls.regular) })
-            setRecipes(recipesPhotos)
+            setRecipes(response.data);
         })
         .catch(err => {
             console.log(err.message)
         })
 
+
     return (
         <div className='home__photo' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
             {
-                recipes.map( (photo: string, index: number) => {
+                recipes.map( (meal: any, index: number) => {
                     return (
-                        <div key={index} className='home__photo__single'>
-                            <img src={photo} alt={`dish${index}`}/>
-                            <span>Lorem Ipsum {index + 1}</span>
+                        <div key={index} className='home__photo__single' onClick={() => console.log(meal.idMeal)}>
+                            <img src={meal.strMealThumb} alt={`dish${index}`}/>
+                            <span>{meal.strMeal}</span>
                         </div>
-
                     )
                 })
             }
