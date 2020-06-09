@@ -7,121 +7,147 @@
     display: flex;
     justify-content: center;
 
-      &__text {
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      background: $carousel-color;
+      margin: 3rem;
+
+      &__video {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        width: 50%;
-        background: $carousel-color;
-        margin: 3rem;
-
-        h3 {
-          margin: 2rem;
-        }
-
-        p {
-          padding: 5rem;
-          font-size: 1.2rem;
-          height: 50%;
-          font-family: $base-font;
-          text-align: center;
-          line-height: 2.5rem;
-          color: $decorative-color;
-        }
-
-        img {
-          margin: 0 auto;
-          width: 60%;
-        }
-
-        &__tags {
-          display: flex;
-          justify-content: flex-end;
-          margin: 0 5rem;
-          color: $decorative-color;
-          font-weight: 500;
-
-          span {
-            font-size: .8rem;
-            padding: 0.2rem 0.5rem;
-            margin: .5rem;
-            color: $background;
-            letter-spacing: .2rem;
-
-            &.area {
-              background: #443838;
-            }
-
-            &.category {
-              background: #b89c9c;
-            }
-
-            &.tags {
-
-            }
-
-          }
-        }
-
-
+        align-items: center;
       }
 
-      &__photo {
+      ul {
+        margin: 3rem 0;
+
+        li {
+          padding: 0 5rem;
+          font-size: 1.2rem;
+          font-family: $base-font;
+          text-align: left;
+          line-height: 2.5rem;
+          color: $decorative-color;
+          margin: 1rem 0;
+        }
+      }
+
+      img {
+        margin: 0 auto;
+        width: 60%;
+      }
+
+      &__category {
         display: flex;
-        flex-direction: column;
-        position: relative;
+        justify-content: flex-end;
+        margin: 3rem 1rem;
+        color: $decorative-color;
+        font-weight: 500;
 
-        .photo {
-          vertical-align: top;
-          height: 30rem;
-          object-fit: cover;
-          border: 0.2rem groove;
-          padding: 0.5rem;
-          z-index: 0;
-        }
+        span {
+          font-size: .8rem;
+          padding: 0.2rem 0.5rem;
+          margin: 0 1rem;
+          color: $background;
+          letter-spacing: .2rem;
 
-        .note {
-          transform: rotate(7deg);
-          top: 35%;
-          left: -20%;
-          position: absolute;
-          z-index: 1;
-          height: 50rem;
-        }
+          &.area {
+            background: #443838;
+          }
 
-        ul {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          transform: rotate(10deg);
-          z-index: 2;
-          width: 80%;
-          position: relative;
-          left: 10%;
+          &.category {
+            background: #b89c9c;
+          }
 
-          li {
-            font-size: 1.2rem;
-            line-height: 2.5rem;
-            font-weight: 600;
-            color: $main-color;
-            text-transform: uppercase;
+          &.tags {
 
-            &:first-of-type {
-              font-size: 2rem;
-              font-family: $title-font;
-              margin: 2rem 0;
-              text-decoration: overline;
-              list-style: none;
-            }
-
-            span {
-              margin: 0 2rem;
-              color: black;
-              font-weight: 400;
-            }
           }
         }
+      }
+
+      &__tags {
+        margin: 1rem;
+        span {
+          background: $background;
+          color: #443838;
+          font-size: .8rem;
+          padding: 0.2rem 0.5rem;
+          margin: 0 1rem;
+          letter-spacing: .2rem;
+          cursor: pointer;
+          transition: 1s;
+
+          &:hover {
+            color: $background;
+            background: #443838;
+          }
+        }
+      }
+
+    }
+
+    &__photo {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .photo {
+        vertical-align: top;
+        height: 30rem;
+        object-fit: cover;
+        border: 0.2rem groove;
+        padding: 0.5rem;
+        z-index: 0;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transform: rotate(7deg);
+        z-index: 2;
+        position: relative;
+        padding: 1rem 0;
+        top: -3rem;
+
+        &:after {
+          content: "";
+          position: absolute;
+          background: url('./../../assets/note.png');
+          background-size: 50rem;
+          z-index: 1;
+          width: 140%;
+          height: 100%;
+        }
+
+        li {
+          font-size: 1.2rem;
+          line-height: 3rem;
+          letter-spacing: .2rem;
+          font-weight: 600;
+          color: $main-color;
+          font-family: $recipe-font;
+          text-shadow: 5px 5px rgba(0, 0, 0, 0.18);
+          z-index: 2;
+
+          &:first-of-type {
+            font-size: 2rem;
+            margin-top: 2rem;
+            text-decoration: overline;
+            list-style: none;
+          }
+
+          span {
+            margin: 0 2rem;
+            color: black;
+            font-weight: 400;
+          }
+        }
+      }
     }
   }
 }
