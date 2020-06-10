@@ -37,10 +37,12 @@
         padding: 2rem 0;
         border-radius: .5rem;
         border: 0.2rem solid black;
-        transition: 1s;
         opacity: .5;
-        background: $background;
         box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+        transition: .5s;
+        background-size: 200% 200%;
+        background-image:
+                linear-gradient(to top, $main-color 50%, transparent 50%);
 
         i {
           font-size: 3rem;
@@ -59,10 +61,13 @@
         }
 
         &:hover {
-          background: $main-color;
           border: 0.2rem solid $main-color;
           opacity: 1;
           cursor: pointer;
+          background-image:
+                  linear-gradient(to top, $main-color 51%, transparent 50%);
+          background-position: 0 100%;
+          transition: .5s;
 
           span {
             letter-spacing: .1rem;
