@@ -8,18 +8,22 @@ function SingleRecipe(props: any) {
 
     const { match } = props;
     let {id} = match.params;
-    // console.log(single)
 
     searchRecipeById(id, setSingle);
 
 
-    const ingredientsNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    const ingredientsNumber: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     return (
         <section className='single'>
             {
                 single.map( (meal: any, index: number) => {
                     return (
                         <div className='single__details' key={index}>
+                            <div className='single__details__arrow'>
+                                <div className="circle">
+                                    <i className='fas fa-long-arrow-alt-left'></i>
+                                </div>
+                            </div>
                             <div className='single__details__text'>
                                 <div className='single__details__text__category'>
                                     <span className='area'>{meal.strArea}</span>
@@ -46,7 +50,7 @@ function SingleRecipe(props: any) {
                                 </ul>
 
                                 <div className='single__details__text__tags'>
-                                        {meal.strTags.split(',').map((text: string, i: number) => {
+                                        {meal.strTags && meal.strTags.split(',').map((text: string, i: number) => {
                                             return (
                                                 text.length !== 0 && <span className='tags' key={i}># {text}</span>
                                             )

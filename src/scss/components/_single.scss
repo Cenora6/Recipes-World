@@ -53,6 +53,12 @@
           margin: 0 1rem;
           color: $background;
           letter-spacing: .2rem;
+          cursor: pointer;
+          transition: 1s;
+
+          &:hover {
+            filter: invert(1);
+          }
 
           &.area {
             background: #443838;
@@ -146,6 +152,34 @@
             color: black;
             font-weight: 400;
           }
+        }
+      }
+    }
+
+    &__arrow {
+      position: fixed;
+      left: 0;
+      top: 0;
+
+      .circle {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 0  0 10rem 0 ;
+        z-index: -1;
+        transition: 1s;
+        background: $main-color;
+        position: absolute;
+        top: 0;
+
+
+        .fas {
+          position:absolute;
+          top:50%;
+          left:50%;
+          font-size: 2rem;
+          color: blue;
+          transform: translate(-50%, -50%);
+          //color: $background;
         }
       }
     }

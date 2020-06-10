@@ -26,3 +26,39 @@ export function searchRecipeById(id: number, setSingle: (data: any) => void) {
             console.log(err);
         });
 }
+
+export function getAllCategories() {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/categories.php`)
+        .then(response => {
+            // console.log(response.data.categories)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+export function getAllAreas() {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
+        .then(response => {
+            // console.log(response.data.meals)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+export function getAllIngredients() {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
+        .then(response => {
+            // console.log(response.data.meals)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
