@@ -9,6 +9,8 @@ import {Navigation} from "./components/Navigation";
 import {Footer} from "./components/Footer";
 import {getRecipes} from "./api/getRecipes";
 import SingleRecipe from "./components/SingleRecipe";
+import Category from "./components/Category";
+import Area from "./components/Area";
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path="/recipe/:id" component={SingleRecipe} />
+                    <Route path="/category" component={Category} />
+                    <Route path="/area" component={Area} />
                 </Switch>
                 <Footer/>
             </HashRouter>

@@ -28,21 +28,9 @@
       margin: 5rem 0;
 
       &__single {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        margin: 0 3rem;
         width: 10rem;
+        margin: 0 3rem;
         padding: 2rem 0;
-        border-radius: .5rem;
-        border: 0.2rem solid black;
-        opacity: .5;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-        transition: .5s;
-        background-size: 200% 200%;
-        background-image:
-                linear-gradient(to top, $main-color 50%, transparent 50%);
 
         i {
           font-size: 3rem;
@@ -51,36 +39,12 @@
           transition: .5s;
         }
 
-        span {
-          text-align: center;
-          font-family: $title-font;
-          letter-spacing: .3rem;
-          text-transform: uppercase;
-          font-size: .8rem;
-          transition: .5s;
-        }
-
         &:hover {
-          border: 0.2rem solid $main-color;
-          opacity: 1;
-          cursor: pointer;
-          background-image:
-                  linear-gradient(to top, $main-color 51%, transparent 50%);
-          background-position: 0 100%;
-          transition: .5s;
-
-          span {
-            letter-spacing: .1rem;
-            color: $background;
-          }
-
           i {
             color: $background;
           }
         }
       }
-
-
     }
   }
 }

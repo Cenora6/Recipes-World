@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {searchRecipeById} from "../api/getRecipes";
 import line from './../assets/line.png';
 import ReactPlayer from 'react-player'
-import {Link} from "react-router-dom";
+import Back from "./Back";
 
 function SingleRecipe(props: any) {
     const [single, setSingle] = useState<string[]>([]);
@@ -10,8 +10,9 @@ function SingleRecipe(props: any) {
     const { match } = props;
     let {id} = match.params;
 
-    searchRecipeById(id, setSingle);
-
+    useEffect(() => {
+        searchRecipeById(id, setSingle);
+    }, [id]);
 
     const ingredientsNumber: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     return (
@@ -20,13 +21,7 @@ function SingleRecipe(props: any) {
                 single.map( (meal: any, index: number) => {
                     return (
                         <div className='single__details' key={index}>
-                            <div className='single__details__back'>
-                                <Link to='/'>
-                                <div className="circle">
-                                    <span>go back</span>
-                                </div>
-                                </Link>
-                            </div>
+                            <Back/>
                             <div className='single__details__text'>
                                 <div className='single__details__text__category'>
                                     <span className='area'>{meal.strArea}</span>

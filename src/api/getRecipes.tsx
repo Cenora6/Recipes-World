@@ -27,24 +27,24 @@ export function searchRecipeById(id: number, setSingle: (data: any) => void) {
         });
 }
 
-export function getAllCategories() {
+export function getAllCategories(setCategory: (data: any) => void) {
     axios
         .get<any>
         (`https://www.themealdb.com/api/json/v1/1/categories.php`)
         .then(response => {
-            // console.log(response.data.categories)
+            setCategory(response.data.categories);
         })
         .catch(err => {
             console.log(err);
         });
 }
 
-export function getAllAreas() {
+export function getAllAreas(setArea: (data: any) => void) {
     axios
         .get<any>
         (`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
         .then(response => {
-            // console.log(response.data.meals)
+            setArea(response.data.meals);
         })
         .catch(err => {
             console.log(err);
