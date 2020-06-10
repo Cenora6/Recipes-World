@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {searchRecipeById} from "../api/getRecipes";
 import line from './../assets/line.png';
 import ReactPlayer from 'react-player'
+import {Link} from "react-router-dom";
 
 function SingleRecipe(props: any) {
     const [single, setSingle] = useState<string[]>([]);
@@ -19,10 +20,12 @@ function SingleRecipe(props: any) {
                 single.map( (meal: any, index: number) => {
                     return (
                         <div className='single__details' key={index}>
-                            <div className='single__details__arrow'>
+                            <div className='single__details__back'>
+                                <Link to='/'>
                                 <div className="circle">
-                                    <i className='fas fa-long-arrow-alt-left'></i>
+                                    <span>go back</span>
                                 </div>
+                                </Link>
                             </div>
                             <div className='single__details__text'>
                                 <div className='single__details__text__category'>

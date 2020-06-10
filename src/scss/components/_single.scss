@@ -76,6 +76,7 @@
 
       &__tags {
         margin: 1rem;
+
         span {
           background: $background;
           color: #443838;
@@ -156,30 +157,44 @@
       }
     }
 
-    &__arrow {
+    &__back {
       position: fixed;
       left: 0;
       top: 0;
+      z-index: 2;
 
       .circle {
         width: 8rem;
         height: 8rem;
-        border-radius: 0  0 10rem 0 ;
+        border-radius: 0 0 10rem 0;
         z-index: -1;
         transition: 1s;
         background: $main-color;
         position: absolute;
         top: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
 
+        span {
+          text-align: center;
+          font-size: 1.2rem;
+          font-family: $recipe-font;
+          position: absolute;
+          width: 100%;
+          left: -20%;
+          top: 30%;
+          transform-origin: top center;
+          color: $background;
+          transform: rotate(-45deg);
+          transition: 1s;
+        }
 
-        .fas {
-          position:absolute;
-          top:50%;
-          left:50%;
-          font-size: 2rem;
-          color: blue;
-          transform: translate(-50%, -50%);
-          //color: $background;
+        &:hover {
+          background: #443838;
+          cursor: pointer;
+
+          span {
+            color: $background;
+          }
         }
       }
     }
