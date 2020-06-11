@@ -50,6 +50,17 @@ export function getAllAreas(setArea: (data: any) => void) {
             console.log(err);
         });
 }
+export function getRecipeFromArea(setAreaRecipes: (data: any) => void, id: string) {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/filter.php?a=${id}`)
+        .then(response => {
+            setAreaRecipes(response.data.meals);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
 
 export function getAllIngredients() {
     axios

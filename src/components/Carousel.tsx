@@ -51,8 +51,7 @@ function Carousel() {
                 {
                     blog.map( (post: any, index: number) => {
                         return (
-                            <>
-                                <div className='carousel'>
+                                <div className='carousel' key={index}>
                                     <div className='carousel__slide'>
                                         <div className='carousel__slide__text'>
                                             <h3>{post.title}</h3>
@@ -67,7 +66,6 @@ function Carousel() {
                                         </div>
                                     </div>
                                 </div>
-                            </>
                         )
                     })
                 }

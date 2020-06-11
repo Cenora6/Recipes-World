@@ -18,12 +18,12 @@ function PhotoSection() {
 
 
     return (
-        <div className='home__photo' id='photo'>
+        <div className='photo__section' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
             {
                 recipes.map( (meal: any, index: number) => {
                     return (
-                        <Link to={`/recipe/${meal.idMeal}`} className='home__photo__single' key={index}>
+                        <Link to={`/recipe/${meal.idMeal}`} className='photo__section__single' key={index}>
                             <div>
                                 <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                 <span>{meal.strMeal}</span>

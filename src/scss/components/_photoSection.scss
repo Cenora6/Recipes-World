@@ -1,49 +1,52 @@
-.home__photo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 4rem;
-  margin: 2rem 0;
+.photo {
 
-  &__single {
-    width: calc(20% - 1rem);
-    height: 100%;
-    padding: 0.5rem;
-    position: relative;
-    cursor: pointer;
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 4rem;
+    margin: 2rem 0;
 
-    a {
-      z-index: -1;
-    }
-
-    img {
-      vertical-align:top;
-      width: 100%;
-      height: 15rem;
-      object-fit: cover;
-      border: 0.2rem groove;
+    &__single {
+      width: calc(20% - 1rem);
+      height: 100%;
       padding: 0.5rem;
-    }
+      position: relative;
+      cursor: pointer;
 
-    span {
-      position: absolute;
-      left: 0;
-      bottom: 40%;
-      text-align: center;
-      padding: 0.5rem;
-      margin: 1rem .5rem 1rem 0;
-      width: 100%;
-      background: rgba(0, 0, 0, .5);
-      color: $background;
-      opacity: 0;
-      transition: .5s;
-    }
+      a {
+        z-index: -1;
+      }
+
+      img {
+        vertical-align:top;
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        border: 0.2rem groove;
+        padding: 0.5rem;
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 40%;
+        text-align: center;
+        padding: 0.5rem;
+        margin: 1rem .5rem 1rem 0;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        color: $background;
+        opacity: 0;
+        transition: .5s;
+      }
 
 
-    div:hover > span {
-      opacity: 1;
-      transform: rotate(45deg);
+      div:hover > span {
+        opacity: 1;
+        transform: rotate(45deg);
+      }
     }
   }
 }
