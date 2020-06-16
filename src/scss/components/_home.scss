@@ -23,6 +23,100 @@
         flex-direction: column;
         height: 60%;
 
+        &__categories {
+          display: flex;
+          align-content: center;
+          margin: 2rem 8rem;
+
+          .diamond {
+            position: relative;
+            height: 10rem;
+            width: 10rem;
+            line-height: 8rem;
+            text-align: center;
+            z-index: 0;
+            margin: 1rem auto;
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              z-index: 0;
+              transform: rotateX(45deg) rotateZ(45deg);
+              box-shadow: 0 0 1rem gray;
+              background: $main-color;
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 1rem;
+              height: 8rem;
+              width: 8rem;
+              z-index: 0;
+              transform: rotateX(45deg) rotateZ(45deg);
+              background: $background;
+            }
+
+            span {
+              font-family: $decorative-font;
+              font-size: 2.5rem;
+              z-index: 5;
+              position: relative;
+              color: $main-color;
+
+              &.rotated {
+                position: absolute;
+                left: -3.5rem;
+                bottom: -3.5rem;
+                transform: rotate(35deg);
+                font-size: 1.5rem;
+                font-family: $recipe-font;
+
+              }
+            }
+          }
+
+            //span {
+            //  position: relative;
+            //  margin: 0 auto;
+            //  z-index: 2;
+            //  color: #333;
+            //  display: block;
+            //  vertical-align: middle;
+            //  width: 100%;
+            //  line-height: 10rem;
+            //
+            //  &:after {
+            //    content: "";
+            //    position: absolute;
+            //    height: 10rem;
+            //    width: 10rem;
+            //    left: 0;
+            //    top: 0;
+            //    z-index: -2;
+            //    background-color: $main-color;
+            //    transform: rotate(45deg);
+            //  }
+            //
+            //  &:before {
+            //    content: "";
+            //    position: absolute;
+            //    height: 8rem;
+            //    width: 8rem;
+            //    left: 1rem;
+            //    top: 0;
+            //    z-index: -1;
+            //    background-color: $background;
+            //    transform: rotate(45deg);
+            //  }
+            //}
+        }
+
         p {
           font-size: 1.2rem;
           line-height: 2rem;
