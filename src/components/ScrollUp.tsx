@@ -1,0 +1,30 @@
+import React, {useState} from 'react';
+import scroll from './../assets/vertical-scroll.png'
+
+function ScrollUp() {
+    const [showScroll, setShowScroll] = useState(false)
+
+    const checkScrollTop = () => {
+        console.log(window.innerHeight);
+        console.log(document.body.scrollHeight);
+        if (!showScroll && window.pageYOffset > 400){
+            setShowScroll(true)
+        } else if (showScroll && window.pageYOffset <= 400){
+            setShowScroll(false)
+        }
+    };
+
+    window.addEventListener('scroll', checkScrollTop)
+
+    function scrollTop () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    return (
+        <div className='scroll' id='scroll' style={{opacity: showScroll ? '.8' : '0'}} onClick={scrollTop} >
+            <img src={scroll} alt='scroll_up'/>
+        </div>
+    );
+}
+
+export default ScrollUp;

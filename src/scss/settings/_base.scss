@@ -235,13 +235,15 @@ h3 {
   display: flex;
   justify-content: center;
   align-content: center;
-}
 
-.photo__section {
   h2 {
     width: 100%;
     text-align: center;
   }
+
+}
+
+.photo__section {
 
   &__single {
     transition: .5s;

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {getAllAreas, getRecipeFromArea} from "../api/getRecipes";
 import Back from "./Back";
 import { Link } from "react-scroll";
+import ScrollUp from "./ScrollUp";
 
 const Area = () => {
     const [area, setArea] = useState<string[]>([]);
@@ -26,7 +27,6 @@ const Area = () => {
 
     return (
         <>
-            {console.log(fade)}
             <div className='area base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
@@ -61,6 +61,7 @@ const Area = () => {
                 }
             </div>
             }
+            <ScrollUp/>
         </>
     );
 }
