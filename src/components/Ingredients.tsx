@@ -63,7 +63,7 @@ const Ingredients = () => {
 
     return (
         <>
-            <div className='ingredients base-page'>
+            <section className='ingredients base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Ingredients</span> </h2>
 
@@ -84,14 +84,13 @@ const Ingredients = () => {
                             <span>No results...</span>
                         </div>}
                 </div>
-            </div>
+            </section>
 
-            <div className='photo__section category-recipes'>
+            <section className='photo__section category-recipes'>
                 {ingredientRecipe ? ingredientRecipe.length > 0 &&
                     <>
                         <h2>Dishes With <span className='title-decorate' id='ingredient'>{ingredientName}</span></h2>
                         {ingredientRecipe.map( (meal: any, index: number) => {
-                            {console.log(meal)}
                             return (
                                 <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade2 ? 'shown' : 'hidden'}`} key={index}
                                          onAnimationEnd={() => setFade2(false)}>
@@ -110,7 +109,7 @@ const Ingredients = () => {
                         <p className={`${fade2 ? 'shown' : 'hidden'}`}>No results...</p>
                     </>
                 }
-            </div>
+            </section>
             <ScrollUp/>
         </>
     );

@@ -7,11 +7,11 @@ import {
 import Home from "./components/Home";
 import {Navigation} from "./components/Navigation";
 import {Footer} from "./components/Footer";
-import {getRecipes} from "./api/getRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import Category from "./components/Category";
 import Area from "./components/Area";
 import Ingredients from "./components/Ingredients";
+import Names from "./components/Name";
 
 const App = () => {
 
@@ -20,8 +20,6 @@ const App = () => {
     function showNavigation() {
         setNavDetails(!navDetails);
     }
-
-    getRecipes();
 
     return (
         <>
@@ -33,6 +31,7 @@ const App = () => {
                     <Route path="/category" component={Category} />
                     <Route path="/area" component={Area}/>
                     <Route path="/ingredients" component={Ingredients}/>
+                    <Route path="/names" component={Names}/>
                 </Switch>
                 <Footer/>
             </BrowserRouter>

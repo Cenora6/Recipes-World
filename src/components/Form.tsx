@@ -7,10 +7,12 @@ function Form() {
         <div className='home__form' id='form'>
             <h2>Search for the <span className='title-decorate'>recipe</span></h2>
             <div className='home__form__buttons'>
+                <Link to='/names'>
                 <div className='home__form__buttons__single buttons'>
                     <i className="fas fa-pencil-alt"></i>
                     <span>Name</span>
                 </div>
+                </Link>
                 <Link to='/area'>
                     <div className='home__form__buttons__single buttons'>
                         <i className="fas fa-map-marked-alt"></i>

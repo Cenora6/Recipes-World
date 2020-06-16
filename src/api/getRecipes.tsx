@@ -1,14 +1,11 @@
 import axios from "axios";
-const searchTerm = "chicken";
-const url1 = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
 
-export function getRecipes() {
+export function getRecipes(setRecipeNames: (data: any) => void, searchTerm: string) {
     axios
         .get<any>
-        (url1)
+        (`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
         .then(response => {
-            // console.log(response.data.meals)
-
+            setRecipeNames(response.data.meals)
         })
         .catch(err => {
             console.log(err);
