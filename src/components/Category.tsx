@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {getAllCategories, getRecipesFromCategory} from "../api/getRecipes";
 import Back from "./Back";
 import { Link } from "react-scroll";
+import {NavLink} from "react-router-dom";
 import ScrollUp from "./ScrollUp";
 
 const Category = () => {
@@ -51,13 +52,13 @@ const Category = () => {
                 <h2 id='category'>Dishes From <span className='title-decorate'>{categoryName}</span></h2>
                 {categoryRecipes.map((meal: any, index: number) => {
                     return (
-                        <Link to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
+                        <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
                               onAnimationEnd={() => setFade(false)}>
                             <div>
                                 <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                 <span>{meal.strMeal}</span>
                             </div>
-                        </Link>
+                        </NavLink>
                     )
                 })
                 }

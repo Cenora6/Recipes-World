@@ -5,8 +5,6 @@ function ScrollUp() {
     const [showScroll, setShowScroll] = useState(false)
 
     const checkScrollTop = () => {
-        console.log(window.innerHeight);
-        console.log(document.body.scrollHeight);
         if (!showScroll && window.pageYOffset > 400){
             setShowScroll(true)
         } else if (showScroll && window.pageYOffset <= 400){

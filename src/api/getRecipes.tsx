@@ -75,12 +75,24 @@ export function getRecipeFromArea(setAreaRecipes: (data: any) => void, id: strin
         });
 }
 
-export function getAllIngredients() {
+export function getAllIngredients(setIngredients: (data: any) => void) {
     axios
         .get<any>
         (`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
         .then(response => {
-            // console.log(response.data.meals)
+            setIngredients(response.data.meals)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+export function getIngredientRecipes(setIngredientRecipe: (data: any) => void, id: string) {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/filter.php?i=${id}`)
+        .then(response => {
+            setIngredientRecipe(response.data.meals)
         })
         .catch(err => {
             console.log(err);

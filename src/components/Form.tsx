@@ -23,10 +23,12 @@ function Form() {
                         <span>Category</span>
                     </div>
                 </Link>
-                <div className='home__form__buttons__single buttons'>
-                    <i className="fas fa-apple-alt"></i>
-                    <span>Ingredients</span>
-                </div>
+                <Link to='/ingredients'>
+                    <div className='home__form__buttons__single buttons'>
+                        <i className="fas fa-apple-alt"></i>
+                        <span>Ingredients</span>
+                    </div>
+                </Link>
             </div>
 
         </div>

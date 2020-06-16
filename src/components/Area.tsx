@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {getAllAreas, getRecipeFromArea} from "../api/getRecipes";
 import Back from "./Back";
 import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import ScrollUp from "./ScrollUp";
 
 const Area = () => {
@@ -49,13 +50,13 @@ const Area = () => {
                 <h2>Dishes From <span className='title-decorate' id='area'>{areaName}</span></h2>
                 {areaRecipes.map( (meal: any, index: number) => {
                     return (
-                        <Link to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
+                        <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
                               onAnimationEnd={() => setFade(false)}>
                             <div>
                                 <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                 <span>{meal.strMeal}</span>
                             </div>
-                        </Link>
+                        </NavLink>
                     )
                 })
                 }

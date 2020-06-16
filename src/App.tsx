@@ -11,6 +11,7 @@ import {getRecipes} from "./api/getRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import Category from "./components/Category";
 import Area from "./components/Area";
+import Ingredients from "./components/Ingredients";
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
                     <Route path="/recipe/:id" component={SingleRecipe} />
                     <Route path="/category" component={Category} />
                     <Route path="/area" component={Area}/>
+                    <Route path="/ingredients" component={Ingredients}/>
                 </Switch>
                 <Footer/>
             </BrowserRouter>
