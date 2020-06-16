@@ -230,3 +230,28 @@ h3 {
     opacity: 0.05;
   }
 }
+
+.photo__section.category-recipes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.photo__section {
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__single {
+    transition: .5s;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.shown {
+  opacity: 1;
+}

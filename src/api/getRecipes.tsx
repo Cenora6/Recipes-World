@@ -39,6 +39,19 @@ export function getAllCategories(setCategory: (data: any) => void) {
         });
 }
 
+export function getRecipesFromCategory (setCategoryRecipes: (data: any) => void, id: string, setLoading: (data: any) => void) {
+    axios
+        .get<any>
+        (`https://www.themealdb.com/api/json/v1/1/filter.php?c=${id}`)
+        .then(response => {
+            setCategoryRecipes(response.data.meals);
+            setTimeout(() => setLoading(false), 4000);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
 export function getAllAreas(setArea: (data: any) => void) {
     axios
         .get<any>
@@ -50,6 +63,7 @@ export function getAllAreas(setArea: (data: any) => void) {
             console.log(err);
         });
 }
+
 export function getRecipeFromArea(setAreaRecipes: (data: any) => void, id: string) {
     axios
         .get<any>

@@ -1,37 +1,67 @@
 import React, {useState, useEffect} from 'react';
-import {getAllAreas} from "../api/getRecipes";
+import {getAllAreas, getRecipeFromArea} from "../api/getRecipes";
 import Back from "./Back";
-import {Link, Route} from "react-router-dom";
-import SingleArea from "./SingleArea";
+import { Link } from "react-scroll";
 
-const Area = ({ match }: any) => {
+const Area = () => {
     const [area, setArea] = useState<string[]>([]);
+    const [areaRecipes, setAreaRecipes] = useState<string[]>([]);
+    const [areaName, setAreaName] = useState<string>();
+    const [fade, setFade] = useState<boolean>(false);
 
     useEffect(() => {
         getAllAreas(setArea);
     }, []);
 
+    const handleSingleArea = (area: string) => {
+        setFade(false);
+        setAreaName(area);
+        setTimeout( () => {
+            getRecipeFromArea(setAreaRecipes, area);
+        }, 500)
+        setTimeout( () => {
+            setFade(true);
+        }, 600)
+    }
+
     return (
-        <div className='area base-page' id='area'>
-            <Back/>
-            <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
-            <div className='area__buttons'>
-                {area.map( (area: any, id: number) => {
+        <>
+            {console.log(fade)}
+            <div className='area base-page'>
+                <Back/>
+                <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
+                <div className='area__buttons'>
+                    {area.map( (area: any, id: number) => {
+                        return (
+                                <Link activeClass="active" to="area" spy={true} smooth={true} duration={1000}
+                                      onClick={() => handleSingleArea(area.strArea)} key={id}>
+                                    <div className='area__buttons__single buttons'>
+                                        <span>{area.strArea}</span>
+                                    </div>
+                                </Link>
+                        )
+                    })}
+                </div>
+            </div>
+
+            {areaRecipes.length > 0 &&
+            <div className='photo__section category-recipes'>
+                <h2>Dishes From <span className='title-decorate' id='area'>{areaName}</span></h2>
+                {areaRecipes.map( (meal: any, index: number) => {
                     return (
-                        <Link to={`${match.url}/${area.strArea}`} key={id} replace>
-                            <div className='area__buttons__single buttons'>
-                                <span>{area.strArea}</span>
+                        <Link to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
+                              onAnimationEnd={() => setFade(false)}>
+                            <div>
+                                <img src={meal.strMealThumb} alt={`dish${index}`}/>
+                                <span>{meal.strMeal}</span>
                             </div>
                         </Link>
                     )
-                })}
+                })
+                }
             </div>
-
-            <Route
-                path={`${match.url}/:id`}
-                render={(props) => <SingleArea {...props} />}
-            />
-        </div>
+            }
+        </>
     );
 }
 
