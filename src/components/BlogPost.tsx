@@ -8,6 +8,7 @@ import heartNot from "../assets/heart_not.png";
 import heartLiked from "../assets/heart_liked.png";
 import shareDone from "../assets/share_done.png";
 import shareNot from "../assets/share_not.png";
+import decoration from "../assets/decoration.png";
 
 function BlogPost () {
     const [post, setPost] = useState<any>();
@@ -69,7 +70,6 @@ function BlogPost () {
                                 <h3>{post.title}</h3>
                                 <div className='blog__description__text'>
                                     {post.full.split('\n\n').map( (i: any, index: number) => {
-                                        {console.log(i)}
                                         return (
                                             <>
                                                 <img src={photos && photos[index]} alt={`photo${index}`}/>
@@ -86,6 +86,41 @@ function BlogPost () {
                                     <div className='blog__description__icons__share'>
                                         <img src={share ? shareDone : shareNot} alt='share' onClick={sharePost}/>
                                         <span>Share!</span>
+                                    </div>
+                                </div>
+                                <div className='blog__description__comments'>
+                                    <h3>Comments</h3>
+                                    <img src={decoration} alt='decoration' className='decoration'/>
+                                    <div className='blog__description__comments__single'>
+                                        <h4>Robert Ponell</h4>
+                                        <p>Proin odio ex, molestie et accumsan finibus, imperdiet iaculis mi.
+                                            Morbi at nulla euismod, porttitor arcu ut, cursus arcu. Praesent non
+                                            sodales eros. Sed sit amet faucibus eros, sit amet cursus elit. Morbi
+                                            commodo commodo dui, eget hendrerit sapien ornare quis. Morbi pretium et
+                                            turpis ut iaculis. Praesent vitae dignissim orci. Duis ut neque et quam
+                                            maximus luctus eu vitae velit. Suspendisse porta ut arcu eu fringilla.
+                                        </p>
+                                        <button className='small-button'>Reply</button>
+
+                                        <span className='line-between'></span>
+
+                                        <div className='blog__description__comments__single__reply'>
+                                            <span className='line'></span>
+                                            <div className='blog__description__comments__single__reply__details'>
+                                                <h4>Patrick Wright</h4>
+                                                <p>Sed sagittis et risus vestibulum semper. Nunc vel tristique dui. Integer
+                                                    in purus eu quam auctor pretium gravida nec augue. Donec nisl ante,
+                                                    mollis ut risus eget, vulputate aliquet est. Nunc sit amet tellus
+                                                    sit amet nibh faucibus mattis.
+                                                </p>
+                                                <button className='small-button'>Reply</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src={decoration} alt='decoration' className='decoration'/>
+
+                                    <div className='blog__description__comments_write'>
+
                                     </div>
                                 </div>
                             </>
