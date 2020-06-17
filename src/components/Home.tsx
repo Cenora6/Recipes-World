@@ -42,11 +42,9 @@ function Home() {
                     <div className='home__welcome__header'>
                         <div className='home__welcome__header__text'>
                             <h2 className="scroll-animation">Recipes' <span className='title-decorate'>World</span> </h2>
-                            <p>Vivamus eget risus ultrices, vestibulum augue quis, placerat ligula. Proin et nibh ornare,
-                                rhoncus enim in, ultrices metus. Sed ligula odio, suscipit vel diam sit amet, placerat
-                                congue ex. Proin vel odio cursus, viverra tortor id, mollis est. Cras odio augue, vehicula
-                                sit amet condimentum ac, tempus et sem. Morbi pulvinar dui enim, quis molestie nunc pharetra
-                                vitae. Praesent a nisl tortor. In sed rhoncus arcu, at ultricies quam.</p>
+                            <p>This website was created for those who spend their days trying out new recipes in
+                                the kitchen, for those who always want to taste something new and original. Check our
+                                food recipes based on the dish name, category, ingrediens or area!</p>
                         </div>
                         <div className="home__welcome__header__images show-from-left scroll-animation">
                             <img src={welcomeSquare1} alt='welcome_square1'/>

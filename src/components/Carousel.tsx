@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import {
+    Link
+} from "react-router-dom";
 import Slider from "react-slick";
 import line from './../assets/line.png';
 import axios from "axios";
@@ -49,23 +52,25 @@ function Carousel() {
             <Slider {...settings}>
 
                 {
-                    blog.map( (post: any, index: number) => {
+                    blog.map( (post: any) => {
                         return (
-                                <div className='carousel' key={index}>
-                                    <div className='carousel__slide'>
-                                        <div className='carousel__slide__text'>
-                                            <h3>{post.title}</h3>
-                                            <img src={line} alt='decoration'/>
-                                            <p>{post.preview}</p>
+                            <div className='carousel' key={post.id}>
+                                <div className='carousel__slide'>
+                                    <div className='carousel__slide__text'>
+                                        <h3>{post.title}</h3>
+                                        <img src={line} alt='decoration'/>
+                                        <p>{post.preview}</p>
+                                        <Link to={`/blog/${post.id}`}>
                                             <div className='carousel__slide__text__button'>
                                                 <button className='small-button'>Read more</button>
                                             </div>
-                                        </div>
-                                        <div className='carousel__slide__image'>
-                                            <img src={post.image} alt='slide3'/>
-                                        </div>
+                                        </Link>
+                                    </div>
+                                    <div className='carousel__slide__image'>
+                                        <img src={post.image} alt='slide3'/>
                                     </div>
                                 </div>
+                            </div>
                         )
                     })
                 }

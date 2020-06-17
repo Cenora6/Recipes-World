@@ -18,7 +18,7 @@ export function Navigation(props: navigationProps) {
             <ul>
                 <li>
                     <Link activeClass="active" to="header_1" spy={true} smooth={true} duration={1000}>
-                        Header 1
+                        Welcome
                     </Link>
                 </li>
                 <li>
@@ -28,7 +28,7 @@ export function Navigation(props: navigationProps) {
                 </li>
                 <li>
                     <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000}>
-                        Header 2
+                        Statistics
                     </Link>
                 </li>
                 <li>

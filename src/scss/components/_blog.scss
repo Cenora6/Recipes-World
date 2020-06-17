@@ -1,0 +1,119 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 5rem 2rem;
+
+  &__description {
+    padding: 2rem;
+    width: 80%;
+    height: 80%;
+    background: $carousel-color;
+
+    h3 {
+      margin: 5rem 0;
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+
+      &__tags {
+        span {
+          background: $background;
+          color: #443838;
+          font-size: .8rem;
+          padding: 0.2rem 0.5rem;
+          margin: 0 1rem;
+          letter-spacing: .2rem;
+          cursor: pointer;
+          transition: 1s;
+
+          &:hover {
+            color: $background;
+            background: #443838;
+          }
+        }
+      }
+
+      &__date {
+        span {
+          font-size: 1.2rem;
+          line-height: 3rem;
+          letter-spacing: .2rem;
+          font-weight: 600;
+          color: #443838;
+          font-family: $recipe-font;
+          text-shadow: 5px 5px rgba(0, 0, 0, 0.18);
+          z-index: 2;
+        }
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem;
+
+      p {
+        padding: 0 5rem;
+        font-size: 1.2rem;
+        font-family: $base-font;
+        text-align: left;
+        line-height: 2.5rem;
+        color: $decorative-color;
+        margin: 3rem 0;
+      }
+
+      img {
+        width: 80%;
+        vertical-align:top;
+        height: 15rem;
+        object-fit: cover;
+        border: 0.2rem groove;
+        padding: 0.5rem;
+      }
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: flex-end;
+
+      &__share, &__like {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        span {
+          background: $background;
+          color: #443838;
+          font-size: .8rem;
+          padding: 0.2rem 0.5rem;
+          margin: 0 1rem;
+          letter-spacing: .2rem;
+          cursor: pointer;
+          transition: 1s;
+          opacity: 0;
+        }
+
+        img {
+          width: 3rem;
+          margin: 1rem;
+          cursor: pointer;
+        }
+
+        &:hover > span {
+          opacity: .5;
+        }
+      }
+    }
+
+  }
+
+}
