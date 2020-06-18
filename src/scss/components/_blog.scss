@@ -60,6 +60,13 @@
       align-items: center;
       margin: 2rem;
 
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
       p {
         padding: 0 5rem;
         font-size: 1.2rem;
@@ -122,8 +129,8 @@
       position: relative;
 
       .decoration {
-        z-index: 0;
         position: absolute;
+        z-index: 0;
 
         &:first-of-type {
           left: 0;
@@ -174,17 +181,15 @@
           }
         }
       }
-
-      .line-between {
-        background: #443838;
-        width: 80%;
-        position: relative;
-        height: 0.05rem;
-        opacity: .2;
-        margin: 1rem auto;
-      }
     }
-
   }
 
+  .line-between {
+    background: #443838;
+    width: 80%;
+    position: relative;
+    height: 0.05rem;
+    opacity: .2;
+    margin: 1rem auto;
+  }
 }
