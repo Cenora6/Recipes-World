@@ -9,7 +9,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  width: inherit;
 }
 
 h1, h2, h3, h4, h5 {
@@ -272,4 +271,12 @@ h4 {
 
 .shown {
   opacity: 1;
+}
+
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
 }

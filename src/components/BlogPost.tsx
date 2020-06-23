@@ -15,7 +15,9 @@ function BlogPost () {
     const [post, setPost] = useState<any>();
     const [photos, setPhotos] = useState<string[]>();
     const [liked, setLiked] = useState<boolean>(false);
+    const [likesNumber, setLikesNumber] = useState<number>();
     const [share, setShare] = useState<boolean>(false);
+    const [sharesNumber, setSharesNumber] = useState<number>();
     const [replyForm, setReplyForm] = useState<boolean>(false);
     const [comments, setComment] = useState<string[]>();
     const [replyClicked, setReplyClicked] = useState<number>();
@@ -27,6 +29,8 @@ function BlogPost () {
             (`http://localhost:3001/blog/${id}`)
             .then(response => {
                 setPost([response.data]);
+                setLikesNumber(response.data.likes);
+                setSharesNumber(response.data.shares);
                 setComment(response.data.comments);
             })
             .catch(err => {
@@ -49,16 +53,17 @@ function BlogPost () {
     }, [])
 
     const likePost = () => {
+        (liked) ? setLikesNumber( likesNumber && likesNumber - 1) : setLikesNumber( likesNumber && likesNumber + 1);
         setLiked(!liked);
     }
 
     const sharePost = () => {
+        (share) ? setSharesNumber( sharesNumber && sharesNumber - 1) : setSharesNumber( sharesNumber && sharesNumber + 1);
         setShare(!share);
     }
 
     const handleNewReply = (e: React.FormEvent, id: number) => {
         console.log(e.currentTarget!.parentElement);
-
         setReplyClicked(id);
         setReplyForm(true);
 
@@ -73,16 +78,27 @@ function BlogPost () {
 
     const handleCommentForm = (event: React.FormEvent) => {
 
-        //id : Math.random
-        //name
-        // text
-        // reply: []
-
         event.preventDefault();
         const enteredName = nameInputRef.current!.value;
         const enteredText = textAreaRef.current!.value;
         console.log(enteredName);
         console.log(enteredText);
+
+        // axios.post(
+        //     `http://localhost:3001/blog/${id}/reply`, {
+        //         body: JSON.stringify({
+        //             id: Math.random(),
+        //             name: enteredName,
+        //             text: enteredText,
+        //             reply: []
+        //         }),
+        // })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     }
 
     return (
@@ -117,11 +133,11 @@ function BlogPost () {
                                 <div className='blog__description__icons'>
                                     <div className='blog__description__icons__like'>
                                         <img src={liked ? heartLiked : heartNot} alt='like' onClick={likePost}/>
-                                        <span>Like!</span>
+                                        <span>~ {likesNumber} ~</span>
                                     </div>
                                     <div className='blog__description__icons__share'>
                                         <img src={share ? shareDone : shareNot} alt='share' onClick={sharePost}/>
-                                        <span>Share!</span>
+                                        <span>~ {sharesNumber} ~</span>
                                     </div>
                                 </div>
                                 <div className='blog__description__comments'>

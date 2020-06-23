@@ -23,7 +23,7 @@ const Area = () => {
         }, 500)
         setTimeout( () => {
             setFade(true);
-        }, 600)
+        }, 1000)
     }
 
     return (

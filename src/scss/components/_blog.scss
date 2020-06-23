@@ -104,19 +104,13 @@
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
           letter-spacing: .2rem;
-          cursor: pointer;
           transition: 1s;
-          opacity: 0;
         }
 
         img {
           width: 3rem;
           margin: 1rem;
           cursor: pointer;
-        }
-
-        &:hover > span {
-          opacity: .5;
         }
       }
     }
@@ -159,13 +153,15 @@
         }
 
         p {
+          width: 100%;
           font-family: $base-font;
           line-height: 2rem;
+          padding: 1rem;
         }
 
         &__reply {
           display: flex;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: center;
           width: 80%;
 
@@ -175,6 +171,7 @@
           }
 
           &__details {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -186,7 +183,7 @@
 
   .line-between {
     background: #443838;
-    width: 80%;
+    width: 90%;
     position: relative;
     height: 0.05rem;
     opacity: .2;

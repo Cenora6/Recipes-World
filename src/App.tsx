@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {
     BrowserRouter,
     Route,
-    Switch,
+    Switch
 } from 'react-router-dom';
 import Home from "./components/Home";
 import {Navigation} from "./components/Navigation";
@@ -15,6 +15,7 @@ import Names from "./components/Name";
 import BlogPost from "./components/BlogPost";
 
 const App = () => {
+    console.log(window.location.pathname)
 
     const [navDetails, setNavDetails] = useState<boolean>(false);
 
@@ -22,18 +23,21 @@ const App = () => {
         setNavDetails(!navDetails);
     }
 
+    // console.log(path.location)
+
     return (
         <>
             <BrowserRouter>
                 <Navigation showNavigation={showNavigation} details={navDetails}/>
-                <Switch>
+                    <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path="/recipe/:id" component={SingleRecipe} />
                     <Route path="/category" component={Category} />
                     <Route path="/area" component={Area}/>
                     <Route path="/ingredients" component={Ingredients}/>
+                    <Route path="/names" component={Names}/>
                     <Route path="/blog/:id" component={BlogPost}/>
-                </Switch>
+                    </Switch>
                 <Footer/>
             </BrowserRouter>
         </>
