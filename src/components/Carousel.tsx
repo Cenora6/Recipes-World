@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Link
 } from "react-router-dom";
 import Slider from "react-slick";
 import line from './../assets/line.png';
 import axios from "axios";
+import {getAllCategories} from "../api/getRecipes";
 const BLOG_URL = "http://localhost:3001/blog"
 
 const NextArrow = (props: any) => {
@@ -25,15 +26,17 @@ const PrevArrow = (props: any) => {
 function Carousel() {
     const [blog, setBlog] = useState<string[]>([]);
 
-    axios
-        .get<any>
-        (BLOG_URL)
-        .then(response => {
-            setBlog(response.data);
-        })
-        .catch(err => {
-            console.log(err.message)
-        })
+    useEffect(() => {
+        axios
+            .get<any>
+            (BLOG_URL)
+            .then(response => {
+                setBlog(response.data);
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, []);
 
     const settings = {
         infinite: true,

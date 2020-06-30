@@ -1,21 +1,22 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 const MEALS_URL = "http://localhost:3001/meals"
 
 function PhotoSection() {
     const [recipes, setRecipes] = useState<string[]>([]);
 
-    axios
-        .get<any>
-        (MEALS_URL)
-        .then(response => {
-            setRecipes(response.data);
-        })
-        .catch(err => {
-            console.log(err.message)
-        })
-
+    useEffect(() => {
+        axios
+            .get<any>
+            (MEALS_URL)
+            .then(response => {
+                setRecipes(response.data);
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, []);
 
     return (
         <div className='photo__section' id='photo'>
@@ -24,7 +25,7 @@ function PhotoSection() {
                     recipes.map( (meal: any, index: number) => {
                         return (
                             <Link to={`/recipe/${meal.idMeal}`} className='photo__section__single' key={index}>
-                                <div>
+                                <div className='photo__section__single__box'>
                                     <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                     <span>{meal.strMeal}</span>
                                 </div>

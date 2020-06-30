@@ -23,7 +23,7 @@ const Category = () => {
         }, 500)
         setTimeout( () => {
             setFade(true);
-        }, 1000)
+        }, 1500)
     }
 
     return (

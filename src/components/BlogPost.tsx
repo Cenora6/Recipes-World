@@ -12,6 +12,7 @@ import decoration from "../assets/decoration.png";
 import ReplyForm from "./ReplyForm";
 
 function BlogPost () {
+    console.log(window.location.origin, "blog post")
     const [post, setPost] = useState<any>();
     const [photos, setPhotos] = useState<string[]>();
     const [liked, setLiked] = useState<boolean>(false);
@@ -68,6 +69,7 @@ function BlogPost () {
         setReplyForm(true);
 
     }
+
 
     const handleCloseReply = () => {
         setReplyForm(false);

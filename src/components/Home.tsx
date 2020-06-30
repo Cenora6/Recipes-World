@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import welcome1 from './../assets/welcome1.jpg';
 import welcome2 from './../assets/welcome2.jpg';
 import welcomeSquare1 from './../assets/welcome_square1.jpg';
@@ -24,8 +24,15 @@ import Form from "./Form";
 import Carousel from "./Carousel";
 import PhotoSection from "./PhotoSection";
 import ScrollUp from "./ScrollUp";
+import {Navigation} from "./Navigation";
 
 function Home() {
+
+    const [navDetails, setNavDetails] = useState<boolean>(false);
+
+    function showNavigation() {
+        setNavDetails(!navDetails);
+    }
 
 
     window.addEventListener('scroll', function () {
@@ -36,6 +43,7 @@ function Home() {
 
     return (
         <>
+            <Navigation showNavigation={showNavigation} details={navDetails}/>
             <div className='home'>
                 <div className='home__welcome' id='header_1'>
                     <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>

@@ -80,41 +80,6 @@
               }
             }
           }
-
-            //span {
-            //  position: relative;
-            //  margin: 0 auto;
-            //  z-index: 2;
-            //  color: #333;
-            //  display: block;
-            //  vertical-align: middle;
-            //  width: 100%;
-            //  line-height: 10rem;
-            //
-            //  &:after {
-            //    content: "";
-            //    position: absolute;
-            //    height: 10rem;
-            //    width: 10rem;
-            //    left: 0;
-            //    top: 0;
-            //    z-index: -2;
-            //    background-color: $main-color;
-            //    transform: rotate(45deg);
-            //  }
-            //
-            //  &:before {
-            //    content: "";
-            //    position: absolute;
-            //    height: 8rem;
-            //    width: 8rem;
-            //    left: 1rem;
-            //    top: 0;
-            //    z-index: -1;
-            //    background-color: $background;
-            //    transform: rotate(45deg);
-            //  }
-            //}
         }
 
         p {
@@ -150,6 +115,7 @@
       height: 3rem;
       margin: 2rem;
       filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow-color);
+      animation: swing ease-in-out 1s infinite alternate;
     }
 
     &:before,
@@ -161,5 +127,14 @@
       background-repeat: repeat-x;
       background-size: 1.25rem 0.8rem;
     }
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
   }
 }
