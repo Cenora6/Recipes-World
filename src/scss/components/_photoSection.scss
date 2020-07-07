@@ -9,7 +9,7 @@
     margin: 2rem 0;
 
     h2 {
-      width: calc(35% - 1rem);
+      width: calc(33.7% - 1rem);
     }
 
     &__single {
@@ -33,6 +33,7 @@
         &:hover > span {
           opacity: 1;
           transform: rotate(45deg);
+
         }
 
         &:hover > img {
@@ -84,6 +85,7 @@
         opacity: 0;
         transition: .5s;
         z-index: 2;
+        letter-spacing: .2rem;
       }
     }
   }

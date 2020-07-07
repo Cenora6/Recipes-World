@@ -54,7 +54,7 @@ const Category = () => {
                     return (
                         <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
                               onAnimationEnd={() => setFade(false)}>
-                            <div>
+                            <div className='photo__section__single__box'>
                                 <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                 <span>{meal.strMeal}</span>
                             </div>

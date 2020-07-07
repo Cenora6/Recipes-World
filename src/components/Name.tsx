@@ -15,8 +15,6 @@ const Names = () => {
         const enteredText = nameInputRef.current!.value;
         setFade(false);
 
-        console.log(enteredText.length)
-
         if (enteredText.length === 0) {
             setTimeout( () => {
                 setRecipeNames([]);
@@ -29,40 +27,42 @@ const Names = () => {
 
         setTimeout( () => {
             setFade(true);
-        }, 700)
+        }, 1500)
     }
 
     return (
         <>
-            <section className='name base-page'>
+            <div className='name base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Names</span> </h2>
 
                 <input className="ingredients__buttons__input" placeholder="Start writing..." type='text'
                        id='ingredient-input' ref={nameInputRef} onChange={handleRecipesWriting}/>
 
-                {recipeNames ? recipeNames.length > 0 &&
-                    <div className='photo__section category-recipes'>
-                        {recipeNames.map((meal: any, index: number) => {
-                            return (
-                                <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
-                                         onAnimationEnd={() => setFade(false)}>
-                                    <div>
-                                        <img src={meal.strMealThumb} alt={`dish${index}`}/>
-                                        <span>{meal.strMeal}</span>
-                                    </div>
-                                </NavLink>
-                            )
-                        })
-                        }
-                    </div>
-                    :
-                    <div className='photo__section category-recipes'>
-                        <p className={`${fade ? 'shown' : 'hidden'}`}>No results...</p>
-                    </div>
 
-                }
-            </section>
+            </div>
+
+            {recipeNames ? recipeNames.length > 0 &&
+                <div className='photo__section category-recipes'>
+                    {recipeNames.map((meal: any, index: number) => {
+                        return (
+                            <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
+                                     onAnimationEnd={() => setFade(false)}>
+                                <div className='photo__section__single__box'>
+                                    <img src={meal.strMealThumb} alt={`dish${index}`}/>
+                                    <span>{meal.strMeal}</span>
+                                </div>
+                            </NavLink>
+                        )
+                    })
+                    }
+                </div>
+                :
+                <div className='photo__section category-recipes'>
+                    <p className={`${fade ? 'shown' : 'hidden'}`}>No results...</p>
+                </div>
+
+            }
             <ScrollUp/>
         </>
     );

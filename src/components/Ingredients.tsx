@@ -94,7 +94,7 @@ const Ingredients = () => {
                             return (
                                 <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade2 ? 'shown' : 'hidden'}`} key={index}
                                          onAnimationEnd={() => setFade2(false)}>
-                                    <div>
+                                    <div className='photo__section__single__box'>
                                         <img src={meal.strMealThumb} alt={`dish${index}`}/>
                                         <span>{meal.strMeal}</span>
                                     </div>
