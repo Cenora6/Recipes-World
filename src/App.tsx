@@ -12,7 +12,6 @@ import Area from "./components/Area";
 import Ingredients from "./components/Ingredients";
 import Names from "./components/Name";
 import BlogPost from "./components/BlogPost";
-import posed, { PoseGroup } from 'react-pose';
 
 const App = () => {
     console.log(window.location.pathname)
