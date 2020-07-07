@@ -1,44 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](src/assets/preview/preview1.png)
 
-## Available Scripts
+![](src/assets/preview/preview2.png)
 
-In the project directory, you can run:
+![](src/assets/preview/preview3.png)
 
-### `npm start`
+# Świat Przepisów
+## Recipes' World
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Description
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The "Recipes' World" website gathers recipes using a free [The Meal Database](https://www.themealdb.com/). The recipes are divided based on their name, category, ingredients and area. 
+ 
+### Technologies:
+- HTML5
+- SASS
+- React
+- TypeScript
 
-### `npm test`
+### Additional dependencies: 
+- [Node Sass](https://www.npmjs.com/package/node-sass/)
+- [React Router Dom](https://www.npmjs.com/package/react-router-dom/)
+- [CSS Reset and Normalize SASS](https://www.npmjs.com/package/css-reset-and-normalize-sass)
+- [React Scroll](https://www.npmjs.com/package/react-scroll/)
+- [React Slick](https://www.npmjs.com/package/react-slick)
+- [React Player](https://www.npmjs.com/package/react-player)
+- [Slick Carousel](https://www.npmjs.com/package/slick-carousel)
+- [Axios](https://www.npmjs.com/package/axios)
+- [TypeScript](https://www.npmjs.com/package/typescript)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation:
 
-### `npm run build`
+-  ```git clone https://github.com/Cenora6/Recipes-World.git``` to clone the repository
+- ```npm install``` to install all dependencies
+- ```json-server --watch src/api/db.json --port 3001``` to launch the json-server to watch db.json and generate the corresponding API
+- ```npm start``` and ```http://localhost:3000/``` in the browser to preview the app :)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Preview
+To preview the application, go to ⇒ https://cenora6.github.io/Recipes-World/
