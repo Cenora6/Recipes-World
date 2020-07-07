@@ -4,6 +4,7 @@ import Back from "./Back";
 import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
 import ScrollUp from "./ScrollUp";
+import {Footer} from "./Footer";
 
 const Category = () => {
     const [category, setCategory] = useState<string[]>([]);
@@ -65,6 +66,7 @@ const Category = () => {
             </div>
             }
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

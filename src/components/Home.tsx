@@ -25,6 +25,7 @@ import Carousel from "./Carousel";
 import PhotoSection from "./PhotoSection";
 import ScrollUp from "./ScrollUp";
 import {Navigation} from "./Navigation";
+import {Footer} from "./Footer";
 
 function Home() {
 
@@ -116,6 +117,7 @@ function Home() {
                 <PhotoSection/>
             </div>
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

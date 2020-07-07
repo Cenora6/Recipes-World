@@ -4,6 +4,7 @@ import line from './../assets/line.png';
 import ReactPlayer from 'react-player'
 import Back from "./Back";
 import ScrollUp from "./ScrollUp";
+import {Footer} from "./Footer";
 
 function SingleRecipe(props: any) {
     const [single, setSingle] = useState<string[]>([]);
@@ -75,6 +76,7 @@ function SingleRecipe(props: any) {
                 }
             </section>
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

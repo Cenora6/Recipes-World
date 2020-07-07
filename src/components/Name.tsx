@@ -3,6 +3,7 @@ import {getRecipes} from "../api/getRecipes";
 import Back from "./Back";
 import {NavLink} from "react-router-dom";
 import ScrollUp from "./ScrollUp";
+import {Footer} from "./Footer";
 
 const Names = () => {
     const [recipeNames, setRecipeNames] = useState<string[]>([]);
@@ -64,6 +65,7 @@ const Names = () => {
 
             }
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

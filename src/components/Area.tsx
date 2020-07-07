@@ -4,6 +4,7 @@ import Back from "./Back";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 import ScrollUp from "./ScrollUp";
+import {Footer} from "./Footer";
 
 const Area = () => {
     const [area, setArea] = useState<string[]>([]);
@@ -63,6 +64,7 @@ const Area = () => {
             </div>
             }
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

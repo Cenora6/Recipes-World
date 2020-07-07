@@ -10,6 +10,7 @@ import shareDone from "../assets/share_done.png";
 import shareNot from "../assets/share_not.png";
 import decoration from "../assets/decoration.png";
 import ReplyForm from "./ReplyForm";
+import {Footer} from "./Footer";
 
 function BlogPost () {
     console.log(window.location.origin, "blog post")
@@ -51,7 +52,7 @@ function BlogPost () {
                 console.log(err.message)
             })
 
-    }, [])
+    }, [id])
 
     const likePost = () => {
         (liked) ? setLikesNumber( likesNumber && likesNumber - 1) : setLikesNumber( likesNumber && likesNumber + 1);
@@ -126,7 +127,7 @@ function BlogPost () {
                                     {post.full.split('\n\n').map( (i: any, index: number) => {
                                         return (
                                             <div key={index}>
-                                                <img src={photos && photos[index]} alt={`photo${index}`}/>
+                                                <img src={photos && photos[index]} alt={`photograph${index}`}/>
                                                 <p>{i}</p>
                                             </div>
                                         )
@@ -156,10 +157,9 @@ function BlogPost () {
                                                            nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
 
                                                 {comment.reply.length > 0 &&
-                                                    comment.reply.map ( (reply: any, i: number) => {
-                                                        return (
-
-                                                            <>
+                                                comment.reply.map ( (reply: any, i: number) => {
+                                                    return (
+                                                        <div key={i}>
                                                             <span className='line-between'></span>
                                                             <div className='blog__description__comments__single__reply'>
                                                                 <div className='blog__description__comments__single__reply__details'>
@@ -171,9 +171,9 @@ function BlogPost () {
                                                                                nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
                                                                 </div>
                                                             </div>
-                                                            </>
-                                                        )
-                                                    })
+                                                        </div>
+                                                    )
+                                                })
 
                                                 }
 
@@ -195,6 +195,7 @@ function BlogPost () {
                     }
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

@@ -183,8 +183,8 @@ h4 {
   //
   &.is-visible {
     transform: translate3d(0, 0, 0);
-  //  //transform: rotateZ(-3deg) ;
-  //  transform: perspective(2500px) rotateY(0);
+    //  //transform: rotateZ(-3deg) ;
+    //  transform: perspective(2500px) rotateY(0);
   }
 }
 
@@ -284,8 +284,9 @@ h4 {
 
 .switch-wrapper {
   position: relative;
-}
 
-.switch-wrapper > div {
-  position: absolute;
+  & > div {
+    position: absolute;
+    width: 100%;
+  }
 }

@@ -4,6 +4,7 @@ import Back from "./Back";
 import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
 import ScrollUp from "./ScrollUp";
+import {Footer} from "./Footer";
 
 const Ingredients = () => {
     const [ingredients, setIngredients] = useState<any[]>([]);
@@ -111,6 +112,7 @@ const Ingredients = () => {
                 }
             </section>
             <ScrollUp/>
+            <Footer/>
         </>
     );
 }

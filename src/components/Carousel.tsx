@@ -5,7 +5,6 @@ import {
 import Slider from "react-slick";
 import line from './../assets/line.png';
 import axios from "axios";
-import {getAllCategories} from "../api/getRecipes";
 const BLOG_URL = "http://localhost:3001/blog"
 
 const NextArrow = (props: any) => {
