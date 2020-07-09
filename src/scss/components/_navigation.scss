@@ -7,6 +7,7 @@
   transition: 1s;
 
   &__lines {
+    cursor: pointer;
     width: 3rem;
     height: 3rem;
     position: relative;
@@ -16,6 +17,10 @@
     bottom: 0;
     z-index: 10;
     animation: heartbeat 1.5s ease-in-out infinite both;
+
+    &:hover > span {
+      background-color: #443838;
+    }
   }
 
   &__line {
@@ -45,9 +50,8 @@
   }
 
   @include phone {
-    cursor: pointer;
     width: 100%;
-    transition: 2s;
+    transition: 1s;
     background: transparent;
     border-radius: 50%;
 
@@ -60,7 +64,7 @@
       border-radius: 50%;
       left: -6rem;
       top: -6rem;
-      transition: 2s;
+      transition: 1s;
     }
   }
 
@@ -74,10 +78,12 @@
     position: absolute;
 
     @include phone {
+      margin: 3rem 0;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      transition: .5s;
 
       li {
         margin: 0 1rem;
@@ -157,6 +163,7 @@
     height: 3rem;
 
     @include phone {
+      height: 100%;
 
       .navigation {
         &__line__2 {
@@ -193,7 +200,6 @@
     @include phone {
       height: 3rem;
     }
-
 
     ul {
       opacity: 0;

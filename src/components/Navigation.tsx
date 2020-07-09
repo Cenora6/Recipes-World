@@ -23,17 +23,16 @@ export function Navigation(props: navigationProps) {
 
     }, []);
 
-    const handleShowNavigation = () => {
+    const handleNavigation = () => {
         setClicked(!clicked)
     }
 
     return (
 
         (width < 767) ?
-            <nav className={`navigation ${clicked ? 'show' : 'hide'}`}
-                 onClick={() => handleShowNavigation()}>
+            <nav className={`navigation ${clicked ? 'show' : 'hide'}`}>
 
-                <div className='navigation__lines'>
+                <div className='navigation__lines' onClick={handleNavigation}>
                     <span className="navigation__line navigation__line__1"></span>
                     <span className="navigation__line navigation__line__2"></span>
                     <span className="navigation__line navigation__line__3"></span>
@@ -42,27 +41,27 @@ export function Navigation(props: navigationProps) {
 
                 <ul>
                     <li>
-                        <Link activeClass="active" to="header_1" spy={true} smooth={true} duration={1000} onClick={handleShowNavigation}>
+                        <Link activeClass="active" to="header_1" spy={true} smooth={true} duration={1000} onClick={handleNavigation}>
                             Welcome
                         </Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="carousel" spy={true} smooth={true} duration={1000} onClick={handleShowNavigation}>
+                        <Link activeClass="active" to="carousel" spy={true} smooth={true} duration={1000} onClick={handleNavigation}>
                             Blog Highlights
                         </Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000} onClick={handleShowNavigation}>
+                        <Link activeClass="active" to="header_2" spy={true} smooth={true} duration={1000} onClick={handleNavigation}>
                             Statistics
                         </Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="form" spy={true} smooth={true} duration={1000} onClick={handleShowNavigation}>
+                        <Link activeClass="active" to="form" spy={true} smooth={true} duration={1000} onClick={handleNavigation}>
                             Give it a try!
                         </Link>
                     </li>
                     <li>
-                        <Link activeClass="active" to="photo" spy={true} smooth={true} duration={1000} onClick={handleShowNavigation}>
+                        <Link activeClass="active" to="photo" spy={true} smooth={true} duration={1000} onClick={handleNavigation}>
                             Popular Dishes
                         </Link>
                     </li>
