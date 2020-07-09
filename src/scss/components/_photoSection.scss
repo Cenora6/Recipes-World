@@ -8,8 +8,18 @@
     padding: 2rem;
     margin: 2rem 0;
 
+    @include phone {
+      margin: 0;
+    }
+
     h2 {
       width: calc(33.7% - 1rem);
+
+      @include phone {
+        width: 100%;
+        margin: 1rem;
+        text-align: center;
+      }
     }
 
     &__single {

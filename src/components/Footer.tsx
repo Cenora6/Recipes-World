@@ -29,18 +29,18 @@ export function Footer() {
                     <ul>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Discover
                             </a>
                         </li>
 
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Tasty
                             </a>
                         </li>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Recipes
                             </a>
                         </li>
                     </ul>
@@ -50,18 +50,18 @@ export function Footer() {
                     <ul>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                About Me
                             </a>
                         </li>
 
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Blog Posts
                             </a>
                         </li>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                FAQ
                             </a>
                         </li>
                     </ul>
@@ -71,17 +71,17 @@ export function Footer() {
                     <ul>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Terms & Conditions
                             </a>
                         </li>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Privacy Policy
                             </a>
                         </li>
                         <li>
                             <a href='/'>
-                                Lorem Ipsum
+                                Accessibility Policy
                             </a>
                         </li>
                     </ul>

@@ -200,6 +200,10 @@
 
     @include phone {
       height: 3rem;
+
+      ul {
+        display: none;
+      }
     }
 
     ul {

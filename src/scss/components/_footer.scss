@@ -8,6 +8,10 @@
   transition: 2s;
   border-top: .5rem groove $background;
 
+  @include phone {
+    flex-direction: column-reverse;
+  }
+
   &__links {
     display: flex;
     justify-content: center;
@@ -16,8 +20,17 @@
     top: 0;
     width: 70%;
 
+    @include phone {
+      width: 90%;
+    }
+
     &__list {
       margin: 2rem 3rem;
+
+      @include phone {
+        margin: 0;
+      }
+
         li {
           padding: 1rem 0;
           cursor: pointer;
@@ -67,6 +80,11 @@
     color: $background;
     bottom: 0;
 
+    @include phone {
+      margin: 2rem;
+      width: 90%;
+    }
+
     i {
       font-size: 2rem;
     }
@@ -76,7 +94,7 @@
       flex-direction: column;
       margin: 0 1rem;
       font-size: .8rem;
-      line-height: 1.1rem;
+      line-height: 1.2rem;
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: .2rem;
@@ -103,16 +121,32 @@
     color: $background;
     width: 10%;
 
+    @include phone {
+      flex-direction: row;
+      width: 50%;
+      margin-top: 1rem;
+    }
+
     &__single {
       display: flex;
       justify-content: flex-end;
       width: 100%;
+
+      @include phone {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+      }
 
       i {
         margin-right: 2rem;
         padding: .5rem;
         cursor: pointer;
         font-size: 1.5rem;
+
+        @include phone {
+          margin-right: 0;
+        }
       }
 
       span {
@@ -126,6 +160,10 @@
         vertical-align: middle;
         padding: .4rem .5rem;
         margin: auto 0;
+
+        @include phone {
+          width: 100%;
+        }
 
         &.show-contact {
           opacity: 1;
