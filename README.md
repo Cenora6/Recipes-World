@@ -4,6 +4,8 @@
 
 ![](src/assets/preview/preview3.png)
 
+![](src/assets/preview/preview4.png)
+
 # Świat Przepisów
 ## Recipes' World
 
