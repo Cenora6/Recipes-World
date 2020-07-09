@@ -27,6 +27,7 @@
   justify-content: center;
   outline: none;
 
+
   &__slide {
     display: flex;
     justify-content: center;
@@ -35,6 +36,12 @@
     width: 90%;
     align-items: center;
     position: relative;
+
+    @include phone {
+      flex-direction: column;
+      width: 90%;
+      height: 50rem;
+    }
 
     &__text {
       display: flex;
@@ -45,6 +52,12 @@
       height: 100%;
       background: $carousel-color;
 
+      @include phone {
+        margin: auto;
+        width: 90%;
+        height: 50%;
+      }
+
       a {
         display: flex;
         justify-content: flex-end;
@@ -53,6 +66,10 @@
 
       img {
         height: 10rem;
+
+        @include phone {
+          height: 20%;
+        }
       }
 
       p {
@@ -61,6 +78,10 @@
         text-align: center;
         line-height: 2rem;
         color: $decorative-color;
+
+        @include phone {
+          width: 90%;
+        }
       }
 
 
@@ -75,6 +96,12 @@
         top: 50%;
         left: 50%;
         transform: translate(0%, -50%);
+
+        @include phone {
+          bottom: -10%;
+          transform: rotate(90deg) translate(0%, 50%);
+        }
+
       }
 
       &__button {
@@ -87,6 +114,12 @@
     &__image {
       height: 100%;
       width: 50%;
+
+      @include phone {
+        width: 90%;
+        height: 50%;
+      }
+
       img {
         height: 100%;
         width: 100%;

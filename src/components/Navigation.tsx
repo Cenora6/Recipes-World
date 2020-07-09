@@ -3,33 +3,23 @@ import { Link } from 'react-scroll';
 
 interface navigationProps {
     showNavigation: () => void;
-    details: boolean
+    details: boolean,
+    width: number
 }
 
 export function Navigation(props: navigationProps) {
 
-    const [width, setWidth] = useState<number>(window.innerWidth);
     const [clicked, setClicked] = useState<boolean>(false);
-
-    useEffect(() => {
-        const updateSize = () => {
-            setWidth(window.innerWidth);
-        }
-
-        window.addEventListener('resize', updateSize);
-        updateSize();
-
-        return () => window.removeEventListener('resize', updateSize);
-
-    }, []);
 
     const handleNavigation = () => {
         setClicked(!clicked)
     }
 
+    console.log(props.width)
+
     return (
 
-        (width < 767) ?
+        (props.width < 1024) ?
             <nav className={`navigation ${clicked ? 'show' : 'hide'}`}>
 
                 <div className='navigation__lines' onClick={handleNavigation}>

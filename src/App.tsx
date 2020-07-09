@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Route,
     BrowserRouter
@@ -13,6 +13,21 @@ import BlogPost from "./components/BlogPost";
 import { AnimatedSwitch } from "react-router-transition";
 
 const App = () => {
+
+    const [width, setWidth] = useState<number>(window.innerWidth);
+
+    useEffect(() => {
+        const updateSize = () => {
+            setWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', updateSize);
+        updateSize();
+
+        return () => window.removeEventListener('resize', updateSize);
+
+    }, []);
+
     return (
         <BrowserRouter>
             <AnimatedSwitch
@@ -21,7 +36,7 @@ const App = () => {
                 atActive={{ opacity: 1 }}
                 className="switch-wrapper"
             >
-                <Route exact path='/' component={Home}/>
+                <Route exact path='/' component={() => <Home width={width} /> } />
                 <Route exact path="/recipe/:id" component={SingleRecipe} />
                 <Route exact path="/category" component={Category} />
                 <Route exact path="/area" component={Area}/>

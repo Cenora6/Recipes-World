@@ -5,23 +5,44 @@
     align-content: center;
     margin: 2rem;
 
+    @include phone {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
     img {
       width: 33.3%;
       object-fit: cover;
       height: 100%;
       padding: 0.5rem;
       border: 0.2rem groove;
+
+      @include phone {
+        height: auto;
+      }
     }
 
     &__header {
       padding: 0 1rem;
       width: calc(60% - 1rem);
 
+      @include phone {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+      }
+
       &__text {
         display: flex;
         justify-content: center;
         flex-direction: column;
         height: 60%;
+
+        @include phone {
+          height: auto;
+        }
 
         &__categories {
           display: flex;
@@ -93,6 +114,11 @@
         height: 40%;
         border: 0.2rem groove;
         margin: 0 2rem;
+
+        @include phone {
+          margin: .5rem;
+        }
+
         img {
           border: none;
         }

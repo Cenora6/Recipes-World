@@ -27,7 +27,11 @@ import ScrollUp from "./ScrollUp";
 import {Navigation} from "./Navigation";
 import {Footer} from "./Footer";
 
-function Home() {
+interface homeProps {
+    width: number
+}
+
+function Home( props: homeProps ) {
 
     const [navDetails, setNavDetails] = useState<boolean>(false);
 
@@ -43,10 +47,12 @@ function Home() {
 
     return (
         <>
-            <Navigation showNavigation={showNavigation} details={navDetails}/>
+            <Navigation showNavigation={showNavigation} details={navDetails} width={props.width}/>
             <div className='home'>
                 <div className='home__welcome' id='header_1'>
+                    {props.width > 767 &&
                     <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>
+                    }
                     <div className='home__welcome__header'>
                         <div className='home__welcome__header__text'>
                             <h2 className="scroll-animation">Recipes' <span className='title-decorate'>World</span> </h2>
@@ -59,6 +65,7 @@ function Home() {
                             <img src={welcomeSquare2} alt='welcome_square2'/>
                             <img src={welcomeSquare3} alt='welcome_square3'/>
                         </div>
+
                     </div>
                 </div>
 

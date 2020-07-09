@@ -27,6 +27,12 @@
       align-content: center;
       margin: 5rem 0;
 
+
+
+      @include phone {
+        flex-wrap: wrap;
+      }
+
       &__single {
         width: 10rem;
         margin: 0 3rem;
