@@ -8,7 +8,7 @@ function PhotoSection() {
 
     useEffect(() => {
         axios
-            .get<any>
+            .get<string[]>
             (MEALS_URL)
             .then(response => {
                 setRecipes(response.data);
@@ -22,7 +22,7 @@ function PhotoSection() {
         <div className='photo__section' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
                 {
-                    recipes.map( (meal: any, index: number) => {
+                    recipes.map( (meal: any , index: number) => {
                         return (
                             <Link to={`/recipe/${meal.idMeal}`} className='photo__section__single' key={index}>
                                 <div className='photo__section__single__box'>

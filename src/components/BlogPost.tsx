@@ -11,10 +11,15 @@ import shareNot from "../assets/share_not.png";
 import decoration from "../assets/decoration.png";
 import ReplyForm from "./ReplyForm";
 import {Footer} from "./Footer";
+const blogURL = 'http://localhost:3001';
+
+type PhotosApiResponse = {
+    results: {urls: {regular: string}}[];
+}
 
 function BlogPost () {
     console.log(window.location.origin, "blog post")
-    const [post, setPost] = useState<any>();
+    const [post, setPost] = useState<string[]>();
     const [photos, setPhotos] = useState<string[]>();
     const [liked, setLiked] = useState<boolean>(false);
     const [likesNumber, setLikesNumber] = useState<number>();
@@ -25,11 +30,13 @@ function BlogPost () {
     const [replyClicked, setReplyClicked] = useState<number>();
 
     let { id } = useParams();
+
     useEffect( () => {
         axios
             .get<any>
-            (`http://localhost:3001/blog/${id}`)
+            (`${blogURL}/blog/${id}`)
             .then(response => {
+                console.log(response)
                 setPost([response.data]);
                 setLikesNumber(response.data.likes);
                 setSharesNumber(response.data.shares);
@@ -42,7 +49,7 @@ function BlogPost () {
         let photoArray: string[] = [];
 
         axios
-            .get<any>
+            .get<PhotosApiResponse>
             (`https://api.unsplash.com/search/photos?client_id=1FavNGGDNEiol0lspKANnpqyyBWdzLYvV5rVAlGw-Zg&page=${id}&per_page=10&query=food`)
             .then(response => {
                 response.data.results.map( (photo:any) => photoArray.push(photo.urls.regular))
@@ -68,7 +75,6 @@ function BlogPost () {
         console.log(e.currentTarget!.parentElement);
         setReplyClicked(id);
         setReplyForm(true);
-
     }
 
 
@@ -88,7 +94,7 @@ function BlogPost () {
         console.log(enteredText);
 
         // axios.post(
-        //     `http://localhost:3001/blog/${id}/reply`, {
+        //     `http://localhost:3001/blog/${id}/comments/reply`, {
         //         body: JSON.stringify({
         //             id: Math.random(),
         //             name: enteredName,
@@ -124,7 +130,7 @@ function BlogPost () {
                                 </div>
                                 <h3>{post.title}</h3>
                                 <div className='blog__description__text'>
-                                    {post.full.split('\n\n').map( (i: any, index: number) => {
+                                    {post.full.split('\n\n').map( (i: string[], index: number) => {
                                         return (
                                             <div key={index}>
                                                 <img src={photos && photos[index]} alt={`photograph${index}`}/>
@@ -148,7 +154,7 @@ function BlogPost () {
                                     <img src={decoration} alt='decoration' className='decoration'/>
                                     {comments && comments.map( (comment: any, index: number) => {
                                         return (
-                                            <div className='blog__description__comments__single' key={index}>
+                                            <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
                                                 <h4>{comment.name}</h4>
                                                 <p>{comment.text}</p>
                                                 <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
@@ -158,6 +164,7 @@ function BlogPost () {
 
                                                 {comment.reply.length > 0 &&
                                                 comment.reply.map ( (reply: any, i: number) => {
+                                                    console.log(reply)
                                                     return (
                                                         <div key={i}>
                                                             <span className='line-between'></span>

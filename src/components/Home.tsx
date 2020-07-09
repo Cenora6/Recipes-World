@@ -35,7 +35,6 @@ function Home() {
         setNavDetails(!navDetails);
     }
 
-
     window.addEventListener('scroll', function () {
         scroll(loop);
     });

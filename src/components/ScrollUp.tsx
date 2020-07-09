@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import scroll from './../assets/vertical-scroll.png'
 
 function ScrollUp() {
-    const [showScroll, setShowScroll] = useState(false)
+    const [showScroll, setShowScroll] = useState<boolean>(false)
 
     const checkScrollTop = () => {
         if (!showScroll && window.pageYOffset > 400){

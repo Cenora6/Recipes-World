@@ -7,7 +7,7 @@ import ScrollUp from "./ScrollUp";
 import {Footer} from "./Footer";
 
 const Ingredients = () => {
-    const [ingredients, setIngredients] = useState<any[]>([]);
+    const [ingredients, setIngredients] = useState<any>([]);
     const [ingredientInput, setIngredientInput] = useState<string>();
     const [ingredientRecipe, setIngredientRecipe] = useState<string[]>([]);
     const [ingredientName, setIngredientName] = useState<string>();
