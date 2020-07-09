@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import scroll from './../assets/vertical-scroll.png'
 
 function ScrollUp() {
@@ -12,7 +12,11 @@ function ScrollUp() {
         }
     };
 
-    window.addEventListener('scroll', checkScrollTop)
+    useEffect(() => {
+        window.addEventListener('scroll', checkScrollTop)
+
+    }, );
+
 
     function scrollTop () {
         window.scrollTo({top: 0, behavior: 'smooth'});

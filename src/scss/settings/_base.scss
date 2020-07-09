@@ -30,6 +30,11 @@ h2 {
   @include phone {
     margin: 0 3rem;
     line-height: 3rem;
+    font-size: 1.5rem;
+
+    &:first-letter {
+      font-size: 3rem;
+    }
   }
 }
 

@@ -15,10 +15,18 @@
       z-index: -1;
       left: 0;
       opacity: 0.1;
+
+      @include phone {
+        background-size: 80% 30%;
+      }
     }
 
     h2 {
       text-align: center;
+
+      @include phone {
+        text-align: left;
+      }
     }
 
     &__buttons {
@@ -27,10 +35,12 @@
       align-content: center;
       margin: 5rem 0;
 
-
-
       @include phone {
         flex-wrap: wrap;
+
+        a {
+          margin: 1rem 0;
+        }
       }
 
       &__single {
