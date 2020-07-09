@@ -49,6 +49,11 @@
           align-content: center;
           margin: 2rem 8rem;
 
+          @include phone {
+            margin: 2rem;
+            width: 90%;
+          }
+
           .diamond {
             position: relative;
             height: 10rem;
@@ -57,6 +62,12 @@
             text-align: center;
             z-index: 0;
             margin: 1rem auto;
+
+            @include phone {
+              height: 5rem;
+              width: 5rem;
+              line-height: 4rem;
+            }
 
             &:before {
               content: '';
@@ -81,6 +92,12 @@
               z-index: 0;
               transform: rotateX(45deg) rotateZ(45deg);
               background: $background;
+
+              @include phone {
+                  height: 4rem;
+                  width: 4rem;
+                left: .5rem;
+              }
             }
 
             span {
@@ -90,6 +107,10 @@
               position: relative;
               color: $main-color;
 
+              @include phone {
+                font-size: 1rem;
+              }
+
               &.rotated {
                 position: absolute;
                 left: -3.5rem;
@@ -97,6 +118,12 @@
                 transform: rotate(35deg);
                 font-size: 1.5rem;
                 font-family: $recipe-font;
+
+                @include phone {
+                  font-size: 1rem;
+                  bottom: 0;
+                  transform: rotate(35deg) translate(30%, 20%);
+                }
 
               }
             }

@@ -107,7 +107,9 @@ function Home( props: homeProps ) {
                             <img src={welcomeSquare6} alt='welcome_square6'/>
                         </div>
                     </div>
+                    {props.width > 767 &&
                     <img src={welcome2} alt='recipe2' className="show-from-right scroll-animation"/>
+                    }
                 </div>
                 <div className='home__decoration'>
                     <img src={watermelon} alt='apple'/>
