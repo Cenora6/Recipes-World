@@ -151,51 +151,46 @@ function BlogPost () {
                                 </div>
                                 <div className='blog__description__comments'>
                                     <h3>Comments</h3>
-                                    <img src={decoration} alt='decoration' className='decoration'/>
                                     {comments && comments.map( (comment: any, index: number) => {
                                         return (
-                                            <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
-                                                <h4>{comment.name}</h4>
-                                                <p>{comment.text}</p>
-                                                <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
-                                                {replyForm && replyClicked === comment.id &&
-                                                <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                           nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
+                                                    <h4>{comment.name}</h4>
+                                                    <p>{comment.text}</p>
+                                                    <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
+                                                    {replyForm && replyClicked === comment.id &&
+                                                    <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                                               nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
 
-                                                {comment.reply.length > 0 &&
-                                                comment.reply.map ( (reply: any, i: number) => {
-                                                    console.log(reply)
-                                                    return (
-                                                        <div key={i}>
-                                                            <span className='line-between'></span>
-                                                            <div className='blog__description__comments__single__reply'>
-                                                                <div className='blog__description__comments__single__reply__details'>
-                                                                    <h4>{reply.name}</h4>
-                                                                    <p>{reply.text}</p>
-                                                                    <button className='small-button' onClick={(e) => handleNewReply(e, reply.id)}>Reply</button>
-                                                                    {replyForm && replyClicked === reply.id &&
-                                                                    <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                                               nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                    {comment.reply.length > 0 &&
+                                                    comment.reply.map ( (reply: any, i: number) => {
+                                                        console.log(reply)
+                                                        return (
+                                                            <div key={i}>
+                                                                <span className='line-between'></span>
+                                                                <div className='blog__description__comments__single__reply'>
+                                                                    <div className='blog__description__comments__single__reply__details'>
+                                                                        <h4>{reply.name}</h4>
+                                                                        <p>{reply.text}</p>
+                                                                        <button className='small-button' onClick={(e) => handleNewReply(e, reply.id)}>Reply</button>
+                                                                        {replyForm && replyClicked === reply.id &&
+                                                                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    )
-                                                })
+                                                        )
+                                                    })
 
-                                                }
+                                                    }
 
-                                                <span className='line-between'></span>
-
-                                            </div>
+                                                    <span className='line-between'></span>
+                                                </div>
                                         )
-
                                     })}
-                                    <img src={decoration} alt='decoration' className='decoration'/>
 
-                                    <div className='blog__description__comments_write'>
-
-                                    </div>
+                                    {/*<img src={decoration} alt='decoration' className='decoration'/>*/}
                                 </div>
+
                             </section>
                         )
                     })
