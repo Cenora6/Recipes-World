@@ -63,7 +63,7 @@ const Ingredients = () => {
     }
 
     return (
-        <>
+        <div className='page-container'>
             <section className='ingredients base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Ingredients</span> </h2>
@@ -113,7 +113,7 @@ const Ingredients = () => {
             </section>
             <ScrollUp/>
             <Footer/>
-        </>
+        </div>
     );
 }
 

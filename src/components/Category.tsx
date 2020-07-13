@@ -28,8 +28,8 @@ const Category = () => {
     }
 
     return (
-        <>
-            <div className='category base-page'>
+        <div className='page-container'>
+            <section className='category base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Categories</span> </h2>
 
@@ -46,10 +46,10 @@ const Category = () => {
                         )
                     })}
                 </div>
-            </div>
+            </section>
 
             {categoryRecipes.length > 0 &&
-            <div className='photo__section category-recipes'>
+            <section className='photo__section category-recipes'>
                 <h2 id='category'>Dishes From <span className='title-decorate'>{categoryName}</span></h2>
                 {categoryRecipes.map((meal: any, index: number) => {
                     return (
@@ -63,11 +63,11 @@ const Category = () => {
                     )
                 })
                 }
-            </div>
+            </section>
             }
             <ScrollUp/>
             <Footer/>
-        </>
+        </div>
     );
 }
 

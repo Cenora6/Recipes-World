@@ -28,8 +28,8 @@ const Area = () => {
     }
 
     return (
-        <>
-            <div className='area base-page'>
+        <div className='page-container'>
+            <section className='area base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
                 <div className='area__buttons'>
@@ -44,10 +44,10 @@ const Area = () => {
                         )
                     })}
                 </div>
-            </div>
+            </section>
 
             {areaRecipes.length > 0 &&
-            <div className='photo__section category-recipes'>
+            <section className='photo__section category-recipes'>
                 <h2>Dishes From <span className='title-decorate' id='area'>{areaName}</span></h2>
                 {areaRecipes.map( (meal: any, index: number) => {
                     return (
@@ -61,11 +61,11 @@ const Area = () => {
                     )
                 })
                 }
-            </div>
+            </section>
             }
             <ScrollUp/>
             <Footer/>
-        </>
+        </div>
     );
 }
 

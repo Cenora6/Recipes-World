@@ -46,9 +46,9 @@ function Home( props: homeProps ) {
     scroll(loop);
 
     return (
-        <>
+        <div className='page-container'>
             <Navigation showNavigation={showNavigation} details={navDetails} width={props.width}/>
-            <div className='home'>
+            <section className='home'>
                 <div className='home__welcome' id='header_1'>
                     {props.width > 767 &&
                     <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>
@@ -123,10 +123,10 @@ function Home( props: homeProps ) {
                     <img src={avocado} alt='avocado'/>
                 </div>
                 <PhotoSection/>
-            </div>
+            </section>
             <ScrollUp/>
             <Footer/>
-        </>
+        </div>
     );
 }
 

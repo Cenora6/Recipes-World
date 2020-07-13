@@ -32,8 +32,8 @@ const Names = () => {
     }
 
     return (
-        <>
-            <div className='name base-page'>
+        <div className='page-container'>
+            <section className='name base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Names</span> </h2>
 
@@ -41,10 +41,10 @@ const Names = () => {
                        id='ingredient-input' ref={nameInputRef} onChange={handleRecipesWriting}/>
 
 
-            </div>
+            </section>
 
             {recipeNames ? recipeNames.length > 0 &&
-                <div className='photo__section category-recipes'>
+                <section className='photo__section category-recipes'>
                     {recipeNames.map((meal: any, index: number) => {
                         return (
                             <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
@@ -57,16 +57,16 @@ const Names = () => {
                         )
                     })
                     }
-                </div>
+                </section>
                 :
-                <div className='photo__section category-recipes'>
+                <section className='photo__section category-recipes'>
                     <p className={`${fade ? 'shown' : 'hidden'}`}>No results...</p>
-                </div>
+                </section>
 
             }
             <ScrollUp/>
             <Footer/>
-        </>
+        </div>
     );
 }
 

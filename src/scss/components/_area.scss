@@ -10,10 +10,19 @@
     width: 50%;
     margin: 0 auto;
 
+    @include phone {
+      width: auto;
+    }
+
     &__single {
       width: 15rem;
       padding: 1rem 2rem;
       margin: 1rem;
+
+      @include phone {
+        flex: 1 1 30%;
+        width: 11rem;
+      }
     }
   }
 }
