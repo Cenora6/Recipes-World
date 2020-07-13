@@ -14,7 +14,11 @@ function ScrollUp() {
 
     useEffect(() => {
         window.addEventListener('scroll', checkScrollTop)
-    }, []);
+
+        return () => {
+            window.removeEventListener('scroll', checkScrollTop);
+        };
+    }, );
 
 
     function scrollTop () {

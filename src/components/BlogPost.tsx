@@ -8,7 +8,6 @@ import heartNot from "../assets/heart_not.png";
 import heartLiked from "../assets/heart_liked.png";
 import shareDone from "../assets/share_done.png";
 import shareNot from "../assets/share_not.png";
-import decoration from "../assets/decoration.png";
 import ReplyForm from "./ReplyForm";
 import {Footer} from "./Footer";
 const blogURL = 'http://localhost:3001';
@@ -187,8 +186,6 @@ function BlogPost () {
                                                 </div>
                                         )
                                     })}
-
-                                    {/*<img src={decoration} alt='decoration' className='decoration'/>*/}
                                 </div>
 
                             </section>

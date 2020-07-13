@@ -2,6 +2,7 @@
   "name": "recipes-world",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://cenora6.github.io/Recipes-World/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -23,14 +24,13 @@
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "react-select": "^3.1.0",
+    "react-slick": "^0.26.1",
     "slick-carousel": "^1.8.1",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
