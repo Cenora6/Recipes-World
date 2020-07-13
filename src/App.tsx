@@ -29,7 +29,7 @@ const App = () => {
     }, []);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={window.location.pathname || ''}>
             <AnimatedSwitch
                 atEnter={{ opacity: 0 }}
                 atLeave={{ opacity: 0 }}

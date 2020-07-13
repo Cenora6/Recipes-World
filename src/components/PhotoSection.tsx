@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 const MEALS_URL = "http://localhost:3001/meals"
+console.log(window.location.pathname)
 
 function PhotoSection() {
     const [recipes, setRecipes] = useState<string[]>([]);
