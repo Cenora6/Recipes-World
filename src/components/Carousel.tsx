@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
     Link
 } from "react-router-dom";
 import Slider from "react-slick";
 import line from './../assets/line.png';
-import axios from "axios";
-const BLOG_URL = "http://localhost:3001/blog"
+import db from '../api/db.json';
 
 const NextArrow = (props: any) => {
     const { onClick } = props;
@@ -23,19 +22,6 @@ const PrevArrow = (props: any) => {
 
 
 function Carousel() {
-    const [blog, setBlog] = useState<string[]>([]);
-
-    useEffect(() => {
-        axios
-            .get<any>
-            (BLOG_URL)
-            .then(response => {
-                setBlog(response.data);
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
-    }, []);
 
     const settings = {
         infinite: true,
@@ -54,7 +40,7 @@ function Carousel() {
             <Slider {...settings}>
 
                 {
-                    blog.map( (post: any) => {
+                    db.blog.map( (post: any) => {
                         return (
                             <div className='carousel' key={post.id}>
                                 <div className='carousel__slide'>

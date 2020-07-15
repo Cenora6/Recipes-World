@@ -28,11 +28,13 @@
     "slick-carousel": "^1.8.1",
     "typescript": "^3.7.5"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "api": "json-server --watch src/api/db.json --port 3001",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

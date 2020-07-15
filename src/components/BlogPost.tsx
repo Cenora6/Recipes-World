@@ -10,40 +10,30 @@ import shareDone from "../assets/share_done.png";
 import shareNot from "../assets/share_not.png";
 import ReplyForm from "./ReplyForm";
 import {Footer} from "./Footer";
-const blogURL = 'http://localhost:3001';
+import db from '../api/db.json';
 
 type PhotosApiResponse = {
     results: {urls: {regular: string}}[];
 }
 
 function BlogPost () {
-    console.log(window.location.origin, "blog post")
-    const [post, setPost] = useState<string[]>();
+
     const [photos, setPhotos] = useState<string[]>();
     const [liked, setLiked] = useState<boolean>(false);
     const [likesNumber, setLikesNumber] = useState<number>();
     const [share, setShare] = useState<boolean>(false);
     const [sharesNumber, setSharesNumber] = useState<number>();
     const [replyForm, setReplyForm] = useState<boolean>(false);
-    const [comments, setComment] = useState<string[]>();
     const [replyClicked, setReplyClicked] = useState<number>();
 
+
     let { id } = useParams();
+    const post = db.blog[id - 1];
+    console.log(post.likes)
 
     useEffect( () => {
-        axios
-            .get<any>
-            (`${blogURL}/blog/${id}`)
-            .then(response => {
-                console.log(response)
-                setPost([response.data]);
-                setLikesNumber(response.data.likes);
-                setSharesNumber(response.data.shares);
-                setComment(response.data.comments);
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
+        setLikesNumber(post.likes)
+        setSharesNumber(post.shares)
 
         let photoArray: string[] = [];
 
@@ -92,21 +82,25 @@ function BlogPost () {
         console.log(enteredName);
         console.log(enteredText);
 
-        // axios.post(
-        //     `http://localhost:3001/blog/${id}/comments/reply`, {
-        //         body: JSON.stringify({
-        //             id: Math.random(),
-        //             name: enteredName,
-        //             text: enteredText,
-        //             reply: []
-        //         }),
-        // })
-        //     .then(function (response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        const target = event.currentTarget!.parentElement!.parentElement!.parentElement;
+        const replyId = Math.floor(Math.random() * Math.floor(10000));
+
+        const reply =
+            `<div key={replyId}>
+                <span className='line-between'></span>
+                <div className='blog__description__comments__single__reply'>
+                    <div className='blog__description__comments__single__reply__details'>
+                        <h4>{enteredName}</h4>
+                        <p>{enteredText}</p>
+                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId)}>Reply</button>
+                        {replyForm && replyClicked === replyId &&
+                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                    </div>
+                </div>
+            </div>`
+
+        console.log(reply);
     }
 
     return (
@@ -114,9 +108,6 @@ function BlogPost () {
             <Back/>
             <div className='blog'>
                 <div className='blog__description'>
-                    {post &&
-                    post.map( (post: any) => {
-                        return (
                             <section key={post.id}>
                                 <div className='blog__description__details'>
                                     <div className='blog__description__details__date'>
@@ -129,7 +120,7 @@ function BlogPost () {
                                 </div>
                                 <h3>{post.title}</h3>
                                 <div className='blog__description__text'>
-                                    {post.full.split('\n\n').map( (i: string[], index: number) => {
+                                    {post.full.split('\n\n').map( (i: any, index: number) => {
                                         return (
                                             <div key={index}>
                                                 <img src={photos && photos[index]} alt={`photograph${index}`}/>
@@ -150,7 +141,7 @@ function BlogPost () {
                                 </div>
                                 <div className='blog__description__comments'>
                                     <h3>Comments</h3>
-                                    {comments && comments.map( (comment: any, index: number) => {
+                                    {post.comments && post.comments.map( (comment: any, index: number) => {
                                         return (
                                                 <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
                                                     <h4>{comment.name}</h4>
@@ -187,11 +178,7 @@ function BlogPost () {
                                         )
                                     })}
                                 </div>
-
                             </section>
-                        )
-                    })
-                    }
                 </div>
             </div>
             <Footer/>

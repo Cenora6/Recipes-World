@@ -1,29 +1,14 @@
-import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-const MEALS_URL = "http://localhost:3001/meals"
-console.log(window.location.pathname)
+import db from '../api/db.json';
 
 function PhotoSection() {
-    const [recipes, setRecipes] = useState<string[]>([]);
-
-    useEffect(() => {
-        axios
-            .get<string[]>
-            (MEALS_URL)
-            .then(response => {
-                setRecipes(response.data);
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
-    }, []);
 
     return (
         <div className='photo__section' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
                 {
-                    recipes.map( (meal: any , index: number) => {
+                    db.meals.map( (meal: any , index: number) => {
                         return (
                             <Link to={`/recipe/${meal.idMeal}`} className='photo__section__single' key={index}>
                                 <div className='photo__section__single__box'>
