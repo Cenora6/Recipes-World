@@ -34,8 +34,7 @@ The "Recipes' World" website gathers recipes using a free [The Meal Database](ht
 
 -  ```git clone https://github.com/Cenora6/Recipes-World.git``` to clone the repository
 - ```npm install``` to install all dependencies
-- ```json-server --watch src/api/db.json --port 3001``` to launch the json-server to watch db.json and generate the corresponding API
-- ```npm start``` and ```http://localhost:3000/``` in the browser to preview the app :)
+- ```npm start``` and ```http://localhost:3000/``` in the browser to preview the website
 
 ### Preview
 To preview the application, go to ⇒ https://cenora6.github.io/Recipes-World/
