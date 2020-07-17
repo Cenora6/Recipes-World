@@ -9,17 +9,49 @@
   }
 
   .fa-long-arrow-alt-left {
-    top: 50%;
-    left: 1rem;
+    left: 0;
     transform: translate(0%, -50%);
+
+    &:after {
+      border-bottom-right-radius: 6rem;
+      border-top-right-radius: 6rem;
+      left: 0;
+      transform: translate(-50%, -50%);
+      margin-left: 2rem;
+    }
   }
 
   .fa-long-arrow-alt-right {
-    top: 50%;
-    right: 1rem;
+    right: 0;
     transform: translate(0%, -50%);
 
+    &:after {
+      border-bottom-left-radius: 6rem;
+      border-top-left-radius: 6rem;
+      right: 0;
+      transform: translate(50%, -50%);
+      margin-right: 2rem;
+    }
   }
+
+  .fa-long-arrow-alt-right, .fa-long-arrow-alt-left {
+    top: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 4rem;
+      height: 8rem;
+      background: $background;
+      top: 50%;
+      z-index: -1;
+    }
+  }
+}
+
+#carousel {
+  width: 95%;
+  margin: auto;
 }
 
 .carousel {
@@ -27,19 +59,17 @@
   justify-content: center;
   outline: none;
 
-
   &__slide {
     display: flex;
     justify-content: center;
-    margin: 1rem auto;
+    margin: auto;
     height: 40rem;
-    width: 90%;
     align-items: center;
     position: relative;
 
     @include phone {
       flex-direction: column;
-      width: 90%;
+      width: 100%;
       height: 50rem;
     }
 
@@ -68,7 +98,7 @@
         height: 10rem;
 
         @include phone {
-          height: 20%;
+          height: 15%;
         }
       }
 

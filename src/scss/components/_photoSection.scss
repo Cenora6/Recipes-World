@@ -42,7 +42,7 @@
 
         @include phone {
           flex-direction: column;
-          height: 30rem;
+          height: 100%;
           justify-content: normal;
         }
 
@@ -88,6 +88,10 @@
         height: 95%;
         object-fit: cover;
         padding: 0.5rem;
+
+        @include phone {
+          padding: 1rem 0.5rem;
+        }
       }
 
       span {
@@ -106,7 +110,7 @@
         letter-spacing: .2rem;
 
         @include phone {
-          position: relative;
+          position: absolute;
           width: 100%;
           opacity: 1;
           line-height: 1.5rem;

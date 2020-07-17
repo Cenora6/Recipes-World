@@ -16,7 +16,6 @@
   &__links {
     display: flex;
     justify-content: center;
-    align-items: center;
     transition: 2s;
     top: 0;
     width: 70%;
@@ -28,6 +27,7 @@
 
     &__list {
       margin: 2rem 3rem;
+      line-height: 1.5rem;
 
       @include phone {
         margin: 0;
@@ -67,6 +67,9 @@
         }
 
       ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         transition: .5s;
       }
     }
@@ -179,8 +182,8 @@
 
 .line {
   position: relative;
-  width: 5rem;
+  width: 7rem;
   background: #FFFFFF;
   height: 0.2rem;
-  transform: rotate(90deg);
+  transform: rotate(90deg) translate(100%, -50%);
 }

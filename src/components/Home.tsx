@@ -87,15 +87,15 @@ function Home( props: homeProps ) {
                         <div className='home__welcome__header__text'>
                             <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Statistics</span> </h2>
                             <div className='home__welcome__header__text__categories'>
-                                <div className='diamond'>
+                                <div className='diamond  show-from-left scroll-animation'>
                                     <span>563</span>
                                     <span className='rotated'>ingredients</span>
                                 </div>
-                                <div className='diamond'>
+                                <div className='diamond  show-from-left scroll-animation'>
                                     <span>236</span>
                                     <span className='rotated'>recipes</span>
                                 </div>
-                                <div className='diamond'>
+                                <div className='diamond  show-from-left scroll-animation'>
                                     <span>24</span>
                                     <span className='rotated'>areas</span>
                                 </div>

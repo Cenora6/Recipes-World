@@ -1,8 +1,6 @@
 body {
   background: $background;
   font-family: $base-font;
-  overflow-x: hidden;
-  width: 100vw;
   height: 100vh;
 }
 
@@ -47,7 +45,7 @@ h3 {
   word-spacing: 1rem;
 
   @include phone {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
