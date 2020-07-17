@@ -13,6 +13,7 @@ function SingleRecipe(props: any) {
     let {id} = match.params;
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         searchRecipeById(id, setSingle);
     }, [id]);
 

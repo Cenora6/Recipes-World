@@ -8,7 +8,8 @@
     flex-direction: column;
 
     &__input {
-      padding: 1rem 10rem;
+      width: 100%;
+      padding: 1rem 20%;
       outline: none;
       text-align: center;
       font-family: $title-font;
@@ -20,6 +21,17 @@
       color: $main-color;
       font-weight: 700;
       margin: 1rem;
+
+      &.error {
+        border: .2rem solid crimson;
+        color:crimson;
+      }
+    }
+
+    &__enter {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
     }
 
     &__single {

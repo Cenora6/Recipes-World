@@ -32,6 +32,7 @@ function BlogPost () {
     console.log(post.likes)
 
     useEffect( () => {
+        window.scrollTo(0, 0);
         setLikesNumber(post.likes)
         setSharesNumber(post.shares)
 

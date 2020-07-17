@@ -14,6 +14,7 @@ const Category = () => {
 
     useEffect(() => {
         getAllCategories(setCategory);
+            window.scrollTo(0, 0);
     }, []);
 
     const handleSingleCategory = (category: string) => {

@@ -16,6 +16,7 @@ const Ingredients = () => {
 
     useEffect(() => {
         getAllIngredients(setIngredients);
+            window.scrollTo(0, 0);
     }, []);
 
     const handleSingleIngredient = (ingredient: string) => {

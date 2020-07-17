@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import welcome1 from './../assets/welcome1.jpg';
 import welcome2 from './../assets/welcome2.jpg';
 import welcomeSquare1 from './../assets/welcome_square1.jpg';
@@ -34,6 +34,10 @@ interface homeProps {
 function Home( props: homeProps ) {
 
     const [navDetails, setNavDetails] = useState<boolean>(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     function showNavigation() {
         setNavDetails(!navDetails);

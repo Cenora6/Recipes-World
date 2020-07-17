@@ -110,7 +110,7 @@
           transition: 1s;
 
           @include phone {
-            margin: 1rem;
+            margin: .5rem;
           }
 
           &:hover {
@@ -128,7 +128,6 @@
       position: relative;
 
       @include phone {
-        align-items: center;
         margin-top: 6rem;
       }
 
@@ -141,7 +140,8 @@
         z-index: 0;
 
         @include phone {
-          height: 30rem;
+          width: 90%;
+          margin: auto;
         }
       }
 
@@ -156,6 +156,10 @@
         padding: 1rem 0;
         top: -3rem;
 
+        @include phone {
+          margin: 0 2rem;
+        }
+
         &:after {
           content: "";
           position: absolute;
@@ -164,6 +168,10 @@
           z-index: 1;
           width: 140%;
           height: 100%;
+
+          @include phone {
+            width: 100%;
+          }
         }
 
         li {
@@ -181,6 +189,10 @@
             margin-top: 2rem;
             text-decoration: overline;
             list-style: none;
+          }
+
+          @include phone {
+            font-size: 1rem;
           }
 
           span {

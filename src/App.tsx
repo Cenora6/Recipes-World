@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {
     Route,
-    BrowserRouter
+    BrowserRouter, HashRouter
 } from 'react-router-dom';
 import Home from "./components/Home";
 import SingleRecipe from "./components/SingleRecipe";
@@ -20,16 +20,16 @@ const App = () => {
         const updateSize = () => {
             setWidth(window.innerWidth);
         }
-
         window.addEventListener('resize', updateSize);
         updateSize();
-
         return () => window.removeEventListener('resize', updateSize);
 
     }, []);
 
+    window.scrollTo(0, 0);
+
     return (
-        <BrowserRouter basename={window.location.pathname || ''}>
+        <HashRouter>
             <AnimatedSwitch
                 atEnter={{ opacity: 0 }}
                 atLeave={{ opacity: 0 }}
@@ -44,7 +44,7 @@ const App = () => {
                 <Route exact path="/names" component={Names}/>
                 <Route exact path="/blog/:id" component={BlogPost}/>
             </AnimatedSwitch>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

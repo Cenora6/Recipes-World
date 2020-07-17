@@ -46,6 +46,10 @@
       top: 50%;
       z-index: -1;
     }
+
+    &:before {
+      margin: 1rem;
+    }
   }
 }
 

@@ -8,6 +8,7 @@
   border-top: .5rem groove $background;
   position: relative;
   bottom: 0;
+  z-index: 10;
 
   @include phone {
     flex-direction: column-reverse;
@@ -18,7 +19,7 @@
     justify-content: center;
     transition: 2s;
     top: 0;
-    width: 70%;
+    width: 40%;
 
     @include phone {
       justify-content: space-evenly;
@@ -26,51 +27,69 @@
     }
 
     &__list {
+      width: calc(100% /3);
       margin: 2rem 3rem;
       line-height: 1.5rem;
+      position: relative;
+
+      &:nth-of-type(2):after, &:nth-of-type(3):after {
+        content: "";
+        width: 0.2rem;
+        height: 80%;
+        position: absolute;
+        background: $background;
+        top: 10%;
+        left: -50%;
+
+        @include phone {
+          left: -25%;
+        }
+      }
 
       @include phone {
         margin: 0;
       }
 
-        li {
-          padding: 1rem 0;
-          cursor: pointer;
-          z-index: 1;
+      li {
+        padding: 1rem 0;
+        cursor: pointer;
+        z-index: 1;
 
-          a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.2s ease-in-out;
-            position: relative;
-            padding: 0.3rem 0;
+        a {
+          color: white;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+          position: relative;
+          padding: 0.3rem 0;
 
+          &:after, &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0.05rem;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+            background-color: $background;
+          }
+
+          &:hover {
             &:after, &:before {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 0;
-              height: 0.05rem;
-              transition: all 0.5s ease-in-out;
-              opacity: 0;
-              background-color: $background;
-            }
-
-            &:hover {
-              &:after, &:before {
-                width: 100%;
-                opacity: 1;
-              }
+              width: 100%;
+              opacity: 1;
             }
           }
         }
+      }
 
       ul {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
         align-items: flex-start;
         transition: .5s;
+        height: 100%;
       }
     }
   }
@@ -110,9 +129,9 @@
 
       p {
         span {
-            background: $background;
-            width: 30%;
-            color: $main-color;
+          background: $background;
+          width: 30%;
+          color: $main-color;
         }
       }
     }
@@ -178,12 +197,4 @@
       }
     }
   }
-}
-
-.line {
-  position: relative;
-  width: 7rem;
-  background: #FFFFFF;
-  height: 0.2rem;
-  transform: rotate(90deg) translate(100%, -50%);
 }

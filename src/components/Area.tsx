@@ -14,6 +14,7 @@ const Area = () => {
 
     useEffect(() => {
         getAllAreas(setArea);
+        window.scrollTo(0, 0);
     }, []);
 
     const handleSingleArea = (area: string) => {

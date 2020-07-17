@@ -5,6 +5,10 @@
   align-items: center;
   margin: 5rem 2rem;
 
+  @include phone {
+    margin: 5rem 1rem;
+  }
+
   &__description {
     padding: 2rem;
     width: 80%;
@@ -191,16 +195,15 @@
 
         &:nth-child(odd) {
           &:after {
-            right: -30rem;
+            left: -30rem;
             transform: translateZ(-1px);
           }
         }
 
         &:nth-child(even) {
           &:after {
-            left: -20rem;
             top: 6rem;
-            transform: translateZ(-1px) rotate(50deg);
+            transform: translateZ(-1px) rotate(90deg);
           }
         }
 
