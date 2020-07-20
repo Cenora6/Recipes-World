@@ -55,6 +55,7 @@ const Ingredients = () => {
     }
 
     const clearSearch = () => {
+        ingredientInputRef.current!.value = '';
         setIngredientInput('');
         setIngredientRecipe([]);
         setIngredientName('');
@@ -115,7 +116,8 @@ const Ingredients = () => {
                        id='ingredient-input' ref={ingredientInputRef} onChange={handleIngredientWriting} onClick={clearSearch}/>
                 <div className='ingredients__buttons'>
                     <>
-                        {chosenIngredients.length > 0 ? visibleIngredients.map( (ingredient: any, id: number) => {
+                        {ingredientInput ?
+                            chosenIngredients.length > 0 ? visibleIngredients.map( (ingredient: any, id: number) => {
                                 return (
                                     <Link activeClass="active" to="ingredient" spy={true} smooth={true} duration={1000}
                                           onClick={() => handleSingleIngredient(ingredient)} key={id} delay={500} offset={-50}>
@@ -127,14 +129,17 @@ const Ingredients = () => {
                             }) :
                             <div className='ingredients__buttons__single buttons' style={{opacity:`${fade ? '.5' : '0'}`}}>
                                 <span>No results...</span>
-                            </div>}
+                            </div>
+                        :
+                            null
+                        }
                     </>
                     {chosenIngredients.length > 0 && buttons}
                 </div>
             </section>
 
             <section className='photo__section category-recipes' id='ingredient'>
-                {ingredientRecipe ? ingredientRecipe.length > 0 &&
+                {ingredientRecipe ?  ingredientRecipe.length > 0 &&
                     <>
                         <h2>Dishes With <span className='title-decorate'>{ingredientName}</span></h2>
                         {ingredientRecipe.map( (meal: any, index: number) => {

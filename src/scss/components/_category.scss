@@ -12,7 +12,7 @@
     width: 60%;
     margin: 0 auto;
 
-    @include phone {
+    @include phoneAndTablet {
       width: 90%;
     }
 
@@ -29,6 +29,12 @@
         margin: .5rem;
       }
 
+      @include phoneAndTablet {
+        width: 10rem;
+        height: 10rem;
+        margin: .5rem;
+      }
+
       div {
         display: flex;
         flex-direction: column;
@@ -42,12 +48,6 @@
       span {
         margin-top: 2rem;
       }
-
     }
-
-
   }
-
-
-
 }

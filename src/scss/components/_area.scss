@@ -10,7 +10,7 @@
     width: 50%;
     margin: 0 auto;
 
-    @include phone {
+    @include phoneAndTablet {
       width: auto;
     }
 

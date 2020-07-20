@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
 
-    @include phone {
+    @include phoneAndTablet {
       flex-direction: column-reverse;
     }
 
@@ -19,9 +19,14 @@
       background: $carousel-color;
       margin: 3rem;
 
-      @include phone {
+      @include phoneAndTablet {
         width: auto;
         margin: 1rem;
+      }
+
+      @include tablet {
+        width: 90%;
+        margin: auto;
       }
 
       &__video {
@@ -29,7 +34,7 @@
         justify-content: center;
         align-items: center;
 
-        @include phone {
+        @include phoneAndTablet {
           width: 80%;
           margin: auto;
         }
@@ -143,6 +148,11 @@
           width: 90%;
           margin: auto;
         }
+
+        @include tablet {
+          width: 70%;
+          margin: auto;
+        }
       }
 
       ul {
@@ -171,6 +181,10 @@
 
           @include phone {
             width: 100%;
+          }
+
+          @include tablet {
+            width: 70%;
           }
         }
 
