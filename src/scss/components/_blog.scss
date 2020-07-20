@@ -15,7 +15,7 @@
     height: 80%;
     background: $carousel-color;
 
-    @include phone {
+    @include phoneAndTablet {
       width: 100%;
     }
 
@@ -83,7 +83,7 @@
       align-items: center;
       margin: 2rem;
 
-      @include phone {
+      @include phoneAndTablet {
         margin: 0;
       }
 
@@ -213,7 +213,7 @@
           }
         }
 
-        @include phone {
+        @include phoneAndTablet {
           width: auto;
         }
 
