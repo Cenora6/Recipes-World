@@ -54,12 +54,12 @@ function Home( props: homeProps ) {
             <Navigation showNavigation={showNavigation} details={navDetails} width={props.width}/>
             <section className='home'>
                 <div className='home__welcome' id='header_1'>
-                    {props.width > 767 &&
+                    {props.width > 1025 &&
                     <img src={welcome1} alt='recipe1' className="show-from-right scroll-animation"/>
                     }
                     <div className='home__welcome__header'>
                         <div className='home__welcome__header__text'>
-                            <h2 className="scroll-animation">Recipes' <span className='title-decorate'>World</span> </h2>
+                            <h2 className="scroll-animation">Recipes' <span className='title-decorate'>World</span></h2>
                             <p>This website was created for those who spend their days trying out new recipes in
                                 the kitchen, for those who always want to taste something new and original. Check our
                                 food recipes based on the dish name, category, ingrediens or area!</p>
@@ -111,7 +111,7 @@ function Home( props: homeProps ) {
                             <img src={welcomeSquare6} alt='welcome_square6'/>
                         </div>
                     </div>
-                    {props.width > 767 &&
+                    {props.width > 1024 &&
                     <img src={welcome2} alt='recipe2' className="show-from-right scroll-animation"/>
                     }
                 </div>

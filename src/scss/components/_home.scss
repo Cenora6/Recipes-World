@@ -21,6 +21,11 @@
         width: 100%;
         height: auto;
       }
+
+      @include tablet {
+        height: 33.3%;
+        width: 100%;
+      }
     }
 
     &__header {
@@ -35,6 +40,13 @@
         padding: 0;
       }
 
+      @include tablet {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+      }
+
       &__text {
         display: flex;
         justify-content: center;
@@ -45,11 +57,16 @@
           height: auto;
         }
 
+        @include tablet {
+          height: auto;
+          width: 50%;
+        }
+
         &__categories {
           display: flex;
           align-content: center;
 
-          @include phone {
+          @include phoneAndTablet {
             flex-direction: column;
           }
 
@@ -61,6 +78,10 @@
             text-align: center;
             z-index: 0;
             margin: 1rem auto;
+
+            @include tablet {
+              margin: 3rem auto;
+            }
 
             &:before {
               content: '';
@@ -131,12 +152,19 @@
         margin: 0 2rem;
 
         @include phone {
-
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           margin: .5rem;
+        }
+
+
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+          width: 50%;
         }
 
         img {
