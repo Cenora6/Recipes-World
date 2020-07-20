@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {getAllIngredients, getIngredientRecipes} from "../api/getRecipes";
-import Back from "./Back";
+import {getAllIngredients, getIngredientRecipes} from "../../api/getRecipes";
+import Back from "../Navigations/Back";
 import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
-import ScrollUp from "./ScrollUp";
-import {Footer} from "./Footer";
+import ScrollUp from "../Navigations/ScrollUp";
+import {Footer} from "../Navigations/Footer";
 
 const Ingredients = () => {
     const [ingredients, setIngredients] = useState<any>([]);
@@ -138,7 +138,7 @@ const Ingredients = () => {
                 </div>
             </section>
 
-            <section className='photo__section category-recipes' id='ingredient'>
+            <section className='photo__section flex-box category-recipes' id='ingredient'>
                 {ingredientRecipe ?  ingredientRecipe.length > 0 &&
                     <>
                         <h2>Dishes With <span className='title-decorate'>{ingredientName}</span></h2>

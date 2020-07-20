@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import scroll from './../assets/vertical-scroll.png'
+import scroll from '../../assets/vertical-scroll.png'
 
 function ScrollUp() {
     const [showScroll, setShowScroll] = useState<boolean>(false)

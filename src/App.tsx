@@ -3,13 +3,13 @@ import {
     Route,
     HashRouter
 } from 'react-router-dom';
-import Home from "./components/Home";
-import SingleRecipe from "./components/SingleRecipe";
-import Category from "./components/Category";
-import Area from "./components/Area";
-import Ingredients from "./components/Ingredients";
-import Names from "./components/Name";
-import BlogPost from "./components/BlogPost";
+import Home from "./components/Home/Home";
+import SingleRecipe from "./components/SingleRecipe/SingleRecipe";
+import Category from "./components/Search/Category";
+import Area from "./components/Search/Area";
+import Ingredients from "./components/Search/Ingredients";
+import Names from "./components/Search/Name";
+import BlogPost from "./components/Blog/BlogPost";
 import { AnimatedSwitch } from "react-router-transition";
 
 const App = () => {

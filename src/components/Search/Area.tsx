@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {getAllAreas, getRecipeFromArea} from "../api/getRecipes";
-import Back from "./Back";
+import {getAllAreas, getRecipeFromArea} from "../../api/getRecipes";
+import Back from "../Navigations/Back";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
-import ScrollUp from "./ScrollUp";
-import {Footer} from "./Footer";
+import ScrollUp from "../Navigations/ScrollUp";
+import {Footer} from "../Navigations/Footer";
 
 const Area = () => {
     const [area, setArea] = useState<string[]>([]);
@@ -33,7 +33,7 @@ const Area = () => {
             <section className='area base-page'>
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
-                <div className='area__buttons'>
+                <div className='area__buttons flex-box'>
                     {area.map( (area: any, id: number) => {
                         return (
 
@@ -48,7 +48,7 @@ const Area = () => {
                 </div>
             </section>
 
-            <section className='photo__section category-recipes' id='area'>
+            <section className='photo__section flex-box category-recipes' id='area'>
                 {areaRecipes.length > 0 &&
                 <>
                     <h2>Dishes From <span className='title-decorate'>{areaName}</span></h2>

@@ -3,8 +3,8 @@ import {
     Link
 } from "react-router-dom";
 import Slider from "react-slick";
-import line from './../assets/line.png';
-import db from '../api/db.json';
+import line from './../../assets/line.png';
+import db from '../../api/db.json';
 
 const NextArrow = (props: any) => {
     const { onClick } = props;

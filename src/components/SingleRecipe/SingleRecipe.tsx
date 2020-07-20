@@ -1,40 +1,40 @@
 import React, {useEffect, useState} from 'react';
-import {searchRecipeById} from "../api/getRecipes";
-import line from './../assets/line.png';
+import {searchRecipeById} from "../../api/getRecipes";
+import line from './../../assets/line.png';
 import ReactPlayer from 'react-player'
-import Back from "./Back";
-import ScrollUp from "./ScrollUp";
-import {Footer} from "./Footer";
+import Back from "../Navigations/Back";
+import ScrollUp from "../Navigations/ScrollUp";
+import {Footer} from "../Navigations/Footer";
 
 function SingleRecipe(props: any) {
-    const [single, setSingle] = useState<string[]>([]);
+    const [singleRecipe, setSingleRecipe] = useState<string[]>([]);
 
     const { match } = props;
     let {id} = match.params;
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        searchRecipeById(id, setSingle);
+        searchRecipeById(id, setSingleRecipe);
     }, [id]);
 
-    const ingredientsNumber: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    const ingredientsNumber: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
     return (
         <>
-            <section className='single'>
+            <section className='singleRecipe'>
                 {
-                    single.map( (meal: any, index: number) => {
+                    singleRecipe.map( (meal: any, index: number) => {
                         return (
-                            <div className='single__details' key={index}>
+                            <div className='singleRecipe__details flex-box' key={index}>
                                 <Back/>
-                                <div className='single__details__text'>
-                                    <div className='single__details__text__category'>
+                                <div className='singleRecipe__details__text flex-box'>
+                                    <div className='singleRecipe__details__text__category'>
                                         <span className='area'>{meal.strArea}</span>
                                         <span className='category'>{meal.strCategory}</span>
                                     </div>
                                     <h3>{meal.strMeal}</h3>
                                     <img src={line} alt='line'/>
 
-                                    <div className='single__details__text__video'>
+                                    <div className='singleRecipe__details__text__video flex-box'>
                                         {meal.strYoutube &&
                                         <ReactPlayer
                                             url={meal.strYoutube}
@@ -51,7 +51,7 @@ function SingleRecipe(props: any) {
                                         })}
                                     </ul>
 
-                                    <div className='single__details__text__tags'>
+                                    <div className='singleRecipe__details__text__tags'>
                                         {meal.strTags && meal.strTags.split(',').map((text: string, i: number) => {
                                             return (
                                                 text.length !== 0 && <span className='tags' key={i}># {text}</span>
@@ -60,7 +60,7 @@ function SingleRecipe(props: any) {
                                     </div>
                                 </div>
 
-                                <div className='single__details__photo'>
+                                <div className='singleRecipe__details__photo'>
                                     <img src={meal.strMealThumb} alt={meal.strMeal} className='photo'/>
                                     <ul>
                                         <li>Ingredients</li>

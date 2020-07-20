@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {getAllCategories, getRecipesFromCategory} from "../api/getRecipes";
-import Back from "./Back";
+import {getAllCategories, getRecipesFromCategory} from "../../api/getRecipes";
+import Back from "../Navigations/Back";
 import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
-import ScrollUp from "./ScrollUp";
-import {Footer} from "./Footer";
+import ScrollUp from "../Navigations/ScrollUp";
+import {Footer} from "../Navigations/Footer";
 
 const Category = () => {
     const [category, setCategory] = useState<string[]>([]);
@@ -50,7 +50,7 @@ const Category = () => {
                 </div>
             </section>
 
-            <section className='photo__section category-recipes' id='category'>
+            <section className='photo__section flex-box  category-recipes' id='category'>
                 {categoryRecipes.length > 0 &&
                 <>
                     <h2>Dishes From <span className='title-decorate'>{categoryName}</span></h2>

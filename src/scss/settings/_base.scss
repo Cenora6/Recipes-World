@@ -19,12 +19,19 @@ h2 {
   letter-spacing: 0.7rem;
   margin: 3rem;
   text-transform: uppercase;
+
   &:first-letter {
     font-size: 4rem;
     color: $main-color;
   }
 
-  @include phoneAndTablet {
+  .title-decorate {
+    background: $main-color;
+    color: $background;
+    padding: .5rem;
+  }
+
+  @include phone-and-tablet {
     margin: 1rem 3rem;
     line-height: 3rem;
     font-size: 1.5rem;
@@ -58,14 +65,8 @@ h4 {
   font-size: 2rem;
   font-weight: 500;
   color: $background;
-  background: #443838;
+  background: $decorative-color;
   padding: 1rem;
-}
-
-.title-decorate {
-  background: $main-color;
-  color: $background;
-  padding: .5rem;
 }
 
 .small-button, .big-button, .medium-button {
@@ -175,7 +176,7 @@ h4 {
   text-align: right;
   font-size: .7rem;
   text-transform: uppercase;
-  border: 0.1rem solid #443838;
+  border: 0.1rem solid $decorative-color;
   border-radius: 1rem;
   padding: .5rem 1rem;
   transition: .5s;
@@ -383,4 +384,10 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

@@ -2,15 +2,15 @@ import React, {useEffect, useState, useRef} from 'react';
 import {
     useParams
 } from "react-router-dom";
-import Back from "./Back";
+import Back from "../Navigations/Back";
 import axios from "axios";
-import heartNot from "../assets/heart_not.png";
-import heartLiked from "../assets/heart_liked.png";
-import shareDone from "../assets/share_done.png";
-import shareNot from "../assets/share_not.png";
+import heartNot from "../../assets/heart_not.png";
+import heartLiked from "../../assets/heart_liked.png";
+import shareDone from "../../assets/share_done.png";
+import shareNot from "../../assets/share_not.png";
 import ReplyForm from "./ReplyForm";
-import {Footer} from "./Footer";
-import db from '../api/db.json';
+import {Footer} from "../Navigations/Footer";
+import db from '../../api/db.json';
 
 type PhotosApiResponse = {
     results: {urls: {regular: string}}[];

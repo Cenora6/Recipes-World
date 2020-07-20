@@ -4,22 +4,17 @@
   margin: 3rem 0;
 
   &__details {
-    display: flex;
-    justify-content: center;
-
-    @include phoneAndTablet {
+    @include phone-and-tablet {
       flex-direction: column-reverse;
     }
 
     &__text {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
       width: 50%;
       background: $carousel-color;
       margin: 3rem;
 
-      @include phoneAndTablet {
+      @include phone-and-tablet {
         width: auto;
         margin: 1rem;
       }
@@ -30,11 +25,7 @@
       }
 
       &__video {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        @include phoneAndTablet {
+        @include phone-and-tablet {
           width: 80%;
           margin: auto;
         }
@@ -86,7 +77,7 @@
           }
 
           &.area {
-            background: #443838;
+            background: $decorative-color;
           }
 
           &.category {
@@ -106,7 +97,7 @@
 
         span {
           background: $background;
-          color: #443838;
+          color: $decorative-color;
           font-size: .8rem;
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
@@ -120,7 +111,7 @@
 
           &:hover {
             color: $background;
-            background: #443838;
+            background: $decorative-color;
           }
         }
       }

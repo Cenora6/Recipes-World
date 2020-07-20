@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import db from '../api/db.json';
+import db from '../../api/db.json';
 
 function PhotoSection() {
 
     return (
-        <div className='photo__section' id='photo'>
+        <div className='photo__section flex-box' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
                 {
                     db.meals.map( (meal: any , index: number) => {

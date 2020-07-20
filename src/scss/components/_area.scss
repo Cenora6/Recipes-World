@@ -1,16 +1,15 @@
 .area {
   h2 {
+    margin-top: 7rem;
     text-align: center;
   }
 
   &__buttons {
-    display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     width: 50%;
     margin: 0 auto;
 
-    @include phoneAndTablet {
+    @include phone-and-tablet {
       width: auto;
     }
 

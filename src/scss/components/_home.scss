@@ -66,7 +66,7 @@
           display: flex;
           align-content: center;
 
-          @include phoneAndTablet {
+          @include phone-and-tablet {
             flex-direction: column;
           }
 

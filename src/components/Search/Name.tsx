@@ -1,9 +1,9 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {getRecipes} from "../api/getRecipes";
-import Back from "./Back";
+import {getRecipes} from "../../api/getRecipes";
+import Back from "../Navigations/Back";
 import {NavLink} from "react-router-dom";
-import ScrollUp from "./ScrollUp";
-import {Footer} from "./Footer";
+import ScrollUp from "../Navigations/ScrollUp";
+import {Footer} from "../Navigations/Footer";
 import {Link} from "react-scroll";
 
 const Names = () => {
@@ -49,7 +49,6 @@ const Names = () => {
     };
 
     const handleClear = () => {
-        setSearchName('');
         setRecipeNames([]);
         nameInputRef.current!.value = '';
         setError(false);
@@ -74,7 +73,7 @@ const Names = () => {
 
             </section>
 
-            <section className='photo__section category-recipes' id='name'>
+            <section className='photo__section flex-box category-recipes' id='name'>
                 {recipeNames ? recipeNames.length > 0 &&
                     recipeNames.map((meal: any, index: number) => {
                         return (
