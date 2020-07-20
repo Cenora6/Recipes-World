@@ -17,14 +17,14 @@ export function Footer() {
 
     return (
         <footer className='footer'>
-            <div className='footer__copyright'>
+            <div className='footer__copyright flex-box'>
                 <i className="fas fa-copyright"></i>
                 <div className='footer__copyright__names'>
                     <span>Aleksandra Gasidło </span>
                     <p><span>Cenora</span> 06</p>
                 </div>
             </div>
-            <div className='footer__links'>
+            <div className='footer__links flex-box'>
                 <div className='footer__links__list'>
                     <ul>
                         <li>
@@ -85,7 +85,7 @@ export function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className='footer__icons'>
+            <div className='footer__icons flex-box'>
                 <div className='footer__icons__single'>
                     <span className={`${contact === 'facebook' && showIcons && 'show-contact'}`}>Facebook</span>
                     <i className="fab fa-facebook" id='facebook' onMouseEnter={handleContactSet} onMouseLeave={cleanContact}></i>

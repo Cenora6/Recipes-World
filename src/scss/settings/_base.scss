@@ -50,6 +50,7 @@ h3 {
   margin: 0 2rem;
   text-transform: capitalize;
   word-spacing: 1rem;
+  width: 80%;
 
   @include tablet {
     font-size: 2.5rem;
@@ -390,4 +391,39 @@ form {
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+nav, footer {
+  li {
+    padding: 1rem 0;
+    cursor: pointer;
+    z-index: 1;
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      padding: 0.3rem 0;
+
+      &:after, &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0.05rem;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        background-color: $background;
+      }
+
+      &:hover {
+        &:after, &:before {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

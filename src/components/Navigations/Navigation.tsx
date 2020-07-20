@@ -60,7 +60,7 @@ export function Navigation(props: navigationProps) {
             :
             <nav className={`navigation ${props.details ? 'show' : 'hide'}`}
                  onMouseEnter={props.showNavigation} onMouseLeave={props.showNavigation}>
-                <div className='navigation__decorations'>
+                <div className='navigation__decorations flex-box'>
                     <i className={`fas fa-long-arrow-alt-down ${props.details && 'rotate'}`}></i>
                     <div className="circle"></div>
                 </div>

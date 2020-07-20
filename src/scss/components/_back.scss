@@ -5,19 +5,19 @@
   z-index: 10;
 
   .circle {
+    position: absolute;
+    top: 0;
     width: 8rem;
     height: 8rem;
     border-radius: 0 0 10rem 0;
     z-index: -1;
-    transition: 1s;
+    @include transition(1s);
     background: $main-color;
-    position: absolute;
-    top: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 5px 15px $decorative-color;
 
-    span {
+    &__text {
       text-align: center;
-      font-size: 1.2rem;
+      @include font-size(1.2);
       font-family: $recipe-font;
       position: absolute;
       width: 100%;
@@ -25,15 +25,15 @@
       top: 30%;
       transform-origin: top center;
       color: $background;
-      transform: rotate(-45deg);
-      transition: 1s;
+      @include rotate(-45);
+      @include transition(1s);
     }
 
     &:hover {
       background: $decorative-color;
       cursor: pointer;
 
-      span {
+      & > &__text {
         color: $background;
       }
     }

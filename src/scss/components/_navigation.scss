@@ -3,7 +3,7 @@
   background: $main-color;
   position: fixed;
   top: 0;
-  transition: 1s;
+  @include transition(1s);
   z-index: 20;
 
   &__lines {
@@ -16,7 +16,7 @@
     right: 0;
     bottom: 0;
     z-index: 10;
-    animation: heartbeat 1.5s ease-in-out infinite both;
+   @include animation(heartbeat 1.5s ease-in-out infinite both);
 
     &:hover > span {
       background-color: $decorative-color;
@@ -30,8 +30,8 @@
     border-radius: .1rem;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, .5rem);
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    @include translate(-50%, .5rem);
+    @include transition(all 0.5s cubic-bezier(0.19, 1, 0.22, 1));
     z-index: 10;
 
     &__1 {
@@ -51,7 +51,7 @@
 
   @include phone-and-tablet {
     width: 100%;
-    transition: 1s;
+    @include transition(1s);
     background: transparent;
     border-radius: 50%;
     left: 0;
@@ -65,7 +65,7 @@
       border-radius: 50%;
       left: -6rem;
       top: -6rem;
-      transition: 1s;
+      @include transition(1s);
     }
   }
 
@@ -73,7 +73,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    transition: 1s;
+    @include transition(1s);
     top: 0;
     width: 100%;
     position: absolute;
@@ -90,45 +90,9 @@
         margin: 0 1rem;
       }
     }
-
-    li {
-      padding: 1rem 0;
-      cursor: pointer;
-      z-index: 1;
-
-      a {
-        color: white;
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-        position: relative;
-        padding: 0.3rem 0;
-
-        &:after, &:before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 0.05rem;
-          transition: all 0.5s ease-in-out;
-          opacity: 0;
-          background-color: $background;
-        }
-
-        &:hover {
-          &:after, &:before {
-            width: 100%;
-            opacity: 1;
-          }
-        }
-      }
-    }
   }
 
   &__decorations {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
     position: relative;
@@ -139,7 +103,7 @@
       color: $main-color;
       font-size: 2rem;
       text-align: center;
-      transition: 1s;
+      @include transition(1s);
       top: -0.2rem;
 
       &.rotate {
@@ -153,7 +117,7 @@
       border-top-left-radius: 10rem;
       border-top-right-radius: 10rem;
       z-index: -1;
-      transition: 1s;
+      @include transition(1s);
       background: white;
       position: absolute;
       bottom: 0;
@@ -168,30 +132,30 @@
 
       .navigation {
         &__line__2 {
-          opacity: 0;
+          @include opacity(0);
         }
 
         &__line__1 {
-          transform: translateY(.9rem) translateY(-50%) rotate(-45deg) translateX(-50%);
+          @include transform (translateY(.9rem) translateY(-50%) rotate(-45deg) translateX(-50%));
         }
 
         &__line__3 {
-          transform: translateY(1.2rem) translateY(50%) rotate(45deg) translateX(-50%);
+          @include transform (translateY(1.2rem) translateY(50%) rotate(45deg) translateX(-50%));
         }
 
       }
 
       &:after {
-        transform: scale(20);
+        @include scale(20);
       }
     }
 
     .circle {
-      opacity: 0;
+      @include opacity(0);
     }
 
     ul {
-      opacity: 1;
+      @include opacity(1);
     }
   }
 
@@ -207,7 +171,7 @@
     }
 
     ul {
-      opacity: 0;
+      @include opacity(0);
     }
   }
 }

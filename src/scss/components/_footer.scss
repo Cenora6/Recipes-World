@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background: $main-color;
-  transition: 2s;
-  border-top: .5rem groove $background;
   position: relative;
   bottom: 0;
+  width: 100%;
+  background: $main-color;
+  @include transition(2s);
+  border-top: .5rem groove $background;
   z-index: 10;
 
   @include phone-and-tablet {
@@ -15,15 +15,12 @@
   }
 
   &__links {
-    display: flex;
-    justify-content: center;
-    transition: 2s;
-    top: 0;
     width: 40%;
+    @include transition(2s);
 
     @include phone {
-      justify-content: space-evenly;
       width: 100%;
+      justify-content: space-evenly;
     }
 
     @include tablet {
@@ -31,10 +28,10 @@
     }
 
     &__list {
-      width: calc(100% /3);
+      position: relative;
+      width: calc(100%/3);
       margin: 2rem 3rem;
       line-height: 1.5rem;
-      position: relative;
 
       @include phone-and-tablet {
         width: calc(90%/3);
@@ -43,12 +40,12 @@
 
       &:nth-of-type(2):after, &:nth-of-type(3):after {
         content: "";
-        width: 0.2rem;
-        height: 80%;
         position: absolute;
-        background: $background;
         top: 10%;
         left: -50%;
+        width: 0.2rem;
+        height: 80%;
+        background: $background;
 
         @include phone-and-tablet {
           left: 0;
@@ -60,45 +57,12 @@
         margin: 0;
       }
 
-      li {
-        padding: 1rem 0;
-        cursor: pointer;
-        z-index: 1;
-
-        a {
-          color: white;
-          text-decoration: none;
-          transition: all 0.2s ease-in-out;
-          position: relative;
-          padding: 0.3rem 0;
-
-          &:after, &:before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 0.05rem;
-            transition: all 0.5s ease-in-out;
-            opacity: 0;
-            background-color: $background;
-          }
-
-          &:hover {
-            &:after, &:before {
-              width: 100%;
-              opacity: 1;
-            }
-          }
-        }
-      }
-
       ul {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: flex-start;
-        transition: .5s;
+        @include transition(.5s);
         height: 100%;
 
         @include phone-and-tablet {
@@ -110,14 +74,10 @@
   }
 
   &__copyright {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 20%;
     background: $main-color;
     font-family: $base-font;
     color: $background;
-    bottom: 0;
 
     @include phone-and-tablet {
       margin: 2rem;
@@ -125,14 +85,14 @@
     }
 
     i {
-      font-size: 2rem;
+      @include font-size(2);
     }
 
     &__names {
       display: flex;
       flex-direction: column;
       margin: 0 1rem;
-      font-size: .8rem;
+      @include font-size(.8);
       line-height: 1.2rem;
       text-transform: uppercase;
       font-weight: 500;
@@ -153,10 +113,7 @@
   }
 
   &__icons {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: $background;
     width: 10%;
 
@@ -181,7 +138,7 @@
         margin-right: 2rem;
         padding: .5rem;
         cursor: pointer;
-        font-size: 1.5rem;
+        @include font-size(1.5);
 
         @include phone-and-tablet {
           margin-right: 0;
@@ -189,12 +146,9 @@
       }
 
       span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: .8rem;
+        @include font-size(.8);
         opacity: 0;
-        transition: .5s;
+        @include transition(.5);
         height: 50%;
         vertical-align: middle;
         padding: .4rem .5rem;
