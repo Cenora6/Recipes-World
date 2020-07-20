@@ -31,13 +31,11 @@ const Names = () => {
                 setTimeout( () => {
                     setRecipeNames([]);
                     setSearchName('');
-                    nameInputRef.current!.value = '';
                 }, 500);
             } else {
                 setTimeout( () => {
                     getRecipes(setRecipeNames, searchName!);
                     setSearchName('');
-                    nameInputRef.current!.value = '';
                 }, 500);
             }
         } else {
@@ -47,14 +45,17 @@ const Names = () => {
 
         setTimeout( () => {
             setFade(true);
-        }, 1500)
+        }, 1700)
     };
 
     const handleClear = () => {
+        setSearchName('');
+        setRecipeNames([]);
         nameInputRef.current!.value = '';
         setError(false);
     }
 
+    console.log(searchName)
 
     return (
         <div className='page-container'>
@@ -65,7 +66,7 @@ const Names = () => {
                 <form onSubmit={handleSearchForRecipe}>
                     <input className={`ingredients__buttons__input ${error && 'error'}`} placeholder={error ? '' : 'Start writing...'} type='text'
                            id='ingredient-input' ref={nameInputRef} onChange={handleRecipesWriting} onClick={handleClear}/>
-                    <Link activeClass="active" to="name" spy={true} smooth={true} duration={1000}>
+                    <Link activeClass='active' to={`${!searchName ? '' : 'name'}`} spy={true} smooth={true} duration={1000} delay={500} offset={-50} >
                         <button className='medium-button' onClick={handleSearchForRecipe}>Search</button>
                     </Link>
                 </form>

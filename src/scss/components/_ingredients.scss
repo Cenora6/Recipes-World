@@ -6,21 +6,26 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    position: relative;
 
     &__input {
-      width: 100%;
-      padding: 1rem 20%;
+      width: 50%;
+      padding: 1rem;
       outline: none;
       text-align: center;
       font-family: $title-font;
       letter-spacing: .3rem;
       text-transform: uppercase;
-      font-size: .8rem;
+      font-size: .7rem;
       transition: .5s;
       border-radius: 2rem;
       color: $main-color;
       font-weight: 700;
       margin: 1rem;
+
+      @include phone {
+        width: 90%;
+      }
 
       &.error {
         border: .2rem solid crimson;
@@ -45,5 +50,20 @@
   .photo__section {
     transition: 1s;
     margin-top: 10rem;
+  }
+
+  .fa-long-arrow-alt-left, .fa-long-arrow-alt-right {
+
+    &:after {
+      content: none;
+    }
+  }
+
+  .fa-long-arrow-alt-left {
+    transform: translate(-100%, -50%);
+  }
+
+  .fa-long-arrow-alt-right {
+    transform: translate(100%, -50%);
   }
 }

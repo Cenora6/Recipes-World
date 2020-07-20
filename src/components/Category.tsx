@@ -14,7 +14,7 @@ const Category = () => {
 
     useEffect(() => {
         getAllCategories(setCategory);
-            window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, []);
 
     const handleSingleCategory = (category: string) => {
@@ -25,7 +25,7 @@ const Category = () => {
         }, 500)
         setTimeout( () => {
             setFade(true);
-        }, 1500)
+        }, 1700)
     }
 
     return (
@@ -38,7 +38,8 @@ const Category = () => {
                     {category.map( (category: any, id: number) => {
                         return (
                             <Link activeClass="active" to="category" spy={true} smooth={true} duration={1000}
-                                  onClick={() => handleSingleCategory(category.strCategory)} key={id} className='category__buttons__single buttons'>
+                                  onClick={() => handleSingleCategory(category.strCategory)} key={id} className='category__buttons__single buttons'
+                                  delay={500} offset={-50}>
                                 <div key={id}>
                                     <img src={category.strCategoryThumb} alt={category.strCategory}/>
                                     <span>{category.strCategory}</span>
@@ -49,23 +50,25 @@ const Category = () => {
                 </div>
             </section>
 
-            {categoryRecipes.length > 0 &&
-            <section className='photo__section category-recipes'>
-                <h2 id='category'>Dishes From <span className='title-decorate'>{categoryName}</span></h2>
-                {categoryRecipes.map((meal: any, index: number) => {
-                    return (
-                        <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
-                              onAnimationEnd={() => setFade(false)}>
-                            <div className='photo__section__single__box'>
-                                <img src={meal.strMealThumb} alt={`dish${index}`}/>
-                                <span>{meal.strMeal}</span>
-                            </div>
-                        </NavLink>
-                    )
-                })
+            <section className='photo__section category-recipes' id='category'>
+                {categoryRecipes.length > 0 &&
+                <>
+                    <h2>Dishes From <span className='title-decorate'>{categoryName}</span></h2>
+                    {categoryRecipes.map((meal: any, index: number) => {
+                        return (
+                            <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
+                                     onAnimationEnd={() => setFade(false)}>
+                                <div className='photo__section__single__box'>
+                                    <img src={meal.strMealThumb} alt={`dish${index}`}/>
+                                    <span>{meal.strMeal}</span>
+                                </div>
+                            </NavLink>
+                        )
+                    })
+                    }
+                </>
                 }
             </section>
-            }
             <ScrollUp/>
             <Footer/>
         </div>
