@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Recipes-World/static/css/main.2c2d72cd.chunk.css",
-    "main.js": "/Recipes-World/static/js/main.ed9b4ce1.chunk.js",
-    "main.js.map": "/Recipes-World/static/js/main.ed9b4ce1.chunk.js.map",
+    "main.css": "/Recipes-World/static/css/main.ef75a222.chunk.css",
+    "main.js": "/Recipes-World/static/js/main.d31ad58f.chunk.js",
+    "main.js.map": "/Recipes-World/static/js/main.d31ad58f.chunk.js.map",
     "runtime-main.js": "/Recipes-World/static/js/runtime-main.9ee65084.js",
     "runtime-main.js.map": "/Recipes-World/static/js/runtime-main.9ee65084.js.map",
     "static/css/2.b478278e.chunk.css": "/Recipes-World/static/css/2.b478278e.chunk.css",
-    "static/js/2.102d6351.chunk.js": "/Recipes-World/static/js/2.102d6351.chunk.js",
-    "static/js/2.102d6351.chunk.js.map": "/Recipes-World/static/js/2.102d6351.chunk.js.map",
+    "static/js/2.d115d7be.chunk.js": "/Recipes-World/static/js/2.d115d7be.chunk.js",
+    "static/js/2.d115d7be.chunk.js.map": "/Recipes-World/static/js/2.d115d7be.chunk.js.map",
     "index.html": "/Recipes-World/index.html",
-    "precache-manifest.1982534902fc834babc8430e6ca039cf.js": "/Recipes-World/precache-manifest.1982534902fc834babc8430e6ca039cf.js",
+    "precache-manifest.f516f4fb1d0de4af8f2378de841e350e.js": "/Recipes-World/precache-manifest.f516f4fb1d0de4af8f2378de841e350e.js",
     "service-worker.js": "/Recipes-World/service-worker.js",
     "static/css/2.b478278e.chunk.css.map": "/Recipes-World/static/css/2.b478278e.chunk.css.map",
-    "static/css/main.2c2d72cd.chunk.css.map": "/Recipes-World/static/css/main.2c2d72cd.chunk.css.map",
-    "static/js/2.102d6351.chunk.js.LICENSE.txt": "/Recipes-World/static/js/2.102d6351.chunk.js.LICENSE.txt",
+    "static/css/main.ef75a222.chunk.css.map": "/Recipes-World/static/css/main.ef75a222.chunk.css.map",
+    "static/js/2.d115d7be.chunk.js.LICENSE.txt": "/Recipes-World/static/js/2.d115d7be.chunk.js.LICENSE.txt",
     "static/media/avocado.svg": "/Recipes-World/static/media/avocado.a4a4c8bb.svg",
     "static/media/banana.svg": "/Recipes-World/static/media/banana.0d0dae77.svg",
     "static/media/cherry.svg": "/Recipes-World/static/media/cherry.d5621f37.svg",
@@ -40,8 +40,8 @@
   "entrypoints": [
     "static/js/runtime-main.9ee65084.js",
     "static/css/2.b478278e.chunk.css",
-    "static/js/2.102d6351.chunk.js",
-    "static/css/main.2c2d72cd.chunk.css",
-    "static/js/main.ed9b4ce1.chunk.js"
+    "static/js/2.d115d7be.chunk.js",
+    "static/css/main.ef75a222.chunk.css",
+    "static/js/main.d31ad58f.chunk.js"
   ]
 }

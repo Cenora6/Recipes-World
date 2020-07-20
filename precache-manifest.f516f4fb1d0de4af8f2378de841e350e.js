@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5d4e76a9c44b077b580600ab35061649",
+    "revision": "6d2f1e1d91044bcd3cf1bee6a0be02ca",
     "url": "/Recipes-World/index.html"
   },
   {
-    "revision": "1482a88a5e4ced222137",
+    "revision": "c5eeb5612bfcc71c9bbd",
     "url": "/Recipes-World/static/css/2.b478278e.chunk.css"
   },
   {
-    "revision": "7ba7f7fa116e71583281",
-    "url": "/Recipes-World/static/css/main.2c2d72cd.chunk.css"
+    "revision": "3a9bf87612314aea2f69",
+    "url": "/Recipes-World/static/css/main.ef75a222.chunk.css"
   },
   {
-    "revision": "1482a88a5e4ced222137",
-    "url": "/Recipes-World/static/js/2.102d6351.chunk.js"
+    "revision": "c5eeb5612bfcc71c9bbd",
+    "url": "/Recipes-World/static/js/2.d115d7be.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/Recipes-World/static/js/2.102d6351.chunk.js.LICENSE.txt"
+    "url": "/Recipes-World/static/js/2.d115d7be.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ba7f7fa116e71583281",
-    "url": "/Recipes-World/static/js/main.ed9b4ce1.chunk.js"
+    "revision": "3a9bf87612314aea2f69",
+    "url": "/Recipes-World/static/js/main.d31ad58f.chunk.js"
   },
   {
     "revision": "6a9ef2e930ce26d714f4",
