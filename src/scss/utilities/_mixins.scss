@@ -18,3 +18,9 @@ $desktop-width: 1025px;
     @content;
   }
 }
+
+@mixin phoneAndTablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}

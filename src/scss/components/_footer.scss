@@ -10,7 +10,7 @@
   bottom: 0;
   z-index: 10;
 
-  @include phone {
+  @include phoneAndTablet {
     flex-direction: column-reverse;
   }
 
@@ -24,6 +24,10 @@
     @include phone {
       justify-content: space-evenly;
       width: 90%;
+    }
+
+    @include tablet {
+      width: 60%;
     }
 
     &__list {
@@ -41,12 +45,12 @@
         top: 10%;
         left: -50%;
 
-        @include phone {
+        @include phoneAndTablet {
           left: -25%;
         }
       }
 
-      @include phone {
+      @include phoneAndTablet {
         margin: 0;
       }
 
@@ -104,7 +108,7 @@
     color: $background;
     bottom: 0;
 
-    @include phone {
+    @include phoneAndTablet {
       margin: 2rem;
       width: 90%;
     }
@@ -145,7 +149,7 @@
     color: $background;
     width: 10%;
 
-    @include phone {
+    @include phoneAndTablet {
       flex-direction: row;
       width: 50%;
       margin-top: 1rem;
@@ -156,7 +160,7 @@
       justify-content: flex-end;
       width: 100%;
 
-      @include phone {
+      @include phoneAndTablet {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -168,7 +172,7 @@
         cursor: pointer;
         font-size: 1.5rem;
 
-        @include phone {
+        @include phoneAndTablet {
           margin-right: 0;
         }
       }
@@ -185,7 +189,7 @@
         padding: .4rem .5rem;
         margin: auto 0;
 
-        @include phone {
+        @include phoneAndTablet {
           width: 100%;
         }
 

@@ -48,7 +48,6 @@
         &__categories {
           display: flex;
           align-content: center;
-          margin: 2rem 8rem;
 
           @include phone {
             flex-direction: column;

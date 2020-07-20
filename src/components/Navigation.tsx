@@ -19,7 +19,7 @@ export function Navigation(props: navigationProps) {
 
     return (
 
-        (props.width < 1024) ?
+        (props.width <= 1024) ?
             <nav className={`navigation ${clicked ? 'show' : 'hide'}`}>
 
                 <div className='navigation__lines' onClick={handleNavigation}>

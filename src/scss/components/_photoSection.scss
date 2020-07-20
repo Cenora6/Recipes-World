@@ -40,14 +40,13 @@
         position: relative;
         border: 0.1rem solid $border-color;
 
-        @include phone {
+        @include phoneAndTablet {
           flex-direction: column;
           height: 100%;
           justify-content: normal;
         }
 
         @include desktop {
-
           &:hover > span {
             opacity: 1;
             transform: rotate(45deg);
@@ -89,7 +88,7 @@
         object-fit: cover;
         padding: 0.5rem;
 
-        @include phone {
+        @include phoneAndTablet {
           padding: 1rem 0.5rem;
         }
       }
@@ -109,7 +108,7 @@
         z-index: 2;
         letter-spacing: .2rem;
 
-        @include phone {
+        @include phoneAndTablet {
           position: absolute;
           width: 100%;
           opacity: 1;
