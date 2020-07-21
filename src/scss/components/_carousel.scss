@@ -2,7 +2,7 @@
   .fas {
     position: absolute;
     color: $main-color;
-    font-size: 1.5rem;
+    @include font-size(1.5rem);
     text-align: center;
     cursor: pointer;
     z-index: 10;
@@ -10,26 +10,26 @@
 
   .fa-long-arrow-alt-left {
     left: 0;
-    transform: translate(0%, -50%);
+    @include translate(0%, -50%);
 
     &:after {
       border-bottom-right-radius: 6rem;
       border-top-right-radius: 6rem;
       left: 0;
-      transform: translate(-50%, -50%);
+      @include translate(-50%, -50%);
       margin-left: 2rem;
     }
   }
 
   .fa-long-arrow-alt-right {
     right: 0;
-    transform: translate(0%, -50%);
+    @include translate(0%, -50%);
 
     &:after {
       border-bottom-left-radius: 6rem;
       border-top-left-radius: 6rem;
       right: 0;
-      transform: translate(50%, -50%);
+      @include translate(50%, -50%);
       margin-right: 2rem;
     }
   }
@@ -78,10 +78,7 @@
     }
 
     &__text {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       width: 50%;
       height: 100%;
       background: $carousel-color;
@@ -129,11 +126,11 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(0%, -50%);
+        @include translate(0%, -50%);
 
         @include phone {
           bottom: -10%;
-          transform: rotate(90deg) translate(0%, 50%);
+          @include transform(rotate(90deg) translate(0%, 50%));
         }
 
       }

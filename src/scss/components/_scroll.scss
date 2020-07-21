@@ -1,7 +1,4 @@
 .scroll {
-  display: flex;
-  justify-content: center;
-  align-content: center;
   position: fixed;
   right: 1rem;
   z-index: 11;
@@ -10,7 +7,7 @@
   height: 3rem;
   background: $decorative-color;
   border-radius: 50%;
-  opacity: .5;
+  @include opacity(.5);
   transition: 1s;
 
   @include phone {
@@ -21,32 +18,18 @@
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
-    vertical-align: middle;
     transition: 1s;
     bottom: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    @include translate(-50%, 50%);
   }
 
   &:hover {
-    opacity: 1;
+    @include opacity(1);
     cursor: pointer;
 
     & > img {
-      animation: moveScroll 1s linear infinite;
+      @include animation(moveScroll 1s linear infinite);
     }
-  }
-
-}
-
-@keyframes moveScroll {
-  0%, 50%, 100% {
-    bottom: 50%;
-  }
-  25% {
-    bottom: 60%;
-  }
-  75% {
-    bottom: 40%;
   }
 }

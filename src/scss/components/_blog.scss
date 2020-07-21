@@ -1,13 +1,6 @@
 .blog {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 5rem 2rem;
-
-  @include phone {
-    margin: 5rem 1rem;
-  }
+  margin: 5rem 1rem;
 
   &__description {
     padding: 2rem;
@@ -20,11 +13,7 @@
     }
 
     h3 {
-      margin: 5rem 0;
-
-      @include phone {
-        margin: 3rem 0;
-      }
+      margin: 3rem 0;
     }
 
     &__details {
@@ -44,7 +33,7 @@
         span {
           background: $background;
           color: $decorative-color;
-          font-size: .8rem;
+          @include font-size(.8);
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
           letter-spacing: .2rem;
@@ -64,39 +53,33 @@
 
       &__date {
         span {
-          font-size: 1.2rem;
+          @include font-size(1.2);
           line-height: 3rem;
           letter-spacing: .2rem;
           font-weight: 600;
           color: $decorative-color;
           font-family: $recipe-font;
-          text-shadow: 5px 5px rgba(0, 0, 0, 0.18);
+          text-shadow: 5px 5px $shadow-color;
           z-index: 2;
         }
       }
     }
 
     &__text {
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       margin: 2rem;
 
       @include phone-and-tablet {
         margin: 0;
       }
 
-      div {
-        display: flex;
+      & > div {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
 
       p {
         padding: 0 5rem;
-        font-size: 1.2rem;
+        @include font-size(1.2);
         font-family: $base-font;
         text-align: left;
         line-height: 2.5rem;
@@ -129,19 +112,16 @@
       justify-content: flex-end;
 
       &__share, &__like {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
 
         span {
           background: $background;
           color: $decorative-color;
-          font-size: .8rem;
+          @include font-size(.8rem);
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
           letter-spacing: .2rem;
-          transition: 1s;
+          @include transition(1s);
         }
 
         img {
@@ -153,9 +133,6 @@
     }
 
     &__comments {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
       position: relative;
 
@@ -170,7 +147,7 @@
         &:nth-of-type(2n) {
           right: 0;
           bottom: 0;
-          transform: rotate(50deg);
+          @include rotate(50deg);
         }
       }
 
@@ -196,14 +173,14 @@
         &:nth-child(odd) {
           &:after {
             left: -30rem;
-            transform: translateZ(-1px);
+            @include transform(translateZ(-1px));
           }
         }
 
         &:nth-child(even) {
           &:after {
             top: 6rem;
-            transform: translateZ(-1px) rotate(90deg);
+            @include transform(translateZ(-1px) rotate(90deg));
           }
         }
 

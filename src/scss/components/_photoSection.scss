@@ -4,19 +4,33 @@
     flex-wrap: wrap;
     padding: 2rem;
     margin: 2rem 0;
+    transition: 1s;
 
     @include phone {
       margin: 0;
     }
 
-    h2 {
-      width: calc(33.7% - 1rem);
+    &.home {
+      h2 {
+        width: calc(33.7% - 1rem);
 
-      @include phone {
-        width: 100%;
-        margin: 1rem;
-        text-align: center;
+        @include phone {
+          width: 100%;
+          margin: 1rem;
+          text-align: center;
+        }
       }
+    }
+
+    h2 {
+      width: 100%;
+      text-align: center;
+    }
+
+    p {
+      @include font-size(1.2);
+      line-height: 2rem;
+      margin: 3rem;
     }
 
     &__single {
@@ -26,6 +40,7 @@
       padding: 0.5rem;
       position: relative;
       cursor: pointer;
+      @include transition (.5s);
 
       &__box {
         display: flex;
@@ -55,7 +70,7 @@
 
           &:after {
             content: '';
-            transition: 1s;
+            @include transition (1s);
             position: absolute;
             z-index: 1;
             left: 0;
@@ -78,7 +93,7 @@
 
       img {
         z-index: 0;
-        transition: 1s;
+        @include transition (1s);
         vertical-align:top;
         width: 95%;
         height: 95%;
@@ -101,7 +116,7 @@
         background: rgba(0, 0, 0, .5);
         color: $background;
         opacity: 0;
-        transition: .5s;
+        @include transition (.5s);
         z-index: 2;
         letter-spacing: .2rem;
 

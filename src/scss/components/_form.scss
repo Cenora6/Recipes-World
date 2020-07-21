@@ -1,7 +1,5 @@
 .home {
   &__form {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
     position: relative;
 
@@ -21,9 +19,6 @@
     }
 
     &__buttons {
-      display: flex;
-      justify-content: center;
-      align-content: center;
       margin: 5rem 0;
       flex-wrap: wrap;
 
@@ -40,10 +35,10 @@
         padding: 2rem 0;
 
         i {
-          font-size: 3rem;
+          @include font-size(3);
           margin: 1rem;
           text-align: center;
-          transition: .5s;
+          @include transition (.5s);
         }
 
         &:hover {

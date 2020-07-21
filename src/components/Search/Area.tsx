@@ -32,14 +32,14 @@ const Area = () => {
         <div className='page-container'>
             <section className='area base-page'>
                 <Back/>
-                <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Areas</span> </h2>
-                <div className='area__buttons flex-box'>
+                <h2 className="scroll-animation"> Recipes' <span className='title-decorate'>Areas</span> </h2>
+                <div className='base-page__buttons flex-box'>
                     {area.map( (area: any, id: number) => {
                         return (
 
                             <Link activeClass="active" to="area" spy={true} smooth={true} duration={1000}
                                   onClick={() => handleSingleArea(area.strArea)} key={id} delay={500} offset={-50}>
-                                <div className='area__buttons__single buttons'>
+                                <div className='base-page__buttons__single buttons'>
                                     <span>{area.strArea}</span>
                                 </div>
                             </Link>
@@ -48,7 +48,7 @@ const Area = () => {
                 </div>
             </section>
 
-            <section className='photo__section flex-box category-recipes' id='area'>
+            <section className='photo__section flex-box' id='area'>
                 {areaRecipes.length > 0 &&
                 <>
                     <h2>Dishes From <span className='title-decorate'>{areaName}</span></h2>

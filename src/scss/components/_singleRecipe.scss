@@ -1,4 +1,4 @@
-.single {
+.singleRecipe {
   display: flex;
   flex-direction: column;
   margin: 3rem 0;
@@ -36,7 +36,7 @@
 
         li {
           padding: 0 5rem;
-          font-size: 1.2rem;
+          @include font-size(1.2);
           font-family: $base-font;
           text-align: left;
           line-height: 2.5rem;
@@ -44,7 +44,7 @@
           margin: 1rem 0;
 
           @include phone {
-            font-size: 1rem;
+            @include font-size(1);
             padding: 0 2rem;
             line-height: 2rem;
           }
@@ -64,7 +64,7 @@
         font-weight: 500;
 
         span {
-          font-size: .8rem;
+          @include font-size(.8);
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
           color: $background;
@@ -98,12 +98,12 @@
         span {
           background: $background;
           color: $decorative-color;
-          font-size: .8rem;
+          @include font-size(.8);
           padding: 0.2rem 0.5rem;
           margin: 0 1rem;
           letter-spacing: .2rem;
           cursor: pointer;
-          transition: 1s;
+          @include transition(1s);
 
           @include phone {
             margin: .5rem;
@@ -180,29 +180,29 @@
         }
 
         li {
-          font-size: 1.2rem;
+          @include font-size(1.2);
           line-height: 3rem;
           letter-spacing: .2rem;
           font-weight: 600;
           color: $main-color;
           font-family: $recipe-font;
-          text-shadow: 5px 5px rgba(0, 0, 0, 0.18);
+          text-shadow: 5px 5px $transparent-shadow-color;
           z-index: 2;
 
           &:first-of-type {
-            font-size: 2rem;
+            @include font-size(2);
             margin-top: 2rem;
             text-decoration: overline;
             list-style: none;
           }
 
           @include phone {
-            font-size: 1rem;
+            @include font-size(1);
           }
 
           span {
             margin: 0 2rem;
-            color: black;
+            color: $text-color;
             font-weight: 400;
           }
         }

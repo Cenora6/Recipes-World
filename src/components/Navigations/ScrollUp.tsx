@@ -22,11 +22,13 @@ function ScrollUp() {
 
 
     function scrollTop () {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({
+            top: 0, behavior: 'smooth'
+        });
     }
 
     return (
-        <div className='scroll' id='scroll' style={{opacity: showScroll ? '.8' : '0'}} onClick={scrollTop} >
+        <div className='scroll flex-box' id='scroll' style={{opacity: showScroll ? '.8' : '0'}} onClick={scrollTop}>
             <img src={scroll} alt='scroll_up'/>
         </div>
     );

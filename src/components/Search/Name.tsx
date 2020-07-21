@@ -63,8 +63,8 @@ const Names = () => {
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Names</span> </h2>
 
                 <form onSubmit={handleSearchForRecipe}>
-                    <input className={`ingredients__buttons__input ${error && 'error'}`} placeholder={error ? '' : 'Start writing...'} type='text'
-                           id='ingredient-input' ref={nameInputRef} onChange={handleRecipesWriting} onClick={handleClear}/>
+                    <input className={`base-page__buttons__input ${error && 'error'}`} placeholder={error ? '' : 'Start writing...'} type='text'
+                           id='base-page-input' ref={nameInputRef} onChange={handleRecipesWriting} onClick={handleClear}/>
                     <Link activeClass='active' to={`${!searchName ? '' : 'name'}`} spy={true} smooth={true} duration={1000} delay={500} offset={-50} >
                         <button className='medium-button' onClick={handleSearchForRecipe}>Search</button>
                     </Link>
@@ -73,7 +73,7 @@ const Names = () => {
 
             </section>
 
-            <section className='photo__section flex-box category-recipes' id='name'>
+            <section className='photo__section flex-box' id='name'>
                 {recipeNames ? recipeNames.length > 0 &&
                     recipeNames.map((meal: any, index: number) => {
                         return (

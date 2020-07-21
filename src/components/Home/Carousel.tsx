@@ -44,7 +44,7 @@ function Carousel() {
                         return (
                             <div className='carousel' key={post.id}>
                                 <div className='carousel__slide'>
-                                    <div className='carousel__slide__text'>
+                                    <div className='carousel__slide__text flex-box'>
                                         <h3>{post.title}</h3>
                                         <img src={line} alt='decoration'/>
                                         <p>{post.preview}</p>

@@ -15,8 +15,6 @@ export function Navigation(props: navigationProps) {
         setClicked(!clicked)
     }
 
-    console.log(props.width)
-
     return (
 
         (props.width <= 1024) ?

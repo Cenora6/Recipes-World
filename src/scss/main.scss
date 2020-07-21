@@ -3,9 +3,9 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-@import 'utilities/functions';
 @import 'utilities/mixins';
 @import 'utilities/variables';
+@import 'utilities/animations';
 
 @import "settings/fonts";
 @import "settings/colors";
@@ -18,10 +18,7 @@
 @import 'components/carousel';
 @import 'components/photoSection';
 @import 'components/singleRecipe';
-@import 'components/category';
 @import 'components/back';
-@import 'components/area';
 @import 'components/scroll';
-@import 'components/ingredients';
 @import 'components/blog';
 @import 'components/reply';

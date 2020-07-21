@@ -112,22 +112,22 @@ const Ingredients = () => {
                 <Back/>
                 <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Ingredients</span> </h2>
 
-                <input className="ingredients__buttons__input" placeholder="Start writing..." type='text'
-                       id='ingredient-input' ref={ingredientInputRef} onChange={handleIngredientWriting} onClick={clearSearch}/>
-                <div className='ingredients__buttons'>
+                <input className="base-page__buttons__input" placeholder="Start writing..." type='text'
+                       id='base-page-input' ref={ingredientInputRef} onChange={handleIngredientWriting} onClick={clearSearch}/>
+                <div className='base-page__buttons'>
                     <>
                         {ingredientInput ?
                             chosenIngredients.length > 0 ? visibleIngredients.map( (ingredient: any, id: number) => {
                                 return (
                                     <Link activeClass="active" to="ingredient" spy={true} smooth={true} duration={1000}
                                           onClick={() => handleSingleIngredient(ingredient)} key={id} delay={500} offset={-50}>
-                                        <div className='ingredients__buttons__single buttons' style={{opacity:`${fade ? '.5' : '0'}`}}>
+                                        <div className='base-page__buttons__single buttons' style={{opacity:`${fade ? '.5' : '0'}`}}>
                                             <span>{ingredient}</span>
                                         </div>
                                     </Link>
                                 )
                             }) :
-                            <div className='ingredients__buttons__single buttons' style={{opacity:`${fade ? '.5' : '0'}`}}>
+                            <div className='base-page__buttons__single buttons' style={{opacity:`${fade ? '.5' : '0'}`}}>
                                 <span>No results...</span>
                             </div>
                         :
@@ -138,7 +138,7 @@ const Ingredients = () => {
                 </div>
             </section>
 
-            <section className='photo__section flex-box category-recipes' id='ingredient'>
+            <section className='photo__section flex-box' id='ingredient'>
                 {ingredientRecipe ?  ingredientRecipe.length > 0 &&
                     <>
                         <h2>Dishes With <span className='title-decorate'>{ingredientName}</span></h2>

@@ -107,79 +107,79 @@ function BlogPost () {
     return (
         <>
             <Back/>
-            <div className='blog'>
+            <div className='blog flex-box'>
                 <div className='blog__description'>
-                            <section key={post.id}>
-                                <div className='blog__description__details'>
-                                    <div className='blog__description__details__date'>
-                                        <span>{post.date}</span>
+                    <section key={post.id}>
+                        <div className='blog__description__details'>
+                            <div className='blog__description__details__date'>
+                                <span>{post.date}</span>
+                            </div>
+                            <div className='blog__description__details__tags'>
+                                <span>lorem</span>
+                                <span>ipsum</span>
+                            </div>
+                        </div>
+                        <h3>{post.title}</h3>
+                        <div className='blog__description__text'>
+                            {post.full.split('\n\n').map( (i: any, index: number) => {
+                                return (
+                                    <div key={index} className='flex-box'>
+                                        <img src={photos && photos[index]} alt={`photograph${index}`}/>
+                                        <p>{i}</p>
                                     </div>
-                                    <div className='blog__description__details__tags'>
-                                        <span>lorem</span>
-                                        <span>ipsum</span>
-                                    </div>
-                                </div>
-                                <h3>{post.title}</h3>
-                                <div className='blog__description__text'>
-                                    {post.full.split('\n\n').map( (i: any, index: number) => {
-                                        return (
-                                            <div key={index}>
-                                                <img src={photos && photos[index]} alt={`photograph${index}`}/>
-                                                <p>{i}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                                <div className='blog__description__icons'>
-                                    <div className='blog__description__icons__like'>
-                                        <img src={liked ? heartLiked : heartNot} alt='like' onClick={likePost}/>
-                                        <span>~ {likesNumber} ~</span>
-                                    </div>
-                                    <div className='blog__description__icons__share'>
-                                        <img src={share ? shareDone : shareNot} alt='share' onClick={sharePost}/>
-                                        <span>~ {sharesNumber} ~</span>
-                                    </div>
-                                </div>
-                                <div className='blog__description__comments'>
-                                    <h3>Comments</h3>
-                                    {post.comments && post.comments.map( (comment: any, index: number) => {
-                                        return (
-                                                <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
-                                                    <h4>{comment.name}</h4>
-                                                    <p>{comment.text}</p>
-                                                    <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
-                                                    {replyForm && replyClicked === comment.id &&
-                                                    <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                               nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                )
+                            })}
+                        </div>
+                        <div className='blog__description__icons'>
+                            <div className='blog__description__icons__like flex-box'>
+                                <img src={liked ? heartLiked : heartNot} alt='like' onClick={likePost}/>
+                                <span>~ {likesNumber} ~</span>
+                            </div>
+                            <div className='blog__description__icons__share flex-box'>
+                                <img src={share ? shareDone : shareNot} alt='share' onClick={sharePost}/>
+                                <span>~ {sharesNumber} ~</span>
+                            </div>
+                        </div>
+                        <div className='blog__description__comments flex-box'>
+                            <h3>Comments</h3>
+                            {post.comments && post.comments.map( (comment: any, index: number) => {
+                                return (
+                                    <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
+                                        <h4>{comment.name}</h4>
+                                        <p>{comment.text}</p>
+                                        <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
+                                        {replyForm && replyClicked === comment.id &&
+                                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
 
-                                                    {comment.reply.length > 0 &&
-                                                    comment.reply.map ( (reply: any, i: number) => {
-                                                        console.log(reply)
-                                                        return (
-                                                            <div key={i}>
-                                                                <span className='line-between'></span>
-                                                                <div className='blog__description__comments__single__reply'>
-                                                                    <div className='blog__description__comments__single__reply__details'>
-                                                                        <h4>{reply.name}</h4>
-                                                                        <p>{reply.text}</p>
-                                                                        <button className='small-button' onClick={(e) => handleNewReply(e, reply.id)}>Reply</button>
-                                                                        {replyForm && replyClicked === reply.id &&
-                                                                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        )
-                                                    })
-
-                                                    }
-
+                                        {comment.reply.length > 0 &&
+                                        comment.reply.map ( (reply: any, i: number) => {
+                                            console.log(reply)
+                                            return (
+                                                <div key={i}>
                                                     <span className='line-between'></span>
+                                                    <div className='blog__description__comments__single__reply'>
+                                                        <div className='blog__description__comments__single__reply__details'>
+                                                            <h4>{reply.name}</h4>
+                                                            <p>{reply.text}</p>
+                                                            <button className='small-button' onClick={(e) => handleNewReply(e, reply.id)}>Reply</button>
+                                                            {replyForm && replyClicked === reply.id &&
+                                                            <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                                                       nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                        )
-                                    })}
-                                </div>
-                            </section>
+                                            )
+                                        })
+
+                                        }
+
+                                        <span className='line-between'></span>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </section>
                 </div>
             </div>
             <Footer/>

@@ -5,7 +5,7 @@ import db from '../../api/db.json';
 function PhotoSection() {
 
     return (
-        <div className='photo__section flex-box' id='photo'>
+        <div className='photo__section flex-box home' id='photo'>
             <h2>Popular <span className='title-decorate'>Dishes</span></h2>
                 {
                     db.meals.map( (meal: any , index: number) => {

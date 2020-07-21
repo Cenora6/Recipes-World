@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 function Form() {
 
     return (
-        <div className='home__form' id='form'>
+        <div className='home__form flex-box' id='form'>
             <h2>Search for the <span className='title-decorate'>recipe</span></h2>
-            <div className='home__form__buttons'>
+            <div className='home__form__buttons flex-box'>
                 <Link to='/names'>
                 <div className='home__form__buttons__single buttons'>
                     <i className="fas fa-pencil-alt"></i>

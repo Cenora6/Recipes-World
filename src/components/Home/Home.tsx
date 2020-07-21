@@ -73,7 +73,7 @@ function Home( props: homeProps ) {
                     </div>
                 </div>
 
-                <div className='home__decoration'>
+                <div className='home__decoration flex-box'>
                     <img src={banana} alt='banana'/>
                     <img src={strawberry} alt='strawberry'/>
                     <img src={pineapple} alt='pineapple'/>
@@ -81,7 +81,7 @@ function Home( props: homeProps ) {
 
                 <Carousel/>
 
-                <div className='home__decoration'>
+                <div className='home__decoration flex-box'>
                     <img src={apple} alt='apple'/>
                     <img src={pear} alt='pear'/>
                     <img src={orange} alt='orange'/>
@@ -115,13 +115,13 @@ function Home( props: homeProps ) {
                     <img src={welcome2} alt='recipe2' className="show-from-right scroll-animation"/>
                     }
                 </div>
-                <div className='home__decoration'>
+                <div className='home__decoration flex-box'>
                     <img src={watermelon} alt='apple'/>
                     <img src={grapes} alt='pear'/>
                     <img src={cherry} alt='orange'/>
                 </div>
                 <Form/>
-                <div className='home__decoration'>
+                <div className='home__decoration flex-box'>
                     <img src={raspberry} alt='raspberry'/>
                     <img src={mango} alt='mango'/>
                     <img src={avocado} alt='avocado'/>

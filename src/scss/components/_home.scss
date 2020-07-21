@@ -91,8 +91,8 @@
               height: 100%;
               width: 100%;
               z-index: 0;
-              transform: rotateX(45deg) rotateZ(45deg);
-              box-shadow: 0 0 1rem gray;
+              @include transform(rotateX(45deg) rotateZ(45deg));
+              box-shadow: 0 0 1rem $shadow-color;
               background: $main-color;
             }
 
@@ -104,13 +104,13 @@
               height: 8rem;
               width: 8rem;
               z-index: 0;
-              transform: rotateX(45deg) rotateZ(45deg);
+              @include transform(rotateX(45deg) rotateZ(45deg));
               background: $background;
             }
 
             span {
               font-family: $decorative-font;
-              font-size: 2.5rem;
+              @include font-size(2.5);
               z-index: 5;
               position: relative;
               color: $main-color;
@@ -120,14 +120,14 @@
                 position: absolute;
                 left: -3.5rem;
                 bottom: -3.5rem;
-                transform: rotate(35deg);
-                font-size: 1.5rem;
+                @include rotate(35);
+                @include font-size(1.5);
                 font-family: $recipe-font;
 
                 @include phone {
-                  font-size: 1.2rem;
+                  @include font-size(1.2);
                   bottom: 0;
-                  transform: rotate(35deg) translate(30%, 20%);
+                  @include transform(rotate(35deg) translate(30%, 20%));
                 }
 
               }
@@ -136,7 +136,7 @@
         }
 
         p {
-          font-size: 1.2rem;
+          @include font-size(1.2);
           line-height: 2rem;
           margin: 3rem;
 
@@ -181,15 +181,12 @@
   }
 
   &__decoration {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     img {
       height: 3rem;
       margin: 2rem;
       filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow-color);
-      animation: swing ease-in-out 1s infinite alternate;
+      @include animation(swing ease-in-out 1s infinite alternate);
     }
 
     &:before,
@@ -201,14 +198,5 @@
       background-repeat: repeat-x;
       background-size: 1.25rem 0.8rem;
     }
-  }
-}
-
-@keyframes swing {
-  0% {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(-15deg);
   }
 }
