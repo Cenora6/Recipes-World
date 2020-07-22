@@ -4,6 +4,9 @@
   margin: 3rem 0;
 
   &__details {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     @include phone-and-tablet {
       flex-direction: column-reverse;
     }
@@ -81,12 +84,13 @@
           }
 
           &.category {
-            background: #b89c9c;
+            background: $tags-color;
           }
         }
       }
 
       &__tags {
+        width: 100%;
         margin: 1rem;
 
         @include phone {

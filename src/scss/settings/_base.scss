@@ -43,7 +43,7 @@ h2 {
 }
 
 h3 {
-  font-size: 3rem;
+  @include font-size(3);
   color: $decorative-color;
   font-family: $decorative-font;
   text-align: center;

@@ -24,7 +24,7 @@ function SingleRecipe(props: any) {
                 {
                     singleRecipe.map( (meal: any, index: number) => {
                         return (
-                            <div className='singleRecipe__details flex-box' key={index}>
+                            <div className='singleRecipe__details' key={index}>
                                 <Back/>
                                 <div className='singleRecipe__details__text flex-box'>
                                     <div className='singleRecipe__details__text__category'>

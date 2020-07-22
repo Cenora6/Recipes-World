@@ -88,7 +88,7 @@
 
         @include phone {
           padding: 0 1rem;
-          font-size: 1rem;
+          @include font-size(1);
           line-height: 2rem;
         }
       }
@@ -234,7 +234,7 @@
     width: 90%;
     position: relative;
     height: 0.05rem;
-    opacity: .2;
+    @include opacity(.2);
     margin: 1rem auto;
   }
 }

@@ -101,7 +101,7 @@
     .fas {
       position: absolute;
       color: $main-color;
-      font-size: 2rem;
+      @include font-size(2);
       text-align: center;
       @include transition(1s);
       top: -0.2rem;

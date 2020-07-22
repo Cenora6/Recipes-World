@@ -147,7 +147,7 @@
 
       span {
         @include font-size(.8);
-        opacity: 0;
+        @include opacity(0);
         @include transition(.5);
         height: 50%;
         vertical-align: middle;
@@ -159,7 +159,7 @@
         }
 
         &.show-contact {
-          opacity: 1;
+          @include opacity(1);
           background: $background;
           color: $main-color;
         }

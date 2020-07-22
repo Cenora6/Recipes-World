@@ -26,6 +26,7 @@ import PhotoSection from "./PhotoSection";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Navigation} from "../Navigations/Navigation";
 import {Footer} from "../Navigations/Footer";
+import {Statistics} from "./Statistics";
 
 interface homeProps {
     width: number
@@ -88,23 +89,7 @@ function Home( props: homeProps ) {
                 </div>
                 <div className='home__welcome' id='header_2'>
                     <div className='home__welcome__header'>
-                        <div className='home__welcome__header__text'>
-                            <h2 className="scroll-animation">Recipes' <span className='title-decorate'>Statistics</span> </h2>
-                            <div className='home__welcome__header__text__categories'>
-                                <div className='diamond  show-from-left scroll-animation'>
-                                    <span>563</span>
-                                    <span className='rotated'>ingredients</span>
-                                </div>
-                                <div className='diamond  show-from-left scroll-animation'>
-                                    <span>236</span>
-                                    <span className='rotated'>recipes</span>
-                                </div>
-                                <div className='diamond  show-from-left scroll-animation'>
-                                    <span>24</span>
-                                    <span className='rotated'>areas</span>
-                                </div>
-                            </div>
-                        </div>
+                        <Statistics/>
                         <div className="home__welcome__header__images show-from-left scroll-animation">
                             <img src={welcomeSquare4} alt='welcome_square4'/>
                             <img src={welcomeSquare5} alt='welcome_square5'/>

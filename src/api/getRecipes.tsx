@@ -95,3 +95,29 @@ export function getIngredientRecipes(setIngredientRecipe: (data: any) => void, i
             console.log(err);
         });
 }
+
+export const getTotalNumberOfRecipes = (areas: any, setRecipesNumber: (data: any) => void) => {
+    let total: number = 0;
+    let allRecipes: number[] = [];
+
+    areas.forEach((area: any) => {
+        axios
+            .get<any>
+            (`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area.strArea}`)
+            .then(response => {
+                allRecipes.push(response.data.meals.length);
+
+                if (allRecipes.length === areas.length) {
+                    total = allRecipes.reduce(
+                        ( a, b ) => a + b,
+                        0
+                    )
+                }
+
+                total > 0 && setRecipesNumber(total)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    })
+}
