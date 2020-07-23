@@ -13,7 +13,7 @@ const Ingredients = () => {
     const [ingredientName, setIngredientName] = useState<string>();
     const [fade, setFade] = useState<boolean>(false);
     const [fade2, setFade2] = useState<boolean>(false);
-    const [ingredientsPerPage, setIngredientsPerPage] = useState<number>(5);
+    const [ingredientsPerPage] = useState<number>(5);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [changePage, setChangePage] = useState<boolean>(false);
 

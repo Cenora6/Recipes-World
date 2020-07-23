@@ -53,3 +53,15 @@
     transform: rotate(-15deg);
   }
 }
+
+@include keyframes(move) {
+  0% {
+    margin: 1rem;
+  }
+  50% {
+    margin: 0;
+  }
+  100% {
+    margin: 1rem;
+  }
+}

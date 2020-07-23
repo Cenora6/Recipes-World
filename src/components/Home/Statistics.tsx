@@ -18,7 +18,7 @@ export function Statistics() {
 
     useEffect(() => {
         getTotalNumberOfRecipes(areas, setRecipesNumber);
-    }, [areas, recipesNumber])
+    }, [areas])
 
 
     return (

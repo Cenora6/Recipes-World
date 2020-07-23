@@ -49,7 +49,7 @@ function BlogPost () {
                 console.log(err.message)
             })
 
-    }, [id])
+    }, [id, post.likes, post.shares])
 
     const likePost = () => {
         (liked) ? setLikesNumber( likesNumber && likesNumber - 1) : setLikesNumber( likesNumber && likesNumber + 1);
@@ -66,7 +66,6 @@ function BlogPost () {
         setReplyClicked(id);
         setReplyForm(true);
     }
-
 
     const handleCloseReply = () => {
         setReplyForm(false);

@@ -26,7 +26,7 @@ function SingleRecipe(props: any) {
                         return (
                             <div className='singleRecipe__details' key={index}>
                                 <Back/>
-                                <div className='singleRecipe__details__text flex-box'>
+                                <div className='singleRecipe__details__text'>
                                     <div className='singleRecipe__details__text__category'>
                                         <span className='area'>{meal.strArea}</span>
                                         <span className='category'>{meal.strCategory}</span>
@@ -43,13 +43,18 @@ function SingleRecipe(props: any) {
                                         }
                                     </div>
 
-                                    <ul>
+                                    <form>
                                         {meal.strInstructions.split('\n').map((text: string, i: number) => {
-                                            return (
-                                                <li key={i}>{text !== null && text}</li>
-                                            )
+                                            if (text.length > 1) {
+                                                return (
+                                                    <div className='singleRecipe__details__text__steps flex-box'>
+                                                        <input type='checkbox' name='instructions' id={`step${i}`}/>
+                                                        <label htmlFor={`step${i}`} key={i}>{text}</label>
+                                                    </div>
+                                                )
+                                            }
                                         })}
-                                    </ul>
+                                    </form>
 
                                     <div className='singleRecipe__details__text__tags'>
                                         {meal.strTags && meal.strTags.split(',').map((text: string, i: number) => {
