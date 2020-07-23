@@ -36,6 +36,7 @@
       @include phone-and-tablet {
         width: calc(90%/3);
         padding: 0 0.8rem;
+        height: 15rem;
       }
 
       &:nth-of-type(2):after, &:nth-of-type(3):after {

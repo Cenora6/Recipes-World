@@ -49,10 +49,10 @@
           color: $decorative-color;
           margin: 1rem 0;
           cursor: pointer;
+          padding: 0 2rem;
 
           @include phone {
             @include font-size(1);
-            padding: 0 2rem;
             line-height: 2rem;
           }
         }
@@ -61,7 +61,6 @@
           position: relative;
           width: 1.5rem;
           height: 1.5rem;
-          margin-right: 2rem;
           color: $text-color;
           border: .05rem solid $transparent-shadow-color;
           border-radius: .1rem;
@@ -75,7 +74,7 @@
             content: '';
             position: absolute;
             top: .1rem;
-            left: .5rem;
+            left: .4rem;
             width: .5rem;
             height: .8rem;
             border-style: solid;
@@ -142,7 +141,6 @@
       }
 
       &__tags {
-        width: 100%;
         margin: 1rem;
 
         @include phone {
@@ -220,14 +218,14 @@
         &:after {
           content: "";
           position: absolute;
-          background: url('./../../assets/note.png');
+          background: url('./../../assets/note.png') no-repeat;
           background-size: 50rem;
           z-index: 1;
           width: 140%;
           height: 100%;
 
-          @include phone {
-            width: 100%;
+          @include phone-and-tablet {
+            margin-right: 3rem;
           }
 
           @include tablet {
@@ -244,12 +242,17 @@
           font-family: $recipe-font;
           text-shadow: 5px 5px $transparent-shadow-color;
           z-index: 2;
+          text-align: center;
 
           &:first-of-type {
             @include font-size(2);
             margin-top: 2rem;
             text-decoration: overline;
             list-style: none;
+
+            @include phone {
+              @include font-size(1.5);
+            }
           }
 
           @include phone {

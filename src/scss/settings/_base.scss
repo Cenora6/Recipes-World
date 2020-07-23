@@ -2,6 +2,7 @@ body {
   background: $background;
   font-family: $base-font;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -29,6 +30,10 @@ h2 {
     background: $main-color;
     color: $background;
     padding: .5rem;
+
+    @include phone {
+      @include font-size(1);
+    }
   }
 
   @include phone-and-tablet {
@@ -67,6 +72,11 @@ h4 {
   color: $background;
   background: $decorative-color;
   padding: 1rem;
+  line-height: 2rem;
+
+  @include phone {
+    @include font-size(1.4);
+  }
 }
 
 .small-button, .big-button, .medium-button {
