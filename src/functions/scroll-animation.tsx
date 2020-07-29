@@ -1,7 +1,6 @@
 export const scroll = window.requestAnimationFrame ||
     function(callback: any){ window.setTimeout(callback, 1000/60)};
 
-
 export function loop() {
     const elementsToShow = document.querySelectorAll<HTMLElement>('.scroll-animation')!;
     elementsToShow.forEach(function (element: HTMLElement) {

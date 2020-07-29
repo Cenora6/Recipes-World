@@ -160,6 +160,7 @@
         background: $background;
         padding: 2rem;
         transform-style: preserve-3d;
+        text-align: left;
 
         &:after {
           content: "";
@@ -168,6 +169,10 @@
           background: url("./../../assets/decoration.png") no-repeat;
           position: absolute;
           z-index: -1;
+        }
+
+        & > div {
+          width: 100%;
         }
 
         &:nth-child(odd) {
@@ -179,8 +184,9 @@
 
         &:nth-child(even) {
           &:after {
+            right: -30rem;
             top: 6rem;
-            @include transform(translateZ(-1px) rotate(90deg));
+            @include transform(translateZ(-1px));
           }
         }
 
@@ -198,6 +204,10 @@
           width: 100%;
           margin: 1rem 0;
           word-spacing: 2rem;
+
+          @include phone-and-tablet {
+            word-spacing: .5rem;
+          }
         }
 
         p {

@@ -52,6 +52,8 @@ function SingleRecipe(props: any) {
                                                         <label htmlFor={`step${i}`} key={i}>{text}</label>
                                                     </div>
                                                 )
+                                            } else {
+                                                return null
                                             }
                                         })}
                                     </form>
