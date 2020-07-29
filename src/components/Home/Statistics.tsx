@@ -5,11 +5,15 @@ import {
     getTotalNumberOfRecipes
 } from "../../api/getRecipes";
 
+interface AreaType {
+    strArea: string
+}
+
 export function Statistics() {
 
     const [ingredients, setIngredients] = useState<string[]>([]);
     const [recipesNumber, setRecipesNumber] = useState<number>(0);
-    const [areas, setAreas] = useState<any[]>([]);
+    const [areas, setAreas] = useState<AreaType[]>([]);
 
     useEffect(() => {
         getAllAreas(setAreas);
@@ -19,7 +23,6 @@ export function Statistics() {
     useEffect(() => {
         getTotalNumberOfRecipes(areas, setRecipesNumber);
     }, [areas])
-
 
     return (
         <div className='home__welcome__header__text'>

@@ -12,7 +12,7 @@ export function getRecipes(setRecipeNames: (data: any) => void, searchTerm: stri
         });
 }
 
-export function searchRecipeById(id: number, setSingle: (data: any) => void) {
+export function searchRecipeById(id: string, setSingle: (data: any) => void) {
     axios
         .get<any>
         (`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)

@@ -6,9 +6,19 @@ import { NavLink } from "react-router-dom";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
 
+interface AreaType {
+    strArea: string
+}
+
+interface SingleMealData {
+    idMeal: string,
+    strMeal: string,
+    strMealThumb: string
+}
+
 const Area = () => {
-    const [area, setArea] = useState<string[]>([]);
-    const [areaRecipes, setAreaRecipes] = useState<string[]>([]);
+    const [area, setArea] = useState<Array<AreaType>>([]);
+    const [areaRecipes, setAreaRecipes] = useState<Array<SingleMealData>>([]);
     const [areaName, setAreaName] = useState<string>();
     const [fade, setFade] = useState<boolean>(false);
 
@@ -34,13 +44,13 @@ const Area = () => {
                 <Back/>
                 <h2 className="scroll-animation"> Recipes' <span className='title-decorate'>Areas</span> </h2>
                 <div className='base-page__buttons flex-box'>
-                    {area.map( (area: any, id: number) => {
+                    {area.map( (singleArea: AreaType, id: number) => {
                         return (
 
                             <Link activeClass="active" to="area" spy={true} smooth={true} duration={1000}
-                                  onClick={() => handleSingleArea(area.strArea)} key={id} delay={500} offset={-50}>
+                                  onClick={() => handleSingleArea(singleArea.strArea)} key={id} delay={500} offset={-50}>
                                 <div className='base-page__buttons__single buttons'>
-                                    <span>{area.strArea}</span>
+                                    <span>{singleArea.strArea}</span>
                                 </div>
                             </Link>
                         )
@@ -52,7 +62,7 @@ const Area = () => {
                 {areaRecipes.length > 0 &&
                 <>
                     <h2>Dishes From <span className='title-decorate'>{areaName}</span></h2>
-                    {areaRecipes.map( (meal: any, index: number) => {
+                    {areaRecipes.map( (meal: SingleMealData, index: number) => {
                         return (
                             <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
                                      onAnimationEnd={() => setFade(false)}>

@@ -6,10 +6,22 @@ import {NavLink} from "react-router-dom";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
 
+interface SingleMealData {
+    idMeal: string,
+    strMeal: string,
+    strMealThumb: string
+}
+
+interface IngredientsData {
+    idIngredient: string,
+    strDescription: string,
+    strIngredient: string
+}
+
 const Ingredients = () => {
-    const [ingredients, setIngredients] = useState<any>([]);
+    const [ingredients, setIngredients] = useState<Array<IngredientsData>>([]);
     const [ingredientInput, setIngredientInput] = useState<string>();
-    const [ingredientRecipe, setIngredientRecipe] = useState<string[]>([]);
+    const [ingredientRecipe, setIngredientRecipe] = useState<Array<SingleMealData>>([]);
     const [ingredientName, setIngredientName] = useState<string>();
     const [fade, setFade] = useState<boolean>(false);
     const [fade2, setFade2] = useState<boolean>(false);
@@ -70,7 +82,7 @@ const Ingredients = () => {
         },250)
     };
 
-    const previousPage = (e: Event, i: number) => {
+    const previousPage = (e: React.MouseEvent, i: number) => {
         setChangePage(!changePage);
 
         setTimeout(() => {
@@ -98,9 +110,9 @@ const Ingredients = () => {
             buttons.push (
                 <div key={i} className='ingredients-buttons'>
                     {currentPage !== 1 &&
-                    <i className='fas fa-long-arrow-alt-left' onClick={(e: React.MouseEvent<HTMLElement>) => previousPage(e as any, i)}></i>}
+                    <i className='fas fa-long-arrow-alt-left' onClick={(e: React.MouseEvent<HTMLElement>) => previousPage(e, i)}></i>}
                     {currentPage !== ingredientsPageNumber &&
-                    <i className='fas fa-long-arrow-alt-right' onClick={(e: React.MouseEvent<HTMLElement>) => nextPage(e as any, i)}></i>}
+                    <i className='fas fa-long-arrow-alt-right' onClick={(e: React.MouseEvent<HTMLElement>) => nextPage(e, i)}></i>}
                 </div>
             )
         )
@@ -117,7 +129,7 @@ const Ingredients = () => {
                 <div className='base-page__buttons'>
                     <>
                         {ingredientInput ?
-                            chosenIngredients.length > 0 ? visibleIngredients.map( (ingredient: any, id: number) => {
+                            chosenIngredients.length > 0 ? visibleIngredients.map( (ingredient: string, id: number) => {
                                 return (
                                     <Link activeClass="active" to="ingredient" spy={true} smooth={true} duration={1000}
                                           onClick={() => handleSingleIngredient(ingredient)} key={id} delay={500} offset={-50}>
@@ -142,7 +154,7 @@ const Ingredients = () => {
                 {ingredientRecipe ?  ingredientRecipe.length > 0 &&
                     <>
                         <h2>Dishes With <span className='title-decorate'>{ingredientName}</span></h2>
-                        {ingredientRecipe.map( (meal: any, index: number) => {
+                        {ingredientRecipe.map( (meal: SingleMealData, index: number) => {
                             return (
                                 <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade2 ? 'shown' : 'hidden'}`} key={index}
                                          onAnimationEnd={() => setFade2(false)}>

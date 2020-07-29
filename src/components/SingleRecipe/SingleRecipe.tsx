@@ -6,8 +6,65 @@ import Back from "../Navigations/Back";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
 
-function SingleRecipe(props: any) {
-    const [singleRecipe, setSingleRecipe] = useState<string[]>([]);
+type RecipeProps = {
+    match: {params: {id: string}}
+}
+
+interface SingleRecipe {
+    idMeal: string,
+    strArea: string,
+    strCategory: string,
+    strIngredient1: string,
+    strIngredient2: string,
+    strIngredient3: string,
+    strIngredient4: string,
+    strIngredient5: string,
+    strIngredient6: string,
+    strIngredient7: string,
+    strIngredient8: string,
+    strIngredient9: string,
+    strIngredient10: string,
+    strIngredient11: string,
+    strIngredient12: string,
+    strIngredient13: string,
+    strIngredient14: string,
+    strIngredient15: string,
+    strIngredient16: string,
+    strIngredient17: string,
+    strIngredient18: string,
+    strIngredient19: string,
+    strIngredient20: string,
+    strInstructions: string,
+    strMeal: string,
+    strMealThumb: string,
+    strMeasure1: string,
+    strMeasure2: string,
+    strMeasure3: string,
+    strMeasure4: string,
+    strMeasure5: string,
+    strMeasure6: string,
+    strMeasure7: string,
+    strMeasure8: string,
+    strMeasure9: string,
+    strMeasure10: string,
+    strMeasure11: string,
+    strMeasure12: string,
+    strMeasure13: string,
+    strMeasure14: string,
+    strMeasure15: string,
+    strMeasure16: string,
+    strMeasure17: string,
+    strMeasure18: string,
+    strMeasure19: string,
+    strMeasure20: string,
+    strSource: string,
+    strTags?: string,
+    strYoutube: string,
+    [i: string]: string | undefined
+}
+
+function SingleRecipe(props: RecipeProps) {
+    const [singleRecipe, setSingleRecipe] = useState<Array<SingleRecipe>>([]);
 
     const { match } = props;
     let {id} = match.params;
@@ -18,11 +75,12 @@ function SingleRecipe(props: any) {
     }, [id]);
 
     const ingredientsNumber: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
     return (
         <>
             <section className='singleRecipe'>
                 {
-                    singleRecipe.map( (meal: any, index: number) => {
+                    singleRecipe.map( (meal: SingleRecipe, index: number) => {
                         return (
                             <div className='singleRecipe__details' key={index}>
                                 <Back/>
@@ -39,6 +97,13 @@ function SingleRecipe(props: any) {
                                         <ReactPlayer
                                             url={meal.strYoutube}
                                             controls={true}
+                                            config={{
+                                                youtube: {
+                                                    embedOptions: {
+                                                        host: 'https://www.youtube-nocookie.com'
+                                                    }
+                                                }
+                                            }}
                                         />
                                         }
                                     </div>
@@ -47,7 +112,7 @@ function SingleRecipe(props: any) {
                                         {meal.strInstructions.split('\n').map((text: string, i: number) => {
                                             if (text.length > 1) {
                                                 return (
-                                                    <div className='singleRecipe__details__text__steps flex-box'>
+                                                    <div className='singleRecipe__details__text__steps flex-box' key={i}>
                                                         <input type='checkbox' name='instructions' id={`step${i}`}/>
                                                         <label htmlFor={`step${i}`} key={i}>{text}</label>
                                                     </div>
@@ -71,10 +136,15 @@ function SingleRecipe(props: any) {
                                     <img src={meal.strMealThumb} alt={meal.strMeal} className='photo'/>
                                     <ul>
                                         <li>Ingredients</li>
-                                        {ingredientsNumber.map( (ingredient, i) => {
+                                        {ingredientsNumber.map( (ingredient: number, i: number) => {
+                                            const strIngredient = 'strIngredient' + i;
+                                            const strMeasure = 'strMeasure' + i;
                                             return (
-                                                meal[`strIngredient${i}`] !== '' && meal[`strMeasure${i}`] !== null ) &&
-                                                <li key={i}>{meal[`strIngredient${i}`]}<span>{meal[`strMeasure${i}`]}</span></li>
+                                                meal[strIngredient] !== '' && meal[strMeasure] !== null ) &&
+                                                <li key={i}>
+                                                    {meal[`strIngredient${i}`]}
+                                                    <span>{meal[`strMeasure${i}`]}</span>
+                                                </li>
                                         })}
                                     </ul>
                                 </div>

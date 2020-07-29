@@ -20,6 +20,12 @@ const PrevArrow = (props: any) => {
     );
 };
 
+interface PostType {
+    id: number,
+    image: string,
+    preview: string,
+    title: string,
+}
 
 function Carousel() {
 
@@ -40,7 +46,7 @@ function Carousel() {
             <Slider {...settings}>
 
                 {
-                    db.blog.map( (post: any) => {
+                    db.blog.map( (post: PostType) => {
                         return (
                             <div className='carousel' key={post.id}>
                                 <div className='carousel__slide'>

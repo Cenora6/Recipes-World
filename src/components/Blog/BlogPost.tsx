@@ -16,6 +16,25 @@ type PhotosApiResponse = {
     results: {urls: {regular: string}}[];
 }
 
+interface PhotoResponse {
+    urls: {regular: string}
+}
+
+interface ReplyObject {
+    id: number,
+    name: string,
+    reply: string[],
+    text: string,
+}
+
+interface CommentObject {
+    id: number,
+    name: string,
+    reply: Array<ReplyObject>,
+    text: string,
+}
+
+
 function BlogPost () {
 
     const [photos, setPhotos] = useState<string[]>();
@@ -26,10 +45,8 @@ function BlogPost () {
     const [replyForm, setReplyForm] = useState<boolean>(false);
     const [replyClicked, setReplyClicked] = useState<number>();
 
-
     let { id } = useParams();
     const post = db.blog[id - 1];
-    console.log(post.likes)
 
     useEffect( () => {
         window.scrollTo(0, 0);
@@ -42,7 +59,9 @@ function BlogPost () {
             .get<PhotosApiResponse>
             (`https://api.unsplash.com/search/photos?client_id=1FavNGGDNEiol0lspKANnpqyyBWdzLYvV5rVAlGw-Zg&page=${id}&per_page=10&query=food`)
             .then(response => {
-                response.data.results.map( (photo:any) => photoArray.push(photo.urls.regular))
+                response.data.results.map( (photo: PhotoResponse) => {
+                    photoArray.push(photo.urls.regular)
+                })
                 setPhotos(photoArray)
             })
             .catch(err => {
@@ -120,7 +139,7 @@ function BlogPost () {
                         </div>
                         <h3>{post.title}</h3>
                         <div className='blog__description__text'>
-                            {post.full.split('\n\n').map( (i: any, index: number) => {
+                            {post.full.split('\n\n').map( (i: string, index: number) => {
                                 return (
                                     <div key={index} className='flex-box'>
                                         <img src={photos && photos[index]} alt={`photograph${index}`}/>
@@ -141,7 +160,7 @@ function BlogPost () {
                         </div>
                         <div className='blog__description__comments flex-box'>
                             <h3>Comments</h3>
-                            {post.comments && post.comments.map( (comment: any, index: number) => {
+                            {post.comments && post.comments.map( (comment: CommentObject, index: number) => {
                                 return (
                                     <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
                                         <h4>{comment.name}</h4>
@@ -152,8 +171,7 @@ function BlogPost () {
                                                    nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
 
                                         {comment.reply.length > 0 &&
-                                        comment.reply.map ( (reply: any, i: number) => {
-                                            console.log(reply)
+                                        comment.reply.map ( (reply: ReplyObject, i: number) => {
                                             return (
                                                 <div key={i}>
                                                     <span className='line-between'></span>

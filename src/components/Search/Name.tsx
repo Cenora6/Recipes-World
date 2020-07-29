@@ -6,8 +6,14 @@ import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
 import {Link} from "react-scroll";
 
+interface SingleMealData {
+    idMeal: string,
+    strMeal: string,
+    strMealThumb: string
+}
+
 const Names = () => {
-    const [recipeNames, setRecipeNames] = useState<string[]>([]);
+    const [recipeNames, setRecipeNames] = useState<Array<SingleMealData>>([]);
     const [fade, setFade] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
     const [searchName, setSearchName] = useState<string>();
@@ -75,7 +81,7 @@ const Names = () => {
 
             <section className='photo__section flex-box' id='name'>
                 {recipeNames ? recipeNames.length > 0 &&
-                    recipeNames.map((meal: any, index: number) => {
+                    recipeNames.map((meal: SingleMealData, index: number) => {
                         return (
                             <NavLink to={`/recipe/${meal.idMeal}`} className={`photo__section__single ${fade ? 'shown' : 'hidden'}`} key={index}
                                      onAnimationEnd={() => setFade(false)}>

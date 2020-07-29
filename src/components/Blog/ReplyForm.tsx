@@ -2,9 +2,9 @@ import React from 'react';
 
 interface ReplyFormProps {
     handleCloseReply: () => void;
-    handleCommentForm: (event: React.FormEvent<Element>) => void;
-    nameInputRef: any;
-    textAreaRef: any;
+    handleCommentForm: (event: React.FormEvent) => void;
+    nameInputRef: React.RefObject<HTMLInputElement>;
+    textAreaRef: React.RefObject<HTMLTextAreaElement>;
 }
 
 function ReplyForm (props: ReplyFormProps) {
