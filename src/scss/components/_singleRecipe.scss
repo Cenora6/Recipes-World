@@ -178,6 +178,7 @@
       position: relative;
 
       @include phone {
+        overflow-x: hidden;
         margin-top: 6rem;
       }
 
@@ -219,7 +220,7 @@
           content: "";
           position: absolute;
           background: url('./../../assets/note.png') no-repeat;
-          background-size: 50rem;
+          background-size: 50rem 100%;
           z-index: 1;
           width: 140%;
           height: 100%;
@@ -257,12 +258,17 @@
 
           @include phone {
             @include font-size(1);
+            line-height: 2.5rem;
           }
 
           span {
             margin: 0 2rem;
             color: $text-color;
             font-weight: 400;
+
+            @include phone {
+              margin-right: 0;
+            }
           }
         }
       }

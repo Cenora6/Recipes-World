@@ -11,6 +11,7 @@ import shareNot from "../../assets/share_not.png";
 import ReplyForm from "./ReplyForm";
 import {Footer} from "../Navigations/Footer";
 import db from '../../api/db.json';
+import ScrollUp from "../Navigations/ScrollUp";
 
 type PhotosApiResponse = {
     results: {urls: {regular: string}}[];
@@ -22,18 +23,30 @@ interface PhotoResponse {
 
 interface ReplyObject {
     id: number,
+    parent_id: number | null,
+    main_comment: number | null,
     name: string,
-    reply: string[],
     text: string,
+    reply: string[],
 }
 
 interface CommentObject {
     id: number,
+    parent_id: number | null,
+    main_comment: number | null,
     name: string,
-    reply: Array<ReplyObject>,
     text: string,
+    reply: string[],
 }
 
+interface SingleReply {
+    id: any,
+    parent_id: any,
+    main_comment: number | null,
+    name: any,
+    reply: any,
+    text: any
+}
 
 function BlogPost () {
 
@@ -43,7 +56,13 @@ function BlogPost () {
     const [share, setShare] = useState<boolean>(false);
     const [sharesNumber, setSharesNumber] = useState<number>();
     const [replyForm, setReplyForm] = useState<boolean>(false);
-    const [replyClicked, setReplyClicked] = useState<number>();
+    const [replyClicked, setReplyClicked] = useState<number | null>();
+    const [replyParent, setReplyParent] = useState<number | null>();
+    const [mainComment, setMainComment] = useState<number | null>();
+
+    const [comments, setComments] = useState<any>();
+
+    const replyId = Math.floor(Math.random() * Math.floor(10000));
 
     let { id } = useParams();
     const post = db.blog[id - 1];
@@ -52,6 +71,7 @@ function BlogPost () {
         window.scrollTo(0, 0);
         setLikesNumber(post.likes)
         setSharesNumber(post.shares)
+        setComments(post.comments)
 
         let photoArray: string[] = [];
 
@@ -80,9 +100,19 @@ function BlogPost () {
         setShare(!share);
     }
 
-    const handleNewReply = (e: React.FormEvent, id: number) => {
-        console.log(e.currentTarget!.parentElement);
+    const handleNewReply = (e: React.FormEvent, id: number, parent_id: number | null, commentId: number | null) => {
+        console.log("all comments", comments)
+        console.log("clicked", id);
+        console.log("parent", parent_id);
+        console.log("comment id", commentId);
+        // console.log(e.currentTarget!.parentElement);commentId
+
+        // console.log(id) // id postu, do którego jest odpowiedź
+        // console.log("dany post", post.comments.filter(c => c.id === id)); // wyszukuje dane postu, do którego jest odpowiedź RODZIC
+
+        setMainComment(commentId)
         setReplyClicked(id);
+        setReplyParent(parent_id);
         setReplyForm(true);
     }
 
@@ -98,33 +128,38 @@ function BlogPost () {
         event.preventDefault();
         const enteredName = nameInputRef.current!.value;
         const enteredText = textAreaRef.current!.value;
-        console.log(enteredName);
-        console.log(enteredText);
 
-        const target = event.currentTarget!.parentElement!.parentElement!.parentElement;
-        const replyId = Math.floor(Math.random() * Math.floor(10000));
+        const newReplyObject = {
+            id: replyId,
+            main_comment: mainComment,
+            parent_id: replyParent,
+            name: enteredName,
+            reply: [],
+            text: enteredText
+        };
 
-        const reply =
-            `<div key={replyId}>
-                <span className='line-between'></span>
-                <div className='blog__description__comments__single__reply'>
-                    <div className='blog__description__comments__single__reply__details'>
-                        <h4>{enteredName}</h4>
-                        <p>{enteredText}</p>
-                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId)}>Reply</button>
-                        {replyForm && replyClicked === replyId &&
-                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
-                    </div>
-                </div>
-            </div>`
+        if(mainComment === null) {
+            setComments([...comments, newReplyObject]);
+        } else {
+            if(replyParent === mainComment) {
+                const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
+                filteredComment[0].reply.push(newReplyObject);
+                setComments(comments);
+            } else {
+                const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
+                const filteredReply = filteredComment[0].reply.filter( (c:any) => c.id === newReplyObject.parent_id);
+                filteredReply[0].reply.push(newReplyObject);
+            }
+        }
 
-        console.log(reply);
+        setReplyClicked(null);
+        setReplyForm(false);
     }
 
     return (
         <>
             <Back/>
+            <ScrollUp/>
             <div className='blog flex-box'>
                 <div className='blog__description'>
                     <section key={post.id}>
@@ -160,41 +195,60 @@ function BlogPost () {
                         </div>
                         <div className='blog__description__comments flex-box'>
                             <h3>Comments</h3>
-                            {post.comments && post.comments.map( (comment: CommentObject, index: number) => {
+
+                            <div className='blog__description__comments__reply'>
+                                <button className='small-button' onClick={(e) => handleNewReply(e, replyId, null, null)}>Reply to this blog post</button>
+                                {replyForm && replyParent === null &&
+                                <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                           nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>
+                                }
+                            </div>
+
+                            {comments && comments.map( (comment: CommentObject, index: number) => {
                                 return (
-                                    <div className='blog__description__comments__single' key={index} onClick={() => console.log(comment.id)}>
+                                    <div className='blog__description__comments__single' key={index}>
                                         <h4>{comment.name}</h4>
                                         <p>{comment.text}</p>
-                                        <button className='small-button' onClick={(e) => handleNewReply(e, comment.id)}>Reply</button>
-                                        {replyForm && replyClicked === comment.id &&
+                                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId, comment.id, comment.id)}>Reply</button>
+
+                                        {replyForm && replyParent === comment.id &&
+
                                         <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
                                                    nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
 
                                         {comment.reply.length > 0 &&
-                                        comment.reply.map ( (reply: ReplyObject, i: number) => {
+                                        comment.reply.map ( (reply: any, i: number) => {
                                             return (
-                                                <div key={i}>
-                                                    <span className='line-between'></span>
-                                                    <div className='blog__description__comments__single__reply'>
-                                                        <div className='blog__description__comments__single__reply__details'>
-                                                            <h4>{reply.name}</h4>
-                                                            <p>{reply.text}</p>
-                                                            <button className='small-button' onClick={(e) => handleNewReply(e, reply.id)}>Reply</button>
-                                                            {replyForm && replyClicked === reply.id &&
-                                                            <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                                       nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
-                                                        </div>
+                                                <div className='blog__description__comments__single__reply' key={i}>
+                                                    <div className='blog__description__comments__single__reply__details'>
+                                                        <h4>{reply.name}</h4>
+                                                        <p>{reply.text}</p>
+                                                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId, reply.id, comment.id)}>Reply</button>
+                                                        {replyForm && replyParent === reply.id &&
+                                                        <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
+                                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+
+                                                        {reply.reply.length > 0 &&
+                                                        reply.reply.map ( (reply: any, i: number) => {
+                                                            return (
+                                                                <div className='blog__description__comments__single__reply__another' key={i}>
+                                                                        <h4>{reply.name}</h4>
+                                                                        <p>{reply.text}</p>
+                                                                </div>
+                                                            )
+                                                        })}
+
                                                     </div>
                                                 </div>
                                             )
                                         })
-
                                         }
 
                                         <span className='line-between'></span>
                                     </div>
                                 )
                             })}
+
                         </div>
                     </section>
                 </div>

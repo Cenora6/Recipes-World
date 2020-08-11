@@ -151,16 +151,34 @@
         }
       }
 
-      &__single {
+      &__single, &__reply, &__single__reply__another {
+        width: 70%;
         z-index: 1;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        width: 70%;
         background: $background;
-        padding: 2rem;
         transform-style: preserve-3d;
         text-align: left;
+
+        @include phone-and-tablet {
+          width: 90%;
+        }
+      }
+
+      &__reply {
+        align-items: center;
+        margin: 2rem 0;
+        padding: 0 2rem;
+
+        .reply {
+          margin: auto;
+          width: 70%;
+        }
+      }
+
+      &__single {
+        align-items: flex-end;
+        padding: 2rem;
 
         &:after {
           content: "";
@@ -169,10 +187,6 @@
           background: url("./../../assets/decoration.png") no-repeat;
           position: absolute;
           z-index: -1;
-        }
-
-        & > div {
-          width: 100%;
         }
 
         &:nth-child(odd) {
@@ -187,6 +201,10 @@
             right: -30rem;
             top: 6rem;
             @include transform(translateZ(-1px));
+
+            @include phone {
+              margin-right: 30rem;
+            }
           }
         }
 
@@ -194,10 +212,6 @@
           &:after {
             height: 40rem;
           }
-        }
-
-        @include phone-and-tablet {
-          width: auto;
         }
 
         h4 {
