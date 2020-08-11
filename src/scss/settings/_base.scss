@@ -535,3 +535,18 @@ nav, footer {
     }
   }
 }
+
+.input-error {
+    border: .2rem solid crimson;
+}
+
+input.input-error {
+  &::-webkit-input-placeholder {
+    color: $background;
+  }
+}
+textarea.input-error {
+  &::-webkit-input-placeholder {
+    color: crimson;
+  }
+}

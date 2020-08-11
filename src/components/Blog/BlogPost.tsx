@@ -59,8 +59,9 @@ function BlogPost () {
     const [replyClicked, setReplyClicked] = useState<number | null>();
     const [replyParent, setReplyParent] = useState<number | null>();
     const [mainComment, setMainComment] = useState<number | null>();
-
     const [comments, setComments] = useState<any>();
+    const [nameError, setNameError] = useState<boolean>(false);
+    const [textError, setTextError] = useState<boolean>(false);
 
     const replyId = Math.floor(Math.random() * Math.floor(10000));
 
@@ -101,15 +102,6 @@ function BlogPost () {
     }
 
     const handleNewReply = (e: React.FormEvent, id: number, parent_id: number | null, commentId: number | null) => {
-        console.log("all comments", comments)
-        console.log("clicked", id);
-        console.log("parent", parent_id);
-        console.log("comment id", commentId);
-        // console.log(e.currentTarget!.parentElement);commentId
-
-        // console.log(id) // id postu, do którego jest odpowiedź
-        // console.log("dany post", post.comments.filter(c => c.id === id)); // wyszukuje dane postu, do którego jest odpowiedź RODZIC
-
         setMainComment(commentId)
         setReplyClicked(id);
         setReplyParent(parent_id);
@@ -118,6 +110,13 @@ function BlogPost () {
 
     const handleCloseReply = () => {
         setReplyForm(false);
+        setNameError(false);
+        setTextError(false);
+    }
+
+    const focusInput = () => {
+        setNameError(false);
+        setTextError(false);
     }
 
     const nameInputRef = useRef<HTMLInputElement>(null);
@@ -129,31 +128,44 @@ function BlogPost () {
         const enteredName = nameInputRef.current!.value;
         const enteredText = textAreaRef.current!.value;
 
-        const newReplyObject = {
-            id: replyId,
-            main_comment: mainComment,
-            parent_id: replyParent,
-            name: enteredName,
-            reply: [],
-            text: enteredText
-        };
+        if(enteredName.length === 0 || enteredText.length === 0) {
 
-        if(mainComment === null) {
-            setComments([...comments, newReplyObject]);
-        } else {
-            if(replyParent === mainComment) {
-                const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
-                filteredComment[0].reply.push(newReplyObject);
-                setComments(comments);
-            } else {
-                const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
-                const filteredReply = filteredComment[0].reply.filter( (c:any) => c.id === newReplyObject.parent_id);
-                filteredReply[0].reply.push(newReplyObject);
+            if(enteredName.length === 0) {
+                setNameError(true);
             }
-        }
 
-        setReplyClicked(null);
-        setReplyForm(false);
+            if (enteredText.length === 0) {
+                setTextError(true);
+            }
+
+        } else {
+            const newReplyObject = {
+                id: replyId,
+                main_comment: mainComment,
+                parent_id: replyParent,
+                name: enteredName,
+                reply: [],
+                text: enteredText
+            };
+
+            if(mainComment === null) {
+                setComments([...comments, newReplyObject]);
+            } else {
+                if(replyParent === mainComment) {
+                    const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
+                    filteredComment[0].reply.push(newReplyObject);
+                    setComments(comments);
+                } else {
+                    const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
+                    const filteredReply = filteredComment[0].reply.filter( (c:any) => c.id === newReplyObject.parent_id);
+                    filteredReply[0].reply.push(newReplyObject);
+                }
+            }
+
+            setReplyClicked(null);
+            setReplyForm(false);
+
+        }
     }
 
     return (
@@ -200,7 +212,8 @@ function BlogPost () {
                                 <button className='small-button' onClick={(e) => handleNewReply(e, replyId, null, null)}>Reply to this blog post</button>
                                 {replyForm && replyParent === null &&
                                 <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                           nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>
+                                           nameInputRef={nameInputRef} textAreaRef={textAreaRef} nameError={nameError}
+                                           focusInput={focusInput} textError={textError}/>
                                 }
                             </div>
 
@@ -214,7 +227,8 @@ function BlogPost () {
                                         {replyForm && replyParent === comment.id &&
 
                                         <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef} nameError={nameError}
+                                                   focusInput={focusInput} textError={textError}/>}
 
                                         {comment.reply.length > 0 &&
                                         comment.reply.map ( (reply: any, i: number) => {
@@ -226,7 +240,8 @@ function BlogPost () {
                                                         <button className='small-button' onClick={(e) => handleNewReply(e, replyId, reply.id, comment.id)}>Reply</button>
                                                         {replyForm && replyParent === reply.id &&
                                                         <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
-                                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef}/>}
+                                                                   nameInputRef={nameInputRef} textAreaRef={textAreaRef} nameError={nameError}
+                                                                   focusInput={focusInput} textError={textError}/>}
 
                                                         {reply.reply.length > 0 &&
                                                         reply.reply.map ( (reply: any, i: number) => {
