@@ -23,11 +23,11 @@ interface PhotoResponse {
 
 interface ReplyObject {
     id: number,
-    parent_id: number | null,
     main_comment: number | null,
+    parent_id: number | null,
     name: string,
     text: string,
-    reply: string[],
+    reply: any[],
 }
 
 interface CommentObject {
@@ -36,16 +36,7 @@ interface CommentObject {
     main_comment: number | null,
     name: string,
     text: string,
-    reply: string[],
-}
-
-interface SingleReply {
-    id: any,
-    parent_id: any,
-    main_comment: number | null,
-    name: any,
-    reply: any,
-    text: any
+    reply: Array<ReplyObject>,
 }
 
 function BlogPost () {
@@ -56,10 +47,9 @@ function BlogPost () {
     const [share, setShare] = useState<boolean>(false);
     const [sharesNumber, setSharesNumber] = useState<number>();
     const [replyForm, setReplyForm] = useState<boolean>(false);
-    const [replyClicked, setReplyClicked] = useState<number | null>();
     const [replyParent, setReplyParent] = useState<number | null>();
     const [mainComment, setMainComment] = useState<number | null>();
-    const [comments, setComments] = useState<any>();
+    const [comments, setComments] = useState<Array<CommentObject>>();
     const [nameError, setNameError] = useState<boolean>(false);
     const [textError, setTextError] = useState<boolean>(false);
 
@@ -80,16 +70,14 @@ function BlogPost () {
             .get<PhotosApiResponse>
             (`https://api.unsplash.com/search/photos?client_id=1FavNGGDNEiol0lspKANnpqyyBWdzLYvV5rVAlGw-Zg&page=${id}&per_page=10&query=food`)
             .then(response => {
-                response.data.results.map( (photo: PhotoResponse) => {
-                    photoArray.push(photo.urls.regular)
-                })
+                response.data.results.map( (photo: PhotoResponse) => photoArray.push(photo.urls.regular))
                 setPhotos(photoArray)
             })
             .catch(err => {
                 console.log(err.message)
             })
 
-    }, [id, post.likes, post.shares])
+    }, [id, post.likes, post.shares, post.comments])
 
     const likePost = () => {
         (liked) ? setLikesNumber( likesNumber && likesNumber - 1) : setLikesNumber( likesNumber && likesNumber + 1);
@@ -103,7 +91,6 @@ function BlogPost () {
 
     const handleNewReply = (e: React.FormEvent, id: number, parent_id: number | null, commentId: number | null) => {
         setMainComment(commentId)
-        setReplyClicked(id);
         setReplyParent(parent_id);
         setReplyForm(true);
     }
@@ -139,32 +126,34 @@ function BlogPost () {
             }
 
         } else {
-            const newReplyObject = {
-                id: replyId,
-                main_comment: mainComment,
-                parent_id: replyParent,
-                name: enteredName,
-                reply: [],
-                text: enteredText
-            };
 
-            if(mainComment === null) {
-                setComments([...comments, newReplyObject]);
-            } else {
-                if(replyParent === mainComment) {
-                    const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
-                    filteredComment[0].reply.push(newReplyObject);
+            if(mainComment !== undefined && replyParent !== undefined) {
+
+                const newReplyObject: ReplyObject = {
+                    id: replyId,
+                    main_comment: mainComment,
+                    parent_id: replyParent,
+                    name: enteredName,
+                    reply: [],
+                    text: enteredText
+                };
+
+                if(mainComment === null) {
+                    comments!.push(newReplyObject);
                     setComments(comments);
                 } else {
-                    const filteredComment = comments.filter( (c:any) => c.id === newReplyObject.main_comment);
-                    const filteredReply = filteredComment[0].reply.filter( (c:any) => c.id === newReplyObject.parent_id);
-                    filteredReply[0].reply.push(newReplyObject);
+                    if(replyParent === mainComment) {
+                        const filteredComment = comments!.filter( (c:CommentObject) => c.id === newReplyObject.main_comment);
+                        filteredComment[0].reply.push(newReplyObject);
+                        setComments(comments);
+                    } else {
+                        const filteredComment = comments!.filter( (c:CommentObject) => c.id === newReplyObject.main_comment);
+                        const filteredReply = filteredComment[0].reply.filter( (c:ReplyObject) => c.id === newReplyObject.parent_id);
+                        filteredReply[0].reply.push(newReplyObject);
+                    }
                 }
+                setReplyForm(false);
             }
-
-            setReplyClicked(null);
-            setReplyForm(false);
-
         }
     }
 
@@ -209,7 +198,8 @@ function BlogPost () {
                             <h3>Comments</h3>
 
                             <div className='blog__description__comments__reply'>
-                                <button className='small-button' onClick={(e) => handleNewReply(e, replyId, null, null)}>Reply to this blog post</button>
+                                <button className='small-button' onClick={(e) =>
+                                    handleNewReply(e, replyId, null, null)}>Reply to this blog post</button>
                                 {replyForm && replyParent === null &&
                                 <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
                                            nameInputRef={nameInputRef} textAreaRef={textAreaRef} nameError={nameError}
@@ -222,7 +212,8 @@ function BlogPost () {
                                     <div className='blog__description__comments__single' key={index}>
                                         <h4>{comment.name}</h4>
                                         <p>{comment.text}</p>
-                                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId, comment.id, comment.id)}>Reply</button>
+                                        <button className='small-button' onClick={(e) =>
+                                            handleNewReply(e, replyId, comment.id, comment.id)}>Reply</button>
 
                                         {replyForm && replyParent === comment.id &&
 
@@ -231,24 +222,25 @@ function BlogPost () {
                                                    focusInput={focusInput} textError={textError}/>}
 
                                         {comment.reply.length > 0 &&
-                                        comment.reply.map ( (reply: any, i: number) => {
+                                        comment.reply.map ( (reply: ReplyObject, i: number) => {
                                             return (
                                                 <div className='blog__description__comments__single__reply' key={i}>
                                                     <div className='blog__description__comments__single__reply__details'>
                                                         <h4>{reply.name}</h4>
                                                         <p>{reply.text}</p>
-                                                        <button className='small-button' onClick={(e) => handleNewReply(e, replyId, reply.id, comment.id)}>Reply</button>
+                                                        <button className='small-button' onClick={(e) =>
+                                                            handleNewReply(e, replyId, reply.id, comment.id)}>Reply</button>
                                                         {replyForm && replyParent === reply.id &&
                                                         <ReplyForm handleCommentForm={handleCommentForm} handleCloseReply={handleCloseReply}
                                                                    nameInputRef={nameInputRef} textAreaRef={textAreaRef} nameError={nameError}
                                                                    focusInput={focusInput} textError={textError}/>}
 
                                                         {reply.reply.length > 0 &&
-                                                        reply.reply.map ( (reply: any, i: number) => {
+                                                        reply.reply.map ( (reply: ReplyObject, i: number) => {
                                                             return (
                                                                 <div className='blog__description__comments__single__reply__another' key={i}>
-                                                                        <h4>{reply.name}</h4>
-                                                                        <p>{reply.text}</p>
+                                                                    <h4>{reply.name}</h4>
+                                                                    <p>{reply.text}</p>
                                                                 </div>
                                                             )
                                                         })}

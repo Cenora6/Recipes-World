@@ -373,8 +373,8 @@ h4 {
       }
 
       &.error {
-        border: .2rem solid crimson;
-        color: crimson;
+        border: .2rem solid $error-color;
+        color: $error-color;
       }
     }
 
@@ -537,7 +537,7 @@ nav, footer {
 }
 
 .input-error {
-    border: .2rem solid crimson;
+    border: .2rem solid $error-color;
 }
 
 input.input-error {
@@ -547,6 +547,6 @@ input.input-error {
 }
 textarea.input-error {
   &::-webkit-input-placeholder {
-    color: crimson;
+    color: $error-color;
   }
 }
