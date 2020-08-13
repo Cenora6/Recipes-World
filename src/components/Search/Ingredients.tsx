@@ -5,18 +5,7 @@ import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
-
-interface SingleMealData {
-    idMeal: string,
-    strMeal: string,
-    strMealThumb: string
-}
-
-interface IngredientsData {
-    idIngredient: string,
-    strDescription: string,
-    strIngredient: string
-}
+import {IngredientsData, SingleMealData} from "./search.model";
 
 const Ingredients = () => {
     const [ingredients, setIngredients] = useState<Array<IngredientsData>>([]);

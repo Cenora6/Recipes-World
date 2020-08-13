@@ -1,12 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import db from '../../api/db.json';
-
-interface SingleMealData {
-    idMeal: string,
-    strMeal: string,
-    strMealThumb: string
-}
+import {SingleMealData} from "./home.model";
 
 function PhotoSection() {
 

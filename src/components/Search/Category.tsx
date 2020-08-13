@@ -5,19 +5,7 @@ import { Link } from "react-scroll";
 import {NavLink} from "react-router-dom";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
-
-interface SingleMealData {
-    idMeal: string,
-    strMeal: string,
-    strMealThumb: string
-}
-
-interface SingleCategory {
-    idCategory: string,
-    strCategory: string,
-    strCategoryDescription: string,
-    strCategoryThumb: string
-}
+import {SingleCategory, SingleMealData} from "./search.model";
 
 const Category = () => {
     const [category, setCategory] = useState<Array<SingleCategory>>([]);

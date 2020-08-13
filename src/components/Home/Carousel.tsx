@@ -5,6 +5,7 @@ import {
 import Slider from "react-slick";
 import line from './../../assets/line.png';
 import db from '../../api/db.json';
+import {PostType} from './home.model';
 
 const NextArrow = (props: any) => {
     const { onClick } = props;
@@ -19,13 +20,6 @@ const PrevArrow = (props: any) => {
         <i className='fas fa-long-arrow-alt-left' onClick={onClick}></i>
     );
 };
-
-interface PostType {
-    id: number,
-    image: string,
-    preview: string,
-    title: string,
-}
 
 function Carousel() {
 

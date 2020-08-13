@@ -12,32 +12,7 @@ import ReplyForm from "./ReplyForm";
 import {Footer} from "../Navigations/Footer";
 import db from '../../api/db.json';
 import ScrollUp from "../Navigations/ScrollUp";
-
-type PhotosApiResponse = {
-    results: {urls: {regular: string}}[];
-}
-
-interface PhotoResponse {
-    urls: {regular: string}
-}
-
-interface ReplyObject {
-    id: number,
-    main_comment: number | null,
-    parent_id: number | null,
-    name: string,
-    text: string,
-    reply: any[],
-}
-
-interface CommentObject {
-    id: number,
-    parent_id: number | null,
-    main_comment: number | null,
-    name: string,
-    text: string,
-    reply: Array<ReplyObject>,
-}
+import {PhotosApiResponse, PhotoResponse, ReplyObject, CommentObject} from "./blog.model";
 
 function BlogPost () {
 

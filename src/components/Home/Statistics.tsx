@@ -4,10 +4,7 @@ import {
     getAllIngredients,
     getTotalNumberOfRecipes
 } from "../../api/getRecipes";
-
-interface AreaType {
-    strArea: string
-}
+import {AreaType} from './home.model';
 
 export function Statistics() {
 

@@ -5,16 +5,7 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 import ScrollUp from "../Navigations/ScrollUp";
 import {Footer} from "../Navigations/Footer";
-
-interface AreaType {
-    strArea: string
-}
-
-interface SingleMealData {
-    idMeal: string,
-    strMeal: string,
-    strMealThumb: string
-}
+import {AreaType, SingleMealData} from "./search.model";
 
 const Area = () => {
     const [area, setArea] = useState<Array<AreaType>>([]);

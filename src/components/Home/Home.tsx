@@ -27,12 +27,9 @@ import ScrollUp from "../Navigations/ScrollUp";
 import {Navigation} from "../Navigations/Navigation";
 import {Footer} from "../Navigations/Footer";
 import {Statistics} from "./Statistics";
+import {HomeProps} from "./home.model";
 
-interface homeProps {
-    width: number
-}
-
-function Home( props: homeProps ) {
+function Home( props: HomeProps ) {
 
     const [navDetails, setNavDetails] = useState<boolean>(false);
 

@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
+import {NavigationProps} from "./navigations.model";
 
-interface navigationProps {
-    showNavigation: () => void;
-    details: boolean,
-    width: number
-}
-
-export function Navigation(props: navigationProps) {
+export function Navigation(props: NavigationProps) {
 
     const [clicked, setClicked] = useState<boolean>(false);
 

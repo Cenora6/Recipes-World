@@ -1,14 +1,5 @@
 import React from 'react';
-
-interface ReplyFormProps {
-    handleCloseReply: () => void;
-    handleCommentForm: (event: React.FormEvent) => void;
-    nameInputRef: React.RefObject<HTMLInputElement>;
-    textAreaRef: React.RefObject<HTMLTextAreaElement>;
-    nameError: boolean;
-    focusInput: () => void;
-    textError: boolean;
-}
+import {ReplyFormProps} from './blog.model';
 
 function ReplyForm (props: ReplyFormProps) {
 
